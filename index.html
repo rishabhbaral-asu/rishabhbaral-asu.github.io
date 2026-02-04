@@ -3,75 +3,131 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rishabh Baral | MSCS @ ASU</title>
+    <title>Rishabh Baral | Terp to Sun Devil</title>
     <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body class="bg-slate-50 text-slate-900 font-sans leading-relaxed">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <style>
+        /* Alma Mater Palette */
+        :root {
+            --umd-red: #E21833;
+            --umd-gold: #FFD200;
+            --asu-maroon: #8C1D40;
+            --asu-gold: #FFC627;
+            --asu-copper: #9E5B32;
+        }
 
-    <nav class="p-6 max-w-5xl mx-auto flex justify-between items-center">
-        <span class="font-bold text-xl tracking-tighter">RISHABH BARAL.</span>
-        <div class="space-x-6 text-sm font-medium text-slate-600">
-            <a href="#research" class="hover:text-blue-600">Research</a>
-            <a href="#projects" class="hover:text-blue-600">Projects</a>
-            <a href="mailto:rishabhbaral2024@yahoo.com" class="hover:text-blue-600">Email</a>
+        .hero-gradient {
+            background: linear-gradient(135deg, var(--umd-red) 0%, var(--asu-maroon) 100%);
+        }
+
+        /* Floating Animation for Turtles and Pitchforks */
+        .float-icon {
+            position: absolute;
+            font-size: 2rem;
+            opacity: 0.15;
+            z-index: 0;
+            animation: float 10s infinite linear;
+            pointer-events: none;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px) rotate(0deg); opacity: 0; }
+            50% { opacity: 0.2; }
+            100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
+        }
+
+        .card-hover:hover {
+            transform: translateY(-5px) rotate(1deg);
+            border-color: var(--umd-gold);
+            transition: all 0.3s ease;
+        }
+
+        .pitchfork-cursor:hover { cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"><text y="24" font-size="24">🔱</text></svg>'), auto; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900 font-sans overflow-x-hidden">
+
+    <div class="float-icon" style="left: 10%; animation-delay: 0s;">🐢</div>
+    <div class="float-icon" style="left: 30%; animation-delay: 2s;">🔱</div>
+    <div class="float-icon" style="left: 70%; animation-delay: 4s;">🐢</div>
+    <div class="float-icon" style="left: 90%; animation-delay: 6s;">🔱</div>
+
+    <nav class="p-6 max-w-5xl mx-auto flex justify-between items-center relative z-10">
+        <span class="font-black text-2xl tracking-tighter italic animate__animated animate__fadeInLeft">
+            <span style="color: var(--umd-red)">RISHABH</span><span style="color: var(--asu-maroon)">BARAL</span>
+        </span>
+        <div class="space-x-4">
+            <span class="bg-black text-white px-3 py-1 rounded text-xs font-bold">UMD '24</span>
+            <span class="bg-[#FFC627] text-[#8C1D40] px-3 py-1 rounded text-xs font-bold shadow-sm">ASU '26</span>
         </div>
     </nav>
 
-    <header class="max-w-5xl mx-auto py-16 px-6">
-        <h1 class="text-5xl font-extrabold text-slate-900 mb-4">CS Graduate @ ASU.</h1>
-        <p class="text-xl text-slate-600 max-w-3xl mb-8">
-            Specializing in <span class="text-blue-600 font-semibold">AI, LLM Reasoning, and Data Science</span>. 
-            Currently a Graduate Project Assistant at Arizona State University, focusing on benchmarking 
-            large language models and information assurance.
-        </p>
-        <div class="flex gap-4">
-            <a href="https://github.com/rishabhbaral-asu/rishabhbaral-asu/blob/main/Resume_Generic_Oct_11_2025.pdf" target="_blank" class="bg-slate-900 text-white px-6 py-3 rounded-lg font-bold hover:bg-slate-800 transition">Download CV</a>
-            <a href="https://www.linkedin.com/in/rishabh-baral-5b9247141/" target="_blank" class="border border-slate-300 px-6 py-3 rounded-lg font-bold hover:bg-slate-100 transition">LinkedIn</a>
+    <header class="hero-gradient text-white py-24 px-6 shadow-2xl relative overflow-hidden">
+        <div class="max-w-5xl mx-auto relative z-10">
+            <h1 class="text-7xl font-black mb-4 animate__animated animate__zoomIn">Terrapin <span style="color: var(--asu-gold)">to Sun Devil.</span></h1>
+            <p class="text-2xl font-light max-w-2xl mb-10 opacity-90">
+                CS Graduate Student @ ASU | AI Researcher | LLM Specialist
+            </p>
+            <div class="flex gap-4">
+                <a href="resume.pdf" class="bg-white text-maroon-900 px-8 py-4 rounded-full font-bold hover:scale-110 transition-transform shadow-lg text-black flex items-center gap-2">
+                    <span>🔱</span> Download CV
+                </a>
+                <a href="YOUR_LINKEDIN" class="border-2 border-white text-white px-8 py-4 rounded-full font-bold hover:bg-white/10 transition-all flex items-center gap-2">
+                    <span>🐢</span> LinkedIn
+                </a>
+            </div>
         </div>
     </header>
 
-    <section id="research" class="max-w-5xl mx-auto py-12 px-6">
-        <h2 class="text-2xl font-bold mb-8 border-b border-slate-200 pb-2">Research & Publications</h2>
-        <div class="space-y-6">
-            <div class="p-6 bg-white rounded-xl shadow-sm border border-slate-100">
-                <span class="text-xs font-bold text-blue-600 uppercase tracking-widest">Under Review - ACL Rolling Review</span>
-                <h3 class="text-xl font-bold mt-2">PHANTOM RECALL: When Familiar Puzzles Fool Smart Models</h3>
-                <p class="text-slate-600 mt-2 italic text-sm">S. Mukhopadhyay*, R. Baral*, et al.</p>
-                <p class="text-slate-500 mt-2">A benchmark for evaluating LLM reasoning through puzzle variations, exposing memorization vs. true reasoning.</p>
+    <main class="max-w-5xl mx-auto py-16 px-6 relative z-10">
+        
+        <h2 class="text-3xl font-black mb-10 flex items-center gap-3">
+            <span style="color: var(--asu-maroon)">Research</span>
+            <span class="h-1 flex-grow bg-slate-200"></span>
+        </h2>
+
+        <div class="grid md:grid-cols-2 gap-8 mb-20">
+            <div class="card-hover p-8 bg-white rounded-3xl shadow-xl border-t-4 border-[#E21833]">
+                <div class="flex justify-between items-start mb-4">
+                    <span class="bg-red-100 text-red-700 text-xs px-2 py-1 rounded font-bold">ACL ROLLING REVIEW</span>
+                    <span class="text-2xl">🐢</span>
+                </div>
+                <h3 class="text-xl font-bold mb-2">PHANTOM RECALL</h3>
+                <p class="text-slate-500 text-sm italic mb-4">"When Familiar Puzzles Fool Smart Models"</p>
+                <p class="text-slate-600">Probing LLM reasoning vs memorization. Lead author on benchmarking puzzle variations.</p>
             </div>
-            <div class="p-6 bg-white rounded-xl shadow-sm border border-slate-100">
-                <span class="text-xs font-bold text-blue-600 uppercase tracking-widest">Under Review - ACL Rolling Review</span>
-                <h3 class="text-xl font-bold mt-2">CMT Bench: Cricket Multi-Table Generation Benchmark</h3>
-                <p class="text-slate-600 mt-2 italic text-sm">R. Upadhyay, R. Baral*, N. Ahuja*, V. Gupta</p>
-                <p class="text-slate-500 mt-2">Probing robustness in Large Language Models through multi-table generation benchmarks.</p>
+
+            <div class="card-hover p-8 bg-white rounded-3xl shadow-xl border-t-4 border-[#8C1D40]">
+                <div class="flex justify-between items-start mb-4">
+                    <span class="bg-maroon-100 text-maroon-700 text-xs px-2 py-1 rounded font-bold">ACL ROLLING REVIEW</span>
+                    <span class="text-2xl">🔱</span>
+                </div>
+                <h3 class="text-xl font-bold mb-2">CMT Bench</h3>
+                <p class="text-slate-500 text-sm italic mb-4">"Cricket Multi-Table Generation"</p>
+                <p class="text-slate-600">Investigating multi-table reasoning robustness in Large Language Models.</p>
             </div>
         </div>
-    </section>
 
-    <section class="max-w-5xl mx-auto py-12 px-6 bg-slate-100 rounded-3xl my-10">
-        <h2 class="text-2xl font-bold mb-8 text-center">Technical Toolkit</h2>
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-            <div>
-                <h4 class="font-bold text-sm text-slate-400 uppercase mb-2">Languages</h4>
-                <p class="text-sm font-medium">Java, Python, JS, C, C#, SQL, Kotlin, OCaml, Ruby, Rust</p>
+        <section class="rounded-3xl p-10 bg-slate-900 text-white shadow-2xl relative overflow-hidden">
+            <div class="absolute top-0 right-0 p-4 opacity-20 text-6xl rotate-12">🔱</div>
+            <h2 class="text-2xl font-black mb-8 border-b border-white/10 pb-4">Technical Prowess</h2>
+            <div class="flex flex-wrap gap-3">
+                <span class="px-4 py-2 rounded-lg bg-[#9E5B32] text-white font-bold text-sm">PyTorch</span>
+                <span class="px-4 py-2 rounded-lg bg-[#FFD200] text-black font-bold text-sm">Python</span>
+                <span class="px-4 py-2 rounded-lg bg-[#E21833] text-white font-bold text-sm">Java</span>
+                <span class="px-4 py-2 rounded-lg bg-[#8C1D40] text-white font-bold text-sm">Rust</span>
+                <span class="px-4 py-2 rounded-lg bg-[#5C6670] text-white font-bold text-sm">GIS/ArcGIS</span>
+                <span class="px-4 py-2 rounded-lg bg-[#FFC627] text-black font-bold text-sm">LLM Eval</span>
+                <span class="px-4 py-2 rounded-lg bg-white/10 text-white font-bold text-sm">MongoDB</span>
+                <span class="px-4 py-2 rounded-lg bg-white/10 text-white font-bold text-sm">OCaml</span>
             </div>
-            <div>
-                <h4 class="font-bold text-sm text-slate-400 uppercase mb-2">AI & ML</h4>
-                <p class="text-sm font-medium">PyTorch, Scikit-learn, NumPy, StatPy, SciPy</p>
-            </div>
-            <div>
-                <h4 class="font-bold text-sm text-slate-400 uppercase mb-2">Backend</h4>
-                <p class="text-sm font-medium">Node.js, Express, MongoDB, SQL DB, PHP</p>
-            </div>
-            <div>
-                <h4 class="font-bold text-sm text-slate-400 uppercase mb-2">Tools</h4>
-                <p class="text-sm font-medium">VSCode, Android Studio, MobaXTerm, QGIS, ArcGIS</p>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <footer class="max-w-5xl mx-auto py-20 px-6 text-center text-slate-400 text-xs">
-        <p>Rishabh Baral | Tempe, AZ | MS Computer Science '26</p>
+    </main>
+
+    <footer class="py-12 text-center text-slate-400 font-bold text-sm">
+        <p>Fear the Turtle • Fear the Fork</p>
+        <p class="mt-2 opacity-50">Tempe, Arizona & College Park, Maryland</p>
     </footer>
 
 </body>
