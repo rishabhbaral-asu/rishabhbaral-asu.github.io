@@ -15,160 +15,233 @@
         .hero-gradient {
             background: linear-gradient(135deg, var(--umd-red) 0%, var(--asu-maroon) 100%);
         }
+        .nav-link {
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: var(--asu-maroon);
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover::after { width: 100%; }
+        
+        /* Hide all sections by default */
+        .page-content { display: none; min-height: 80vh; }
+        .page-active { display: block; }
+
         .float-icon {
             position: absolute;
             font-size: 2rem;
-            opacity: 0.1;
+            opacity: 0.05;
             z-index: 0;
-            animation: float 12s infinite linear;
+            animation: float 15s infinite linear;
             pointer-events: none;
         }
         @keyframes float {
-            0% { transform: translateY(0px) rotate(0deg); opacity: 0; }
-            50% { opacity: 0.2; }
-            100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
+            0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+            10% { opacity: 0.1; }
+            90% { opacity: 0.1; }
+            100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
         }
-        html { scroll-behavior: smooth; }
     </style>
 </head>
-<body class="bg-slate-50 text-slate-900 font-sans leading-relaxed overflow-x-hidden">
+<body class="bg-white text-slate-900 font-sans leading-relaxed overflow-x-hidden">
 
-    <div class="float-icon" style="left: 5%; animation-delay: 0s;">🐢</div>
-    <div class="float-icon" style="left: 25%; animation-delay: 3s;">🔱</div>
-    <div class="float-icon" style="left: 65%; animation-delay: 6s;">🐢</div>
-    <div class="float-icon" style="left: 85%; animation-delay: 9s;">🔱</div>
-
-    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-200">
-        <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
-            <span class="font-black text-xl tracking-tighter italic">
+    <nav class="fixed top-0 w-full z-50 bg-white/90 backdrop-blur-md border-b border-slate-100">
+        <div class="max-w-7xl mx-auto px-8 py-5 flex justify-between items-center">
+            <a href="#" onclick="showPage('home')" class="font-black text-2xl tracking-tighter italic cursor-pointer">
                 <span style="color: var(--umd-red)">RISHABH</span> <span style="color: var(--asu-maroon)">BARAL.</span>
-            </span>
-            <div class="hidden md:flex space-x-6 text-sm font-bold uppercase tracking-wide text-slate-600">
-                <a href="#research" class="hover:text-red-600 transition">Research</a>
-                <a href="#projects" class="hover:text-red-600 transition">Projects</a>
-                <a href="#countdowns" class="hover:text-red-600 transition">Countdowns</a>
-                <a href="#contact" class="hover:text-red-600 transition">Contact</a>
+            </a>
+            <div class="hidden md:flex space-x-10 text-xs font-black uppercase tracking-widest text-slate-500">
+                <button onclick="showPage('research')" class="nav-link">Research</button>
+                <button onclick="showPage('projects')" class="nav-link">Experience</button>
+                <button onclick="showPage('countdowns')" class="nav-link">Milestones</button>
+                <button onclick="showPage('contact')" class="nav-link">Contact</button>
             </div>
         </div>
     </nav>
 
-    <header class="hero-gradient text-white py-24 px-6 shadow-xl relative overflow-hidden text-center md:text-left">
-        <div class="max-w-5xl mx-auto relative z-10">
-            <div class="inline-block px-3 py-1 rounded-full bg-white/20 text-sm font-bold mb-6 backdrop-blur-md">
-                🎓 UMD Alumni '24 | ASU MSCS '26 [cite: 108, 110]
+    <main id="home" class="page-content page-active pt-32 pb-20 relative">
+        <div class="float-icon" style="left: 10%; animation-delay: 0s;">🐢</div>
+        <div class="float-icon" style="left: 80%; animation-delay: 5s;">🔱</div>
+        
+        <div class="max-w-5xl mx-auto px-8">
+            <div class="mb-8 animate__animated animate__fadeIn">
+                <span class="bg-slate-100 text-slate-600 px-4 py-2 rounded-full text-xs font-bold uppercase tracking-widest">
+                    Arizona State University • MSCS 2026
+                </span>
             </div>
-            <h1 class="text-5xl md:text-7xl font-black mb-6 animate__animated animate__fadeInDown">CS Graduate @ ASU.</h1>
-            <p class="text-xl text-white/90 max-w-3xl mb-10 leading-relaxed animate__animated animate__fadeInUp">
-                Specializing in <span class="font-bold" style="color: var(--asu-gold)">AI, LLM Reasoning, and Data Science</span>. [cite: 104]
-                Currently a Graduate Assistant at Arizona State University focusing on benchmarking and systems. [cite: 121]
+            <h1 class="text-7xl md:text-8xl font-black mb-8 tracking-tighter animate__animated animate__fadeInUp">
+                Specializing in <span style="color: var(--asu-maroon)">AI</span> & <span style="color: var(--umd-red)">Systems.</span>
+            </h1>
+            <p class="text-2xl text-slate-500 max-w-3xl mb-12 leading-relaxed animate__animated animate__fadeInUp" style="animation-delay: 0.2s">
+                Graduate Assistant at ASU focused on LLM Reasoning and Information Assurance. Formerly at the University of Maryland.
             </p>
-            <div class="flex flex-wrap justify-center md:justify-start gap-4 animate__animated animate__fadeInUp">
-                <a href="resume.pdf" target="_blank" class="bg-white text-black px-8 py-4 rounded-full font-bold hover:bg-asu-gold transition-all shadow-lg flex items-center gap-2">
-                    <span>🔱</span> Download CV
-                </a>
-                <a href="https://www.linkedin.com/in/rishabh-baral-5b9247141/" target="_blank" class="border-2 border-white/40 text-white px-8 py-4 rounded-full font-bold hover:bg-white/10 transition-all flex items-center gap-2">
-                    <span>🐢</span> LinkedIn
-                </a>
+            <div class="flex gap-6 animate__animated animate__fadeInUp" style="animation-delay: 0.4s">
+                <button onclick="showPage('research')" class="bg-slate-900 text-white px-10 py-5 rounded-full font-bold hover:bg-black transition shadow-2xl">View Research</button>
+                <a href="resume.pdf" target="_blank" class="border-2 border-slate-200 px-10 py-5 rounded-full font-bold hover:bg-slate-50 transition">Download CV</a>
             </div>
         </div>
-    </header>
+    </main>
 
-    <section id="research" class="max-w-5xl mx-auto py-20 px-6">
-        <h2 class="text-3xl font-black mb-10 border-b-4 border-umd-red inline-block">Research at ASU</h2>
-        <div class="grid md:grid-cols-2 gap-8 mt-8">
-            <div class="p-8 bg-white rounded-3xl shadow-md border-t-8 border-asu-maroon hover:shadow-xl transition-all">
-                <span class="text-xs font-bold text-red-600 uppercase tracking-widest">ACL Rolling Review | Jan 2026 [cite: 122]</span>
-                <h3 class="text-2xl font-bold mt-2 mb-4">PHANTOM RECALL</h3>
-                <p class="text-slate-600">Evaluating LLM reasoning via puzzle variations to expose memorization vs. true reasoning. [cite: 111, 113] Developed automated error classification with 96% human agreement. [cite: 114]</p>
-            </div>
-            <div class="p-8 bg-white rounded-3xl shadow-md border-t-8 border-asu-maroon hover:shadow-xl transition-all">
-                <span class="text-xs font-bold text-red-600 uppercase tracking-widest">ACL Rolling Review | Jan 2026 [cite: 123]</span>
-                <h3 class="text-2xl font-bold mt-2 mb-4">CMT Bench</h3>
-                <p class="text-slate-600">Cricket Multi-Table Generation Benchmark designed to probe robustness and data-tabulation logic in Large Language Models. [cite: 115, 117]</p>
+    <section id="research" class="page-content pt-32 pb-20 bg-slate-50">
+        <div class="max-w-5xl mx-auto px-8">
+            <h2 class="text-sm font-black text-red-600 uppercase tracking-[0.3em] mb-4">Scholarly Work</h2>
+            <h1 class="text-5xl font-black mb-16 tracking-tight">Research at ASU</h1>
+            
+            <div class="space-y-12">
+                <div class="bg-white p-10 rounded-[2rem] shadow-sm border border-slate-100 hover:shadow-xl transition-all duration-500">
+                    <div class="flex justify-between items-start mb-6">
+                        <span class="bg-maroon-50 text-maroon-700 text-xs px-3 py-1 rounded-full font-black border border-maroon-100">ARR JAN 2026</span>
+                        <span class="text-3xl">🔱</span>
+                    </div>
+                    <h3 class="text-3xl font-black mb-6">PHANTOM RECALL: When Familiar Puzzles Fool Smart Models</h3>
+                    <ul class="text-slate-600 space-y-4 text-lg">
+                        <li>• Benchmarked LLM reasoning via puzzle variations to expose memorization vs. true reasoning.</li>
+                        <li>• Developed automated error classification achieving 96% human agreement.</li>
+                    </ul>
+                </div>
+
+                <div class="bg-white p-10 rounded-[2rem] shadow-sm border border-slate-100 hover:shadow-xl transition-all duration-500">
+                    <div class="flex justify-between items-start mb-6">
+                        <span class="bg-maroon-50 text-maroon-700 text-xs px-3 py-1 rounded-full font-black border border-maroon-100">ARR JAN 2026</span>
+                        <span class="text-3xl">🔱</span>
+                    </div>
+                    <h3 class="text-3xl font-black mb-6">CMT Bench: Cricket Multi-Table Generation</h3>
+                    <ul class="text-slate-600 space-y-4 text-lg">
+                        <li>• Developed a multi-table generation benchmark to probe robustness and data-tabulation logic in LLMs.</li>
+                    </ul>
+                </div>
             </div>
         </div>
     </section>
 
-    <section id="countdowns" class="bg-slate-900 text-white py-20 px-6">
-        <div class="max-w-5xl mx-auto text-center">
-            <h2 class="text-3xl font-black mb-10 border-b-4 border-asu-gold inline-block">Academic Milestones</h2>
-            <div class="bg-white/5 p-8 rounded-3xl backdrop-blur-md border border-white/10">
-                <p class="text-asu-gold font-bold uppercase tracking-widest mb-2">ACL Rebuttal Period Begins</p>
-                <div id="countdown-timer" class="text-4xl md:text-6xl font-black tracking-tighter tabular-nums">
+    <section id="projects" class="page-content pt-32 pb-20">
+        <div class="max-w-6xl mx-auto px-8">
+            <h2 class="text-sm font-black text-red-600 uppercase tracking-[0.3em] mb-4">Career</h2>
+            <h1 class="text-5xl font-black mb-16 tracking-tight">Experience & Engineering</h1>
+            
+            <div class="grid lg:grid-cols-2 gap-10">
+                <div class="space-y-8">
+                    <div class="border-l-4 border-asu-maroon pl-8 py-2">
+                        <h3 class="text-2xl font-black mb-6 text-slate-800 italic">ASU Graduate Assistantship</h3>
+                        <div class="space-y-8 text-slate-600">
+                            <div>
+                                <h4 class="font-bold text-slate-900 mb-2">SportsT2T</h4>
+                                <p class="text-sm">Led an evaluation of GPT-4o and Gemini 2.0 Flash capabilities in transforming unstructured sports commentary into structured tabular data. Developed sophisticated prompts to accurately tabulate player statistics, focusing on the models' ability to handle complex, domain-specific terminology and multi-table formatting.</p>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-900 mb-2">Information Assurance</h4>
+                                <p class="text-sm">Performed a comprehensive security analysis for the healthcare industry by applying AI/ML techniques to identify systemic vulnerabilities. Evaluated information assurance protocols and predictive modeling to ensure data integrity and patient privacy within clinical and multimedia database environments.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="space-y-8">
+                    <div class="bg-slate-900 p-8 rounded-[2rem] text-white">
+                        <h3 class="text-xl font-bold mb-6 text-asu-gold">Selected Projects</h3>
+                        <div class="space-y-6">
+                            <div class="border-b border-white/10 pb-4">
+                                <h4 class="font-bold mb-1">GIS & Image Processing</h4>
+                                <p class="text-xs text-slate-400">Analyzed Landsat-8/Sentinel-2 data in QGIS and animated Hurricane Idalia via NOAA GOES-16E imagery.</p>
+                            </div>
+                            <div class="border-b border-white/10 pb-4">
+                                <h4 class="font-bold mb-1">AI/ML Architecture</h4>
+                                <p class="text-xs text-slate-400">Engineered backpropagation-based neural network and transfer learning benchmarks from scratch.</p>
+                            </div>
+                            <div class="border-b border-white/10 pb-4">
+                                <h4 class="font-bold mb-1">MicroCaml</h4>
+                                <p class="text-xs text-slate-400">Architected a functional sublanguage of OCaml with Lexer, Parser, and Interpreter.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="countdowns" class="page-content pt-32 pb-20 hero-gradient text-white">
+        <div class="max-w-4xl mx-auto px-8 text-center">
+            <h1 class="text-5xl font-black mb-16 tracking-tight">Strategic Milestones</h1>
+            <div class="bg-black/20 p-16 rounded-[3rem] backdrop-blur-xl border border-white/10">
+                <h3 class="text-asu-gold font-black uppercase tracking-[0.3em] mb-6">ACL Rebuttal Period Begins</h3>
+                <div id="countdown-timer" class="text-6xl md:text-8xl font-black tracking-tighter tabular-nums mb-6">
                     00d 00h 00m 00s
                 </div>
-                <p class="mt-4 text-slate-400 text-sm">Feb 15, 2026 - 06:00 AM AZT</p>
+                <p class="text-white/60 font-medium">February 15, 2026 — 06:00 AM AZT</p>
             </div>
         </div>
     </section>
 
-    <section id="projects" class="py-20 px-6">
-        <div class="max-w-5xl mx-auto">
-            <h2 class="text-3xl font-black mb-12 border-b-4 border-asu-maroon inline-block">Featured Projects</h2>
-            <div class="space-y-8">
-                <div class="bg-white p-8 rounded-3xl shadow-sm border-l-8 border-asu-maroon">
-                    <h3 class="text-xl font-bold mb-4">ASU Graduate Research & Teaching [cite: 125]</h3>
-                    <ul class="space-y-4 text-slate-600">
-                        <li class="flex gap-2"><strong>🔱</strong> Led SportsT2T: transformed unstructured commentary into structured player stats using GPT-4o and Gemini 2.0. [cite: 126, 127]</li>
-                        <li class="flex gap-2"><strong>🔱</strong> Architected a Distributed Hash Table in Python for large-scale NOAA records. [cite: 130, 131]</li>
-                    </ul>
-                </div>
-                <div class="bg-white p-8 rounded-3xl shadow-sm border-l-8 border-umd-red">
-                    <h3 class="text-xl font-bold mb-4">Undergraduate GIS & Systems [cite: 134]</h3>
-                    <ul class="space-y-4 text-slate-600">
-                        <li class="flex gap-2"><strong>🐢</strong> Leveraged QGIS for Landsat-8/Sentinel-2 analysis and ArcGIS for California wildfire impact studies. [cite: 135, 137]</li>
-                        <li class="flex gap-2"><strong>🐢</strong> Engineered "MicroCaml," a functional OCaml sublanguage with a full Lexer and Parser pipeline. [cite: 140, 141]</li>
-                    </ul>
-                </div>
+    <section id="contact" class="page-content pt-32 pb-20 bg-slate-50">
+        <div class="max-w-4xl mx-auto px-8 text-center">
+            <h1 class="text-6xl font-black mb-16 tracking-tight">Connect</h1>
+            <div class="grid md:grid-cols-2 gap-8">
+                <a href="mailto:rishabhbaral2024@yahoo.com" class="group bg-white p-12 rounded-[2.5rem] shadow-sm hover:shadow-2xl transition-all duration-500 border border-slate-100">
+                    <div class="w-16 h-16 bg-red-50 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:bg-red-600 transition-colors">
+                        <span class="text-2xl group-hover:filter group-hover:invert">✉️</span>
+                    </div>
+                    <h3 class="text-sm font-black uppercase tracking-widest text-slate-400 mb-2">Email</h3>
+                    <p class="text-xl font-bold">rishabhbaral2024@yahoo.com</p>
+                </a>
+                <a href="tel:2147010146" class="group bg-white p-12 rounded-[2.5rem] shadow-sm hover:shadow-2xl transition-all duration-500 border border-slate-100">
+                    <div class="w-16 h-16 bg-maroon-50 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:bg-[#8C1D40] transition-colors">
+                        <span class="text-2xl group-hover:filter group-hover:invert">📞</span>
+                    </div>
+                    <h3 class="text-sm font-black uppercase tracking-widest text-slate-400 mb-2">Phone</h3>
+                    <p class="text-xl font-bold">214-701-0146</p>
+                </a>
+            </div>
+            <div class="mt-20">
+                <p class="text-slate-400 font-bold mb-4 uppercase tracking-[0.2em] text-xs">Based in</p>
+                <p class="text-2xl font-black italic">Tempe, Arizona</p>
             </div>
         </div>
     </section>
 
-    <section id="contact" class="max-w-3xl mx-auto py-20 px-6 text-center">
-        <h2 class="text-3xl font-black mb-10">Get In Touch</h2>
-        <div class="grid md:grid-cols-2 gap-6">
-            <a href="mailto:rishabhbaral2024@yahoo.com" class="p-6 bg-white rounded-3xl shadow-md hover:scale-105 transition border-b-4 border-umd-red">
-                <p class="text-xs font-bold text-slate-400 uppercase mb-2">Email</p>
-                <p class="font-bold text-lg">rishabhbaral2024@yahoo.com </p>
-            </a>
-            <a href="tel:2147010146" class="p-6 bg-white rounded-3xl shadow-md hover:scale-105 transition border-b-4 border-asu-maroon">
-                <p class="text-xs font-bold text-slate-400 uppercase mb-2">Phone</p>
-                <p class="font-bold text-lg">214-701-0146 </p>
-            </a>
-        </div>
-    </section>
-
-    <footer class="bg-slate-900 text-white py-12 px-6 text-center">
-        <p class="font-black text-xl mb-4">RISHABH BARAL</p>
-        <p class="text-slate-400 text-sm mb-6">3255 South Dorsey Lane #2069, Tempe, AZ 85282 </p>
-        <div class="flex justify-center gap-6 grayscale opacity-70">
-            <span>🐢 Fear the Turtle</span>
-            <span>🔱 Fear the Fork</span>
+    <footer class="py-12 border-t border-slate-100">
+        <div class="max-w-7xl mx-auto px-8 flex flex-col md:row justify-between items-center gap-6">
+            <p class="text-xs font-black text-slate-400 uppercase tracking-widest">© 2026 Rishabh Baral — Fear the Turtle • Fear the Fork</p>
+            <div class="flex gap-8 grayscale opacity-50">
+                <span class="text-xl">🐢</span>
+                <span class="text-xl">🔱</span>
+            </div>
         </div>
     </footer>
 
     <script>
-        // Countdown Timer Logic
+        // Page Switching Logic
+        function showPage(pageId) {
+            // Hide all pages
+            document.querySelectorAll('.page-content').forEach(page => {
+                page.classList.remove('page-active', 'animate__animated', 'animate__fadeIn');
+            });
+            // Show target page
+            const activePage = document.getElementById(pageId);
+            activePage.classList.add('page-active', 'animate__animated', 'animate__fadeIn');
+            // Scroll to top
+            window.scrollTo(0, 0);
+        }
+
+        // Countdown Logic
         const targetDate = new Date("February 15, 2026 06:00:00").getTime();
-        
         function updateTimer() {
             const now = new Date().getTime();
             const diff = targetDate - now;
-
             const days = Math.floor(diff / (1000 * 60 * 60 * 24));
             const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
             const seconds = Math.floor((diff % (1000 * 60)) / 1000);
-
-            document.getElementById("countdown-timer").innerHTML = 
-                `${days}d ${hours}h ${minutes}m ${seconds}s`;
-
-            if (diff < 0) {
-                clearInterval(timerInterval);
-                document.getElementById("countdown-timer").innerHTML = "Rebuttal Period Open";
-            }
+            document.getElementById("countdown-timer").innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
         }
-        const timerInterval = setInterval(updateTimer, 1000);
+        setInterval(updateTimer, 1000);
         updateTimer();
     </script>
 </body>
