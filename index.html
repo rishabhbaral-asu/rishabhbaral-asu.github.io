@@ -493,14 +493,14 @@
                         </div>
                         
                         <div class="map-container mb-6 bg-slate-50 flex items-center justify-center overflow-hidden border border-slate-200">
-                            <object id="us-map" type="image/svg+xml" data="states.svg" class="w-full h-full p-2 pointer-events-none opacity-90">
-                                <img src="states.svg" /> </object>
+                            <object id="us-map" type="image/svg+xml" data="Map_of_USA_with_state_names.svg" class="w-full h-full p-2 pointer-events-none opacity-90">
+                                <p class="text-[10px] text-slate-400">Map Loading...</p>
+                            </object>
                         </div>
                 
                         <p class="text-[10px] font-black text-asu-maroon uppercase mb-4 tracking-[0.2em]">Lecturer • CS & DS Instruction</p>
-                
                         <p class="text-sm text-slate-600 leading-relaxed mb-6">
-                            Leveraging my experience as a <strong>Graduate TA for FSE 100</strong>, I am seeking faculty positions to mentor students through the Engineering Design Process and foundational logic.
+                            Leveraging my experience as a <strong>Graduate TA for FSE 100</strong>, I am seeking faculty positions to mentor students through the Engineering Design Process.
                         </p>
                     </div>
                 
@@ -515,7 +515,6 @@
                         </li>
                     </ul>
                 </div>
-
                 <a
                     href="resume.pdf"
                     target="_blank"
@@ -756,6 +755,41 @@
                 renderMonth(new Date(2026, 1), dates.comm) + renderMonth(new Date(2026, 2), dates.comm);
             setInterval(updateClocks, 1000);
             updateClocks();
+            window.onload = function() {
+                const mapObject = document.getElementById('us-map');
+                
+                // Function to color the map
+                function colorMap() {
+                    const svgDoc = mapObject.contentDocument;
+                    if (!svgDoc) return;
+            
+                    const preferredStates = ['AZ', 'CA', 'TX', 'IL', 'GA', 'MD', 'VA', 'DC'];
+                    
+                    preferredStates.forEach(stateId => {
+                        // Find the state by ID (e.g., id="TX")
+                        const state = svgDoc.getElementById(stateId);
+                        if (state) {
+                            state.style.fill = "#8C1D40"; // ASU Maroon
+                            state.style.stroke = "#FFC627"; // ASU Gold Border
+                            state.style.strokeWidth = "1px";
+                            
+                            // Find any text labels inside this state group
+                            const labels = state.querySelectorAll('text, tspan');
+                            labels.forEach(label => {
+                                label.style.fill = "#FFC627"; // Gold Text
+                                label.style.fontWeight = "900";
+                            });
+                        }
+                    });
+                }
+            
+                // Try to color immediately or wait for load
+                if (mapObject.contentDocument) {
+                    colorMap();
+                } else {
+                    mapObject.addEventListener('load', colorMap);
+                }
+            };
         </script>
     </body>
 </html>
