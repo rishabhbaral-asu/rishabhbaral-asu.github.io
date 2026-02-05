@@ -184,7 +184,8 @@
             <h2 class="text-5xl font-black mb-4 italic text-white">ASU Milestones ⏰</h2>
             <div class="grid lg:grid-cols-2 gap-10">
                 <div class="bg-black/20 p-8 rounded-3xl border border-asu-gold/30">
-                    <h3 class="text-asu-gold font-black text-xs uppercase mb-2">ACL Rebuttal Period</h3>
+                    <h3 class="text-asu-gold font-black text-xs uppercase mb-2">START OF ACL Rebuttal Period</h3>
+                    <p class="text-[10px] text-white/50 font-mono mb-6 italic text-center">BEGINS: Sunday, Feb 15, 2026 @ 06:00 AM AZT</p>
                     <div class="flex gap-4 items-center">
                         <div class="grid grid-cols-4 gap-2">
                             <div class="flex flex-col items-center"><div class="flip-box text-2xl" id="reb-d">00</div><span class="text-[7px]">Days</span></div>
@@ -198,6 +199,7 @@
 
                 <div class="bg-black/20 p-8 rounded-3xl border border-asu-gold/30">
                     <h3 class="text-asu-gold font-black text-xs uppercase mb-2">Meta Reviews Release</h3>
+                    <p class="text-[10px] text-white/50 font-mono mb-6 italic text-center">ENDS: Tuesday, Mar 10, 2026 @ 06:00 AM AZT</p>
                     <div class="flex gap-4 items-center">
                         <div class="grid grid-cols-4 gap-2">
                             <div class="flex flex-col items-center"><div class="flip-box text-2xl" id="meta-d">00</div><span class="text-[7px]">Days</span></div>
@@ -211,6 +213,7 @@
 
                 <div class="bg-black/20 p-8 rounded-3xl border border-asu-gold/30">
                     <h3 class="text-asu-gold font-black text-xs uppercase mb-2">ACL 2026 Commitment</h3>
+                    <p class="text-[10px] text-white/50 font-mono mb-6 italic text-center">ENDS: Monday, Mar 16, 2026 @ 04:59 AM AZT</p>
                     <div class="flex gap-4 items-center">
                         <div class="grid grid-cols-4 gap-2">
                             <div class="flex flex-col items-center"><div class="flip-box text-2xl" id="comm-d">00</div><span class="text-[7px]">Days</span></div>
@@ -256,12 +259,9 @@
                         <h2 class="text-xl font-black uppercase tracking-tighter">Academic Focus</h2>
                     </div>
                     <p class="text-[10px] font-black text-asu-maroon uppercase mb-4 tracking-widest">Lecturer • Computer Science & Data Science</p>
-                    <p class="text-sm text-slate-600 leading-relaxed mb-6">
-                        Drawing from my experience as a <strong>Graduate TA for FSE 100</strong>, I am seeking faculty positions where I can mentor students through the Engineering Design Process and foundational programming logic.
-                    </p>
                     <ul class="text-[11px] text-slate-500 space-y-2">
                         <li class="flex items-start gap-2"><span>→</span> <strong>Preferred States:</strong> CA, AZ, TX, IL, GA, MD, DC, or VA.</li>
-                        <li class="flex items-start gap-2"><span>→</span> <strong>Academic Interest:</strong> Open to premier research and teaching institutions nationwide (e.g., <strong>Yale University</strong>).</li>
+                        <li class="flex items-start gap-2"><span>→</span> <strong>Academic Interest:</strong> Open to other premier research and teaching institutions nationwide (<strong>Yale University</strong> for example).</li>
                     </ul>
                 </div>
     
@@ -373,9 +373,9 @@
         }
 
         const dates = { 
-            reb: new Date("February 15, 2026 09:00:00"), 
-            meta: new Date("March 10, 2026 09:00:00"),
-            comm: new Date("March 16, 2026 05:00:00")
+            reb: new Date("February 15, 2026 06:00:00"), 
+            meta: new Date("March 10, 2026 06:00:00"),
+            comm: new Date("March 16, 2026 04:59:00")
         };
 
         function renderMonth(dateObj, targetDate) {
