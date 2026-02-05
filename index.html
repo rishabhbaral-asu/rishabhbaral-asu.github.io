@@ -72,6 +72,12 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
+
+        .btn-resume {
+            background: var(--asu-maroon);
+            color: var(--asu-gold);
+            border: 2px solid var(--asu-gold);
+        }
     </style>
 </head>
 <body>
@@ -147,17 +153,27 @@
             <h1 class="text-5xl font-black mt-24 mb-4 tracking-tighter italic text-slate-400">Undergraduate Projects</h1>
             <p class="text-slate-400 font-bold mb-16 uppercase tracking-widest text-xs">University of Maryland 🐢 (Aug 2021 - May 2024)</p>
             
-            <div class="grid md:grid-cols-2 gap-6">
-                <div class="glass-card p-10">
+            <div class="grid md:grid-cols-3 gap-6">
+                <button onclick="showPage('paper-undergrad-ai')" class="glass-card p-8 text-left group">
+                    <span class="text-[9px] font-black text-red-600 uppercase tracking-widest">🤖 Neural Nets</span>
+                    <h3 class="text-xl font-black mt-4 mb-4 group-hover:text-red-600 transition leading-tight italic">AI/ML Architecture</h3>
+                    <p class="text-slate-500 text-xs mb-8">Engineering backpropagation from scratch and benchmark evaluation.</p>
+                    <div class="text-[10px] font-black uppercase tracking-widest text-red-600">Full Details →</div>
+                </button>
+
+                <button onclick="showPage('paper-undergrad-satellite')" class="glass-card p-8 text-left group">
                     <span class="text-[9px] font-black text-red-600 uppercase tracking-widest">🛰️ GIS & CV</span>
-                    <h3 class="text-2xl font-black mt-4 mb-4 italic leading-tight">Multi-Spectral Analysis</h3>
-                    <p class="text-slate-500 text-sm">Processed Landsat-8 data and animated Hurricane Idalia's motion using NOAA GOES-16E imagery and ImageMagick.</p>
-                </div>
-                <div class="glass-card p-10">
+                    <h3 class="text-xl font-black mt-4 mb-4 group-hover:text-red-600 transition leading-tight italic">Satellite Perception</h3>
+                    <p class="text-slate-500 text-xs mb-8">Processing multi-spectral Landsat-8 data for storm trajectory analysis.</p>
+                    <div class="text-[10px] font-black uppercase tracking-widest text-red-600">Full Details →</div>
+                </button>
+
+                <button onclick="showPage('paper-undergrad-caml')" class="glass-card p-8 text-left group">
                     <span class="text-[9px] font-black text-red-600 uppercase tracking-widest">💻 Systems</span>
-                    <h3 class="text-2xl font-black mt-4 mb-4 italic leading-tight">MicroCaml Engineer</h3>
-                    <p class="text-slate-500 text-sm">Architected a functional sublanguage of OCaml including a custom Lexer, Parser, and Interpreter.</p>
-                </div>
+                    <h3 class="text-xl font-black mt-4 mb-4 group-hover:text-red-600 transition leading-tight italic">MicroCaml Engineer</h3>
+                    <p class="text-slate-500 text-xs mb-8">Architecting a full Lexer, Parser, and Interpreter for functional OCaml.</p>
+                    <div class="text-[10px] font-black uppercase tracking-widest text-red-600">Full Details →</div>
+                </button>
             </div>
         </div>
     </section>
@@ -171,8 +187,7 @@
             <p><strong>PHANTOM RECALL</strong> is a diagnostic benchmark designed to investigate whether Large Language Models (LLMs) are truly reasoning or simply replaying memorized scripts from their training data.</p>
             <ul>
                 <li><strong>Template-Perturbation:</strong> We pair classic logic puzzles with carefully designed perturbations that maintain surface-level details but change the underlying reasoning template and correct answer.</li>
-                <li><strong>Findings:</strong> Across 8 model families (GPT, Gemini, Claude, LLaMA, etc.), we identified "phantom recall"—where models output standard solutions even when they no longer fit the scenario.</li>
-                <li><strong>Contribution:</strong> Developed an automated logical-equivalence judge and a step-level error taxonomy achieving 96% human agreement.</li>
+                <li><strong>Findings:</strong> Across 8 model families, we identified "phantom recall"—where models output standard solutions even when they no longer fit the scenario.</li>
             </ul>
         </div>
     </section>
@@ -186,8 +201,7 @@
             <p>Investigated tabular summarization in sports narratives, focusing on how models maintain state over long, evolving play-by-play data.</p>
             <ul>
                 <li><strong>Multi-Table Generation:</strong> Created a benchmark (CMT Bench) to probe data-tabulation logic and robustness in LLMs.</li>
-                <li><strong>Interference Analysis:</strong> Discovered that failures stem primarily from "entity interference" (confusing player identities) rather than simple arithmetic errors.</li>
-                <li><strong>Numerical Fidelity:</strong> Proved that decomposition-based strategies improve accuracy by dissecting the narrative into manageable symbolic parts.</li>
+                <li><strong>Interference Analysis:</strong> Discovered that failures stem primarily from "entity interference" (confusing player identities) rather than arithmetic errors.</li>
             </ul>
         </div>
     </section>
@@ -198,11 +212,55 @@
             <h1 class="text-5xl font-black italic mb-2 tracking-tighter">TEMPORAL PERCEPTION ❄️</h1>
             <p class="text-red-600 font-black uppercase tracking-widest text-[10px]">Cross-Domain Autonomous Systems</p>
             <h2>The "Historical-Aware" Move</h2>
-            <p>Traditional AV perception fails in "Whiteout" (heavy snow/fog) conditions. This project introduces a historical memory system to "see through" current occlusions.</p>
+            <p>This project introduces a historical memory system to help autonomous vehicles "see through" current snow/fog occlusions.</p>
             <ul>
-                <li><strong>Swin-Transformer Backbone:</strong> Replaced ResNet18 with a hierarchical transformer to capture global contextual clues for adverse weather classification.</li>
-                <li><strong>Generative Stacking:</strong> Engineered a pipeline using contrastive learning to synthesize snowy data from clear-day imagery, solving real-world data scarcity.</li>
-                <li><strong>Temporal Cross-Attention:</strong> Developed a GPS-based system that retrieves historical clear-day frames to provide the model with a "clean" reference of the current road geometry.</li>
+                <li><strong>Swin-Transformer:</strong> Hierarchical transformer to capture global contextual clues for adverse weather classification.</li>
+                <li><strong>Generative Stacking:</strong> Engineered a pipeline using contrastive learning to synthesize snowy data from clear-day imagery.</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="paper-undergrad-ai" class="page-content pt-40 pb-20 bg-white">
+        <div class="max-w-3xl mx-auto px-8 summary-body">
+            <button onclick="showPage('research')" class="text-slate-400 font-black text-[10px] uppercase mb-12 block hover:text-black">← Back to Research</button>
+            <h1 class="text-5xl font-black italic mb-2 tracking-tighter">AI/ML ARCHITECTURE 🤖</h1>
+            <p class="text-red-600 font-black uppercase tracking-widest text-[10px]">Neural Networks | UMD '24</p>
+            <h2>Deep Dive</h2>
+            <p>Engineered a custom neural network architecture from scratch without the use of high-level libraries like PyTorch for the core logic.</p>
+            <ul>
+                <li><strong>Backpropagation:</strong> Implemented a robust backpropagation algorithm to tune network parameters on synthetic datasets.</li>
+                <li><strong>Transfer Learning:</strong> Developed a comprehensive benchmark to evaluate model performance across CV, NLP, and multi-modal integration.</li>
+                <li><strong>Evaluation:</strong> Used SciKitLearn metrics to analyze performance across diverse training domains.</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="paper-undergrad-satellite" class="page-content pt-40 pb-20 bg-white">
+        <div class="max-w-3xl mx-auto px-8 summary-body">
+            <button onclick="showPage('research')" class="text-slate-400 font-black text-[10px] uppercase mb-12 block hover:text-black">← Back to Research</button>
+            <h1 class="text-5xl font-black italic mb-2 tracking-tighter">SATELLITE PERCEPTION 🛰️</h1>
+            <p class="text-red-600 font-black uppercase tracking-widest text-[10px]">GIS & CV | UMD '24</p>
+            <h2>Deep Dive</h2>
+            <p>Applied computer vision techniques to geospatial data to analyze environmental impacts and storm systems.</p>
+            <ul>
+                <li><strong>Multi-Spectral Data:</strong> Processed Landsat-8 and Sentinel-2 satellite data using GDAL/ArcGIS to identify geographic features.</li>
+                <li><strong>Hurricane Animation:</strong> Developed data plots and high-resolution animations of Hurricane Idalia's motion using NOAA GOES-16E imagery and ImageMagick.</li>
+                <li><strong>Wildfire Analysis:</strong> Conducted spatial analysis through ArcGIS to evaluate environmental damage from California wildfires.</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="paper-undergrad-caml" class="page-content pt-40 pb-20 bg-white">
+        <div class="max-w-3xl mx-auto px-8 summary-body">
+            <button onclick="showPage('research')" class="text-slate-400 font-black text-[10px] uppercase mb-12 block hover:text-black">← Back to Research</button>
+            <h1 class="text-5xl font-black italic mb-2 tracking-tighter">MICROCAML ENGINEER 💻</h1>
+            <p class="text-red-600 font-black uppercase tracking-widest text-[10px]">Programming Languages | UMD '24</p>
+            <h2>Deep Dive</h2>
+            <p>Architected a complete compiler-like pipeline for a functional sublanguage of OCaml, focusing on language theory and system design.</p>
+            <ul>
+                <li><strong>Lexer & Parser:</strong> Developed a custom Lexer for tokenization and a Parser for abstract syntax tree (AST) generation.</li>
+                <li><strong>Interpreter:</strong> Engineered an interpreter to execute higher-order functions and manage memory effectively.</li>
+                <li><strong>Regex Engine:</strong> Simulated a regular expression engine and a tree-based database system as part of the functional programming stack.</li>
             </ul>
         </div>
     </section>
@@ -225,9 +283,9 @@
                 <h3 class="text-4xl font-black mb-2">University of Maryland 🐢</h3>
                 <p class="text-slate-400 font-bold uppercase text-[10px] tracking-[0.3em] mb-10">Undergraduate Engineer • Aug 2021 - May 2024</p>
                 <div class="space-y-8 text-slate-700">
+                    <p><strong>🤖 AI/ML Architecture:</strong> Engineered neural networks from scratch and benchmarked transfer learning performance across CV/NLP domains.</p>
                     <p><strong>🛰️ Satellite Perception:</strong> Utilized GDAL/ArcGIS to identify geographical features in multi-spectral data and animated hurricane trajectories.</p>
                     <p><strong>💻 MicroCaml:</strong> Architected a full pipeline (Lexer/Parser/Interpreter) for a functional sublanguage of OCaml.</p>
-                    <p><strong>📱 Full-Stack Dev:</strong> Built high-concurrency Node.js supermarket applications and a real-time Kotlin weather app with AdMob integration.</p>
                 </div>
             </div>
         </div>
@@ -272,7 +330,7 @@
                     <p class="text-xl font-bold">214-701-0146</p>
                 </a>
             </div>
-            <a href="resume.pdf" target="_blank" class="inline-block bg-asu-maroon text-white px-12 py-5 rounded-full font-black uppercase tracking-widest shadow-2xl hover:scale-105 transition">📂 Download Full Resume</a>
+            <a href="resume.pdf" target="_blank" class="btn-resume inline-block px-12 py-5 rounded-full font-black uppercase tracking-widest shadow-2xl hover:scale-105 transition">📂 Download Full Resume</a>
             <div class="mt-24 grayscale opacity-40 flex justify-center gap-12 text-2xl font-black italic">
                 <span>🐢 Fear the Turtle</span>
                 <span>🔱 Fear the Fork</span>
