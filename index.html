@@ -22,7 +22,6 @@
             overflow-x: hidden;
         }
 
-        /* --- THE ANIMATION --- */
         .floating-bg {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             pointer-events: none; z-index: 0; overflow: hidden;
@@ -38,7 +37,6 @@
             100% { transform: translateY(-130vh) rotate(360deg); opacity: 0; }
         }
 
-        /* --- PAGES & CARDS --- */
         .page-content { display: none; min-height: 100vh; position: relative; z-index: 10; background: transparent !important; }
         .page-active { display: block; }
         
@@ -48,7 +46,6 @@
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
 
-        /* --- MAROON & GOLD MILESTONES --- */
         #milestones { background: var(--asu-maroon) !important; color: white; }
         .flip-box {
             background: #2a0a14; color: var(--asu-gold); border-radius: 8px;
@@ -63,7 +60,6 @@
         .cal-today { background: var(--asu-gold); color: black; font-weight: bold; }
         .cal-target { background: white; color: var(--asu-maroon); font-weight: 900; }
 
-        /* --- SUMMARIES --- */
         .summary-body h2 { font-weight: 900; color: var(--asu-maroon); font-size: 1.5rem; margin-top: 2rem; display: flex; align-items: center; gap: 10px; }
         .summary-body p { margin-bottom: 1.25rem; line-height: 1.8; color: #334155; }
         .summary-body li { margin-bottom: 0.75rem; color: #475569; padding-left: 1rem; position: relative; }
@@ -97,8 +93,15 @@
 
     <main id="home" class="page-content page-active pt-52">
         <div class="max-w-5xl mx-auto px-8 animate__animated animate__fadeInUp">
-            <span class="inline-block px-3 py-1 rounded-full bg-red-100 text-red-600 text-[9px] font-black uppercase tracking-widest mb-6">UMD &bull; ASU MSCS</span>
+            <span class="inline-block px-3 py-1 rounded-full bg-red-100 text-red-600 text-[9px] font-black uppercase tracking-widest mb-6">UMD Alum &bull; ASU MSCS Graduate Student</span>
             <h1 class="text-7xl md:text-9xl font-black mb-8 tracking-tighter leading-none">A TURTLE <br><span class="text-red-600">IGNITING THE INFERNO.</span></h1>
+            
+            <div class="max-w-3xl mb-12">
+                <p class="text-xl text-slate-600 leading-relaxed font-medium">
+                    I am a Graduate Researcher at <span class="text-asu-maroon font-bold">Arizona State University</span> specializing in AI Perception and Large Language Models. Beyond engineering, I am a <strong>passionate educator</strong>. As a Graduate Teaching Assistant, I translate high-level AI concepts and low-level system architecture into digestible insights for the next generation of engineers.
+                </p>
+            </div>
+
             <button onclick="showPage('portfolio')" class="btn-asu px-10 py-4 rounded-full font-black uppercase tracking-widest shadow-lg">View Portfolio</button>
         </div>
     </main>
@@ -110,11 +113,11 @@
                 <button onclick="showPage('paper-phantom')" class="glass-card p-8 text-left hover:bg-red-50 transition">
                     <span class="text-[9px] font-black text-red-600 uppercase">🧠 LLM Logic</span>
                     <h3 class="text-xl font-bold mt-2">Phantom Recall</h3>
-                    <p class="text-xs text-slate-500 mt-2">Benchmarking memorization vs. reasoning under perturbation.</p>
+                    <p class="text-xs text-slate-500 mt-2">Benchmarking memorization vs. reasoning in LLMs.</p>
                 </button>
                 <button onclick="showPage('paper-moneyball')" class="glass-card p-8 text-left hover:bg-red-50 transition">
                     <span class="text-[9px] font-black text-red-600 uppercase">📊 Tabular LLM</span>
-                    <h3 class="text-xl font-bold mt-2">Moneyball with LLMs</h3>
+                    <h3 class="text-xl font-bold mt-2">Moneyball LLM</h3>
                     <p class="text-xs text-slate-500 mt-2">Tabular summarization in long-context sports narratives.</p>
                 </button>
             </div>
@@ -122,8 +125,8 @@
             <h2 class="text-4xl font-black mb-10 italic">Graduate Research 🔱</h2>
             <div class="grid md:grid-cols-1 gap-6 mb-16">
                 <button onclick="showPage('grad-lidar')" class="glass-card p-8 text-left hover:bg-red-50 transition">
-                    <span class="text-[9px] font-black text-red-600 uppercase">📡 L2 Perception & LiDAR</span>
-                    <h3 class="text-xl font-bold mt-2">Temporal-Aware Perception (The Digital Snowplow)</h3>
+                    <span class="text-[9px] font-black text-red-600 uppercase">📡 L2 Perception</span>
+                    <h3 class="text-xl font-bold mt-2">Temporal-Aware Perception (Digital Snowplow)</h3>
                     <p class="text-xs text-slate-500 mt-2">Historical-frame retrieval for autonomous driving in whiteout conditions.</p>
                 </button>
             </div>
@@ -146,146 +149,6 @@
         </div>
     </section>
 
-    <section id="paper-phantom" class="page-content pt-32 pb-20 bg-white">
-        <div class="max-w-3xl mx-auto px-8 summary-body">
-            <button onclick="showPage('portfolio')" class="text-slate-400 font-bold text-xs uppercase mb-8">← Back</button>
-            <h1 class="text-5xl font-black italic">PHANTOM RECALL 🧠</h1>
-            
-            <h2>Under Review: ACL Rolling Review</h2>
-            <p>Developed PHANTOM RECALL, a benchmark that exposes how LLMs rely on "remembered scripts" for classic puzzles even when internal logic is perturbed. Across 8 LLM families (GPT, Claude, LLaMA, etc.), we identified a recurring failure mode where models confidentially output standard solutions that no longer fit the scenario.</p>
-            <ul>
-                <li><strong>Automated Logic Judge:</strong> Engineered an automated judge achieving 96% human agreement in evaluating rationale validity.</li>
-                <li><strong>Mitigation Prompts:</strong> Developed explicit "Assumption Forbidding" frameworks that boosted open-source model scores by up to +10.1 points.</li>
-                <li><strong>Performance Gap:</strong> Identified that while "Thinking" models improve accuracy (GPT 28.8% to 60.4%), robustness to surface-level changes remains a critical unsolved gap.</li>
-            </ul>
-        </div>
-    </section>
-
-    <section id="paper-moneyball" class="page-content pt-32 pb-20 bg-white">
-        <div class="max-w-3xl mx-auto px-8 summary-body">
-            <button onclick="showPage('portfolio')" class="text-slate-400 font-bold text-xs uppercase mb-8">← Back</button>
-            <h1 class="text-5xl font-black italic">MONEYBALL LLM 📊</h1>
-            
-            <h2>Under Review: ACL Rolling Review</h2>
-            <p>Introduced <strong>SporTabSet</strong>, a diagnostic benchmark for long-context (16k+ tokens) tabular summarization in sports. Evaluated how models maintain state and aggregate stats under complex, domain-specific rules (Basketball/Cricket).</p>
-            <ul>
-                <li><strong>Decomposition Analysis:</strong> Systematically proved that multi-step pipelines (Event-to-Tuple Extraction) improve numerical fidelity by reducing multi-entity interference.</li>
-                <li><strong>CMT Bench:</strong> Co-authored the Cricket Multi-Table generation benchmark to probe data-tabulation logic and robustness in LLMs.</li>
-                <li><strong>Key Finding:</strong> Identified that current state-of-the-art models fail primarily due to tracking confusion rather than local arithmetic errors.</li>
-            </ul>
-        </div>
-    </section>
-
-    <section id="grad-lidar" class="page-content pt-32 pb-20 bg-white">
-        <div class="max-w-3xl mx-auto px-8 summary-body">
-            <button onclick="showPage('portfolio')" class="text-slate-400 font-bold text-xs uppercase mb-8">← Back</button>
-            <h1 class="text-5xl font-black italic">L2 PERCEPTION & LIDAR 📡</h1>
-            
-            <h2>The Digital Snowplow Pipeline</h2>
-            <p>Developing a "Research Stack" architecture for autonomous vehicle navigation in whiteout conditions. This system moves away from heavy ROS 2 middleware to a lean, Python-native pipeline leveraging Open3D and Apple Metal (MPS) acceleration.</p>
-            <ul>
-                <li><strong>Digital Snowplow (L1):</strong> Implemented Statistical Outlier Removal (SOR) to filter weather noise by calculating mean neighbor distances, effectively "plowing" snow from the point cloud.</li>
-                <li><strong>Temporal Cross-Attention (L2):</strong> Utilizing a Temporal Transformer that pulls "Historical Frames" via GPS metadata to compare snowy current frames with clear historical data.</li>
-                <li><strong>Architecture:</strong> Upgraded traditional ResNet-18 backbones to <strong>Swin-Transformers</strong> to capture global context, targeting an 8% mAP increase in heavy snow conditions using the Ithaca365 dataset.</li>
-            </ul>
-        </div>
-    </section>
-
-    <section id="undergrad-caml" class="page-content pt-32 pb-20 bg-white">
-        <div class="max-w-3xl mx-auto px-8 summary-body">
-            <button onclick="showPage('portfolio')" class="text-slate-400 font-bold text-xs uppercase mb-8">← Back</button>
-            <h1 class="text-5xl font-black italic">MICROCAML COMPILER 💻</h1>
-            
-            <h2>Undergraduate Systems Project</h2>
-            <p>Architected "MicroCaml," a functional sublanguage of OCaml. Developed the full compilation pipeline from lexing to interpretation.</p>
-            <ul>
-                <li><strong>Pipeline:</strong> Engineered a custom Lexer for tokenization and a recursive descent Parser for Abstract Syntax Tree (AST) generation.</li>
-                <li><strong>Execution:</strong> Implemented a big-step semantics Interpreter to execute higher-order functions and closures.</li>
-                <li><strong>Simulations:</strong> Built a regular expression engine and a tree-based database system entirely within the OCaml environment.</li>
-            </ul>
-        </div>
-    </section>
-
-    <section id="undergrad-satellite" class="page-content pt-32 pb-20 bg-white">
-        <div class="max-w-3xl mx-auto px-8 summary-body">
-            <button onclick="showPage('portfolio')" class="text-slate-400 font-bold text-xs uppercase mb-8">← Back</button>
-            <h1 class="text-5xl font-black italic">SATELLITE PERCEPTION 🛰️</h1>
-            
-            <h2>Undergraduate Geospatial Project</h2>
-            <p>Processed and analyzed multi-spectral Landsat-8 and Sentinel-2 data to identify geographical features and track environmental motion.</p>
-            <ul>
-                <li><strong>Hurricane Tracking:</strong> Developed high-resolution animations of Hurricane Idalia using NOAA GOES-16E imagery and ImageMagick.</li>
-                <li><strong>Wildfire Analysis:</strong> Conducted advanced spatial proximity analysis via ArcGIS to evaluate environmental damage from California wildfires.</li>
-                <li><strong>Tools:</strong> Leveraged QGIS, ArcGIS, and GDAL for complex data plotting and color composite generation.</li>
-            </ul>
-        </div>
-    </section>
-
-    <section id="undergrad-ai" class="page-content pt-32 pb-20 bg-white">
-        <div class="max-w-3xl mx-auto px-8 summary-body">
-            <button onclick="showPage('portfolio')" class="text-slate-400 font-bold text-xs uppercase mb-8">← Back</button>
-            <h1 class="text-5xl font-black italic">AI ARCHITECTURES 🤖</h1>
-            
-            <h2>Mathematical ML Foundations</h2>
-            <p>Engineered a custom neural network from scratch to master the mathematical mechanics of backpropagation and parameter tuning.</p>
-            <ul>
-                <li><strong>Backpropagation:</strong> Implemented the full calculus of the backpropagation algorithm to tune network parameters on synthetic datasets.</li>
-                <li><strong>Benchmarks:</strong> Developed a transfer learning benchmark to evaluate performance across CV and NLP domains.</li>
-                <li><strong>Frameworks:</strong> Focused on raw NumPy/SciPy implementations before transitioning to PyTorch for multi-modal integration studies.</li>
-            </ul>
-        </div>
-    </section>
-
-    <section id="milestones" class="page-content pt-32 pb-20">
-        <div class="max-w-6xl mx-auto px-8">
-            <h2 class="text-5xl font-black mb-4 italic text-white">ASU Milestones ⏰</h2>
-            <p class="text-asu-gold font-bold text-xs uppercase tracking-widest mb-16">Academic & Research Schedule</p>
-            
-            <div class="grid lg:grid-cols-2 gap-10">
-                <div class="bg-black/20 p-8 rounded-3xl border border-asu-gold/30">
-                    <h3 class="text-asu-gold font-black text-xs uppercase mb-2 tracking-widest">ACL Rebuttal Period</h3>
-                    <p class="text-[10px] text-white/50 font-mono mb-6 italic">ENDS: Sunday, Feb 15, 2026 @ 09:00 AM MST</p>
-                    <div class="flex flex-col md:flex-row gap-6 items-center">
-                        <div class="grid grid-cols-4 gap-2">
-                            <div class="flex flex-col items-center"><div class="flip-box text-2xl" id="reb-d">00</div><span class="text-[7px] mt-1 text-asu-gold/50">Days</span></div>
-                            <div class="flex flex-col items-center"><div class="flip-box text-2xl" id="reb-h">00</div><span class="text-[7px] mt-1 text-asu-gold/50">Hrs</span></div>
-                            <div class="flex flex-col items-center"><div class="flip-box text-2xl" id="reb-m">00</div><span class="text-[7px] mt-1 text-asu-gold/50">Min</span></div>
-                            <div class="flex flex-col items-center"><div class="flip-box text-2xl text-white" id="reb-s">00</div><span class="text-[7px] mt-1 text-asu-gold/50">Sec</span></div>
-                        </div>
-                        <div id="cal-reb" class="flex"></div>
-                    </div>
-                </div>
-
-                <div class="bg-black/20 p-8 rounded-3xl border border-asu-gold/30">
-                    <h3 class="text-asu-gold font-black text-xs uppercase mb-2 tracking-widest">Meta Reviews Release</h3>
-                    <p class="text-[10px] text-white/50 font-mono mb-6 italic">ENDS: Tuesday, Mar 10, 2026 @ 09:00 AM MST</p>
-                    <div class="flex flex-col md:flex-row gap-6 items-center">
-                        <div class="grid grid-cols-4 gap-2">
-                            <div class="flex flex-col items-center"><div class="flip-box text-2xl" id="meta-d">00</div><span class="text-[7px] mt-1 text-asu-gold/50">Days</span></div>
-                            <div class="flex flex-col items-center"><div class="flip-box text-2xl" id="meta-h">00</div><span class="text-[7px] mt-1 text-asu-gold/50">Hrs</span></div>
-                            <div class="flex flex-col items-center"><div class="flip-box text-2xl" id="meta-m">00</div><span class="text-[7px] mt-1 text-asu-gold/50">Min</span></div>
-                            <div class="flex flex-col items-center"><div class="flip-box text-2xl text-white" id="meta-s">00</div><span class="text-[7px] mt-1 text-asu-gold/50">Sec</span></div>
-                        </div>
-                        <div id="cal-meta" class="flex gap-2"></div>
-                    </div>
-                </div>
-                <div class="bg-black/20 p-8 rounded-3xl border border-asu-gold/30">
-                    <h3 class="text-asu-gold font-black text-xs uppercase mb-2 tracking-widest">ACL 2026 Commitment Deadline</h3>
-                    <p class="text-[10px] text-white/50 font-mono mb-6 italic">ENDS:  Saturday, Mar 16, 2026 @ 05:00 AM MST</p>
-                    <div class="flex flex-col md:flex-row gap-6 items-center">
-                        <div class="grid grid-cols-4 gap-2">
-                            <div class="flex flex-col items-center"><div class="flip-box text-2xl" id="meta-d">00</div><span class="text-[7px] mt-1 text-asu-gold/50">Days</span></div>
-                            <div class="flex flex-col items-center"><div class="flip-box text-2xl" id="meta-h">00</div><span class="text-[7px] mt-1 text-asu-gold/50">Hrs</span></div>
-                            <div class="flex flex-col items-center"><div class="flip-box text-2xl" id="meta-m">00</div><span class="text-[7px] mt-1 text-asu-gold/50">Min</span></div>
-                            <div class="flex flex-col items-center"><div class="flip-box text-2xl text-white" id="meta-s">00</div><span class="text-[7px] mt-1 text-asu-gold/50">Sec</span></div>
-                        </div>
-                        <div id="cal-meta" class="flex gap-2"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <section id="experience" class="page-content pt-32 pb-20">
         <div class="max-w-5xl mx-auto px-8">
             <h2 class="text-5xl font-black mb-12 italic">Experience</h2>
@@ -293,16 +156,71 @@
                 <div class="glass-card p-10 border-l-8 border-asu-maroon">
                     <h3 class="text-2xl font-bold">Arizona State University 🔱</h3>
                     <p class="text-[10px] font-black text-asu-maroon uppercase tracking-widest mb-4">Graduate Project / Teaching Assistant • Aug 2024 - Present</p>
-                    <p class="text-slate-600 mb-6">Leading development of the **L2 Perception Stack** and **SportsT2T** pipeline. Managed the transition to a high-speed Python/Open3D research stack leveraging Metal acceleration.</p>
-                    <div class="bg-asu-maroon/5 p-4 rounded-xl border border-asu-maroon/10">
-                        <p class="text-xs font-black text-asu-maroon uppercase mb-1">Instructional Lead</p>
-                        <p class="text-sm text-slate-500 italic">Managing laboratory instruction and curriculum evaluation for undergraduate computer science students (100+ per semester).</p>
+                    <p class="text-slate-600 mb-6">Leading development of the **L2 Perception Stack** and **SportsT2T** pipeline. Built a high-speed Python/Open3D research stack leveraging Apple Metal (MPS) acceleration.</p>
+                    
+                    <div class="bg-asu-maroon/5 p-6 rounded-xl border border-asu-maroon/20">
+                        <p class="text-xs font-black text-asu-maroon uppercase mb-2 tracking-widest">Teaching & Pedagogy</p>
+                        <p class="text-sm text-slate-700 leading-relaxed mb-4">
+                            <strong>Instructional Lead:</strong> Facilitated weekly laboratory sessions for 100+ undergraduate students. My teaching philosophy focuses on <strong>"Systemic Transparency"</strong>—demystifying AI by tracing logic back to its architectural roots.
+                        </p>
+                        <ul class="text-xs text-slate-500 space-y-2 list-disc pl-5">
+                            <li>Managed curriculum evaluation and grading for high-enrollment engineering courses.</li>
+                            <li>Mentored students in debugging complex C, Java, and Python environments.</li>
+                            <li>Developed instructional materials for Abstract Syntax Trees (AST) and Neural Network backpropagation.</li>
+                        </ul>
                     </div>
                 </div>
+
                 <div class="glass-card p-10 border-l-8 border-umd-red">
                     <h3 class="text-2xl font-bold">University of Maryland 🐢</h3>
                     <p class="text-[10px] font-black text-umd-red uppercase tracking-widest mb-4">Undergraduate Engineer • 2021 - 2024</p>
-                    <p class="text-slate-600">Focused on compiler infrastructure development and multi-spectral satellite imagery analysis. Mastered low-level language processing and geospatial data modeling.</p>
+                    <p class="text-slate-600">Specialized in compiler infrastructure (MicroCaml) and multi-spectral satellite imagery analysis (GIS). Mastered low-level language processing and geospatial data modeling.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="milestones" class="page-content pt-32 pb-20">
+        <div class="max-w-6xl mx-auto px-8">
+            <h2 class="text-5xl font-black mb-4 italic text-white">ASU Milestones ⏰</h2>
+            <div class="grid lg:grid-cols-2 gap-10">
+                <div class="bg-black/20 p-8 rounded-3xl border border-asu-gold/30">
+                    <h3 class="text-asu-gold font-black text-xs uppercase mb-2">ACL Rebuttal Period</h3>
+                    <div class="flex gap-4 items-center">
+                        <div class="grid grid-cols-4 gap-2">
+                            <div class="flex flex-col items-center"><div class="flip-box text-2xl" id="reb-d">00</div><span class="text-[7px]">Days</span></div>
+                            <div class="flex flex-col items-center"><div class="flip-box text-2xl" id="reb-h">00</div><span class="text-[7px]">Hrs</span></div>
+                            <div class="flex flex-col items-center"><div class="flip-box text-2xl" id="reb-m">00</div><span class="text-[7px]">Min</span></div>
+                            <div class="flex flex-col items-center"><div class="flip-box text-2xl text-white" id="reb-s">00</div><span class="text-[7px]">Sec</span></div>
+                        </div>
+                        <div id="cal-reb"></div>
+                    </div>
+                </div>
+
+                <div class="bg-black/20 p-8 rounded-3xl border border-asu-gold/30">
+                    <h3 class="text-asu-gold font-black text-xs uppercase mb-2">Meta Reviews Release</h3>
+                    <div class="flex gap-4 items-center">
+                        <div class="grid grid-cols-4 gap-2">
+                            <div class="flex flex-col items-center"><div class="flip-box text-2xl" id="meta-d">00</div><span class="text-[7px]">Days</span></div>
+                            <div class="flex flex-col items-center"><div class="flip-box text-2xl" id="meta-h">00</div><span class="text-[7px]">Hrs</span></div>
+                            <div class="flex flex-col items-center"><div class="flip-box text-2xl" id="meta-m">00</div><span class="text-[7px]">Min</span></div>
+                            <div class="flex flex-col items-center"><div class="flip-box text-2xl text-white" id="meta-s">00</div><span class="text-[7px]">Sec</span></div>
+                        </div>
+                        <div id="cal-meta"></div>
+                    </div>
+                </div>
+
+                <div class="bg-black/20 p-8 rounded-3xl border border-asu-gold/30">
+                    <h3 class="text-asu-gold font-black text-xs uppercase mb-2">ACL 2026 Commitment</h3>
+                    <div class="flex gap-4 items-center">
+                        <div class="grid grid-cols-4 gap-2">
+                            <div class="flex flex-col items-center"><div class="flip-box text-2xl" id="comm-d">00</div><span class="text-[7px]">Days</span></div>
+                            <div class="flex flex-col items-center"><div class="flip-box text-2xl" id="comm-h">00</div><span class="text-[7px]">Hrs</span></div>
+                            <div class="flex flex-col items-center"><div class="flip-box text-2xl" id="comm-m">00</div><span class="text-[7px]">Min</span></div>
+                            <div class="flex flex-col items-center"><div class="flip-box text-2xl text-white" id="comm-s">00</div><span class="text-[7px]">Sec</span></div>
+                        </div>
+                        <div id="cal-comm"></div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -310,7 +228,10 @@
 
     <section id="contact" class="page-content pt-40 pb-20">
         <div class="max-w-4xl mx-auto px-8 text-center animate__animated animate__fadeIn">
-            <h1 class="text-6xl font-black mb-12 italic">Contact</h1>
+            <h1 class="text-6xl font-black mb-6 italic">Contact</h1>
+            <div class="mb-12 inline-block px-6 py-2 rounded-full bg-slate-900 text-asu-gold text-[10px] font-black uppercase tracking-[0.3em]">
+                🇺🇸 US Citizen &bull; Open to Full-Time & Lecturer Roles
+            </div>
             <a href="resume.pdf" target="_blank" class="btn-asu inline-block px-12 py-5 rounded-full font-black uppercase tracking-widest text-lg mb-12 shadow-2xl">📂 Download Full Resume</a>
             <div class="grid md:grid-cols-2 gap-8">
                 <div class="glass-card p-8"><p class="text-red-600 font-black tracking-widest text-xs">EMAIL</p><p class="font-bold">rishabhbaral2024@yahoo.com</p></div>
@@ -319,26 +240,46 @@
         </div>
     </section>
 
-    <footer class="bg-slate-950 text-white py-12 text-center">
-        <p class="text-[10px] font-black text-slate-600 uppercase tracking-[0.4em]">Tempe, AZ 85282 &bull; 214-701-0146</p>
-    </footer>
-
+    <section id="paper-phantom" class="page-content pt-32 pb-20 bg-white">
+        <div class="max-w-3xl mx-auto px-8 summary-body">
+            <button onclick="showPage('portfolio')" class="text-slate-400 font-bold text-xs uppercase mb-8">← Back</button>
+            <h1 class="text-5xl font-black italic">PHANTOM RECALL 🧠</h1>
+            
+            <h2>Under Review: ACL Rolling Review</h2>
+            <p>Benchmarked 8 LLM families to expose "phantom recall"—where models replay remembered scripts instead of re-solving puzzles after perturbations.</p>
+            <ul>
+                <li><strong>Logic Judge:</strong> 96% human agreement in evaluating rationale.</li>
+                <li><strong>Mitigation:</strong> Boosted open-source performance by +10.1 points via logic-forbidding prompts.</li>
+            </ul>
+        </div>
+    </section>
+    
+    <section id="grad-lidar" class="page-content pt-32 pb-20 bg-white">
+        <div class="max-w-3xl mx-auto px-8 summary-body">
+            <button onclick="showPage('portfolio')" class="text-slate-400 font-bold text-xs uppercase mb-8">← Back</button>
+            <h1 class="text-5xl font-black italic">L2 PERCEPTION & LIDAR 📡</h1>
+            
+            <h2>The Digital Snowplow Pipeline</h2>
+            <p>Unified architecture for adverse weather perception. Leverages a Python-native "Research Stack" for rapid iteration of filtering algorithms.</p>
+            <ul>
+                <li><strong>L1 Noise Filter:</strong> Statistical Outlier Removal (SOR) to "plow" snow noise.</li>
+                <li><strong>L2 Transformer:</strong> Temporal Cross-Attention pulling Historical Frames via GPS metadata.</li>
+            </ul>
+        </div>
+    </section>
     <script>
         function showPage(pageId) {
             const bgLayer = document.getElementById('bg-layer');
             bgLayer.style.display = (pageId === 'milestones') ? 'none' : 'block';
-            
             document.querySelectorAll('.page-content').forEach(p => p.classList.remove('page-active'));
-            const page = document.getElementById(pageId);
-            if(page) {
-                page.classList.add('page-active');
-                window.scrollTo(0, 0);
-            }
+            document.getElementById(pageId).classList.add('page-active');
+            window.scrollTo(0, 0);
         }
 
         const dates = { 
             reb: new Date("February 15, 2026 09:00:00"), 
-            meta: new Date("March 10, 2026 09:00:00") 
+            meta: new Date("March 10, 2026 09:00:00"),
+            comm: new Date("March 16, 2026 05:00:00")
         };
 
         function renderMonth(dateObj, targetDate) {
@@ -372,6 +313,7 @@
 
         document.getElementById('cal-reb').innerHTML = renderMonth(new Date(2026, 1), dates.reb);
         document.getElementById('cal-meta').innerHTML = renderMonth(new Date(2026, 1), dates.meta) + renderMonth(new Date(2026, 2), dates.meta);
+        document.getElementById('cal-comm').innerHTML = renderMonth(new Date(2026, 2), dates.comm);
         setInterval(updateClocks, 1000);
         updateClocks();
     </script>
