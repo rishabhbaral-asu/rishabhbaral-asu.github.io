@@ -485,48 +485,35 @@
                             </li>
                         </ul>
                     </div>
-
                     <div class="glass-card p-10 border-t-8 border-asu-maroon flex flex-col justify-between">
-                        <div>
-                            <div class="flex items-center gap-3 mb-6">
-                                <span class="text-3xl">🎓</span>
-                                <h2 class="text-2xl font-black uppercase tracking-tighter text-slate-800">
-                                    Academic Focus
-                                </h2>
-                            </div>
-                            
-                            <div class="map-container mb-6 group relative">
-                                <svg class="map-svg" viewBox="0 0 1000 600" xmlns="http://www.w3.org/2000/svg">
-                                    <rect width="1000" height="600" fill="#f1f5f9"/>
-                                    <path d="M100,100 L900,100 L900,500 L100,500 Z" fill="#cbd5e1"/>
-                                    <circle cx="200" cy="350" r="40" fill="#8c1d40" opacity="0.8"/> <circle cx="500" cy="400" r="50" fill="#8c1d40" opacity="0.8"/> <circle cx="850" cy="270" r="35" fill="#8c1d40" opacity="0.8"/> <circle cx="650" cy="210" r="30" fill="#8c1d40" opacity="0.8"/> <circle cx="750" cy="380" r="25" fill="#8c1d40" opacity="0.8"/> </svg>
-                                <div class="state-overlay">
-                                    <div class="text-[8px] font-black text-asu-maroon bg-white/90 px-3 py-1 rounded-full shadow-sm border border-asu-gold uppercase tracking-tighter">
-                                        Preferred: AZ • CA • TX • IL • GA • MD • VA • DC
-                                    </div>
-                                </div>
-                            </div>
-                    
-                            <p class="text-[10px] font-black text-asu-maroon uppercase mb-4 tracking-[0.2em]">
-                                Lecturer • CS & DS Instruction
-                            </p>
-                    
-                            <p class="text-sm text-slate-600 leading-relaxed mb-6">
-                                Leveraging my experience as a <strong>Graduate TA for FSE 100</strong>, I am seeking faculty positions to mentor students through the Engineering Design Process and foundational logic in <strong>Python</strong> and <strong>JS</strong>.
-                            </p>
+                    <div>
+                        <div class="flex items-center gap-3 mb-6">
+                            <span class="text-3xl">🎓</span>
+                            <h2 class="text-2xl font-black uppercase tracking-tighter text-slate-800">Academic Focus</h2>
                         </div>
-                    
-                        <ul class="text-[11px] text-slate-500 space-y-3 pt-6 border-t border-slate-100">
-                            <li class="flex items-start gap-3">
-                                <span class="text-asu-maroon font-bold">📍</span>
-                                <span><strong>Primary Hubs:</strong> Focused on major tech corridors within the Southwest, Midwest, and DMV regions.</span>
-                            </li>
-                            <li class="flex items-start gap-3">
-                                <span class="text-asu-maroon font-bold">🏛️</span>
-                                <span>Open to prestigious opportunities nationwide outside of primary hubs (e.g., <strong>Yale University</strong>).</span>
-                            </li>
-                        </ul>
+                        
+                        <div class="map-container mb-6 bg-slate-50 flex items-center justify-center overflow-hidden border border-slate-200">
+                            <object id="us-map" type="image/svg+xml" data="states.svg" class="w-full h-full p-2 pointer-events-none opacity-90">
+                                <img src="states.svg" /> </object>
+                        </div>
+                
+                        <p class="text-[10px] font-black text-asu-maroon uppercase mb-4 tracking-[0.2em]">Lecturer • CS & DS Instruction</p>
+                
+                        <p class="text-sm text-slate-600 leading-relaxed mb-6">
+                            Leveraging my experience as a <strong>Graduate TA for FSE 100</strong>, I am seeking faculty positions to mentor students through the Engineering Design Process and foundational logic.
+                        </p>
                     </div>
+                
+                    <ul class="text-[11px] text-slate-500 space-y-3 pt-6 border-t border-slate-100">
+                        <li class="flex items-start gap-3">
+                            <span class="text-asu-maroon font-bold">📍</span>
+                            <span><strong>Target Geos:</strong> AZ, CA, TX, IL, GA, MD, VA, DC.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-asu-maroon font-bold">🏛️</span>
+                            <span>Open to prestigious opportunities nationwide (e.g., <strong>Yale University</strong>).</span>
+                        </li>
+                    </ul>
                 </div>
 
                 <a
