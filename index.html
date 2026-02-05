@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rishabh Baral | AI & Applied NLP</title>
+    <title>Rishabh Baral | AI & Autonomous Systems</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     <style>
@@ -11,10 +11,16 @@
             --umd-red: #E21833; 
             --asu-maroon: #8C1D40; 
             --asu-gold: #FFC627; 
-            --glass: rgba(255, 255, 255, 0.88);
+            --glass: rgba(255, 255, 255, 0.9);
         }
         
-        body { font-family: 'Inter', sans-serif; background-color: #f1f5f9; scroll-behavior: smooth; }
+        body { 
+            font-family: 'Inter', sans-serif; 
+            /* Restored the Warm Gradient */
+            background: linear-gradient(135deg, #fff5f5 0%, #fef2f2 50%, #fffbeb 100%);
+            scroll-behavior: smooth; 
+            min-height: 100vh;
+        }
 
         /* Floating Mascot Background */
         .floating-bg {
@@ -22,13 +28,13 @@
             pointer-events: none; z-index: -1; overflow: hidden;
         }
         .bubble {
-            position: absolute; font-size: 2.5rem; opacity: 0.15;
+            position: absolute; font-size: 2.5rem; opacity: 0.2;
             animation: float-up 18s infinite linear;
         }
         @keyframes float-up {
             0% { transform: translateY(110vh) rotate(0deg); opacity: 0; }
-            10% { opacity: 0.2; }
-            90% { opacity: 0.2; }
+            10% { opacity: 0.3; }
+            90% { opacity: 0.3; }
             100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
         }
 
@@ -36,34 +42,39 @@
         .glass-card {
             background: var(--glass);
             backdrop-filter: blur(16px);
-            border: 1px solid rgba(255, 255, 255, 0.5);
+            border: 1px solid rgba(226, 24, 51, 0.1);
             border-radius: 2.5rem;
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
-        .glass-card:hover { transform: translateY(-8px); box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15); }
+        .glass-card:hover { transform: translateY(-8px); box-shadow: 0 25px 50px -12px rgba(140, 29, 64, 0.2); }
 
         .page-content { display: none; min-height: 100vh; }
         .page-active { display: block; }
 
-        /* Aesthetic Flip Clock */
+        /* Flip Clock with Seconds */
         .flip-box {
-            background: #0f172a;
+            background: #1a1a1a;
             color: white;
-            border-radius: 12px;
-            padding: 1.5rem 1rem;
-            min-width: 95px;
-            box-shadow: 0 8px 0px #000;
+            border-radius: 8px;
+            padding: 1rem 0.5rem;
+            min-width: 75px;
+            box-shadow: 0 6px 0px #000;
             position: relative;
-            font-family: 'Courier New', Courier, monospace;
+            font-family: 'monospace';
         }
         .flip-box::after { content: ""; position: absolute; left: 0; top: 50%; width: 100%; height: 1px; background: rgba(255,255,255,0.1); }
-        .unit-label { font-size: 0.7rem; font-weight: 900; color: var(--asu-gold); margin-top: 12px; letter-spacing: 2px; text-transform: uppercase; }
+        .unit-label { font-size: 0.6rem; font-weight: 900; color: var(--asu-gold); margin-top: 8px; letter-spacing: 1px; text-transform: uppercase; }
 
         /* Summary Typography */
         .summary-body h2 { font-weight: 900; color: var(--asu-maroon); font-size: 1.5rem; margin-top: 2.5rem; display: flex; align-items: center; gap: 10px; }
-        .summary-body h2::before { content: "🔱"; font-size: 1.2rem; }
-        .summary-body p { margin-bottom: 1.5rem; line-height: 1.8; color: #334155; font-size: 1.1rem; }
-        .summary-body li { margin-bottom: 0.8rem; line-height: 1.6; color: #475569; }
+        .summary-body h2::before { content: "🔱"; }
+        .summary-body p { margin-bottom: 1.5rem; line-height: 1.8; color: #334155; }
+        
+        .grad-text {
+            background: linear-gradient(to right, var(--umd-red), var(--asu-maroon));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
     </style>
 </head>
 <body>
@@ -75,7 +86,7 @@
         <div class="bubble" style="left: 85%; animation-delay: 3s;">🔱</div>
     </div>
 
-    <nav class="fixed top-0 w-full z-50 bg-white/70 backdrop-blur-xl border-b border-slate-200">
+    <nav class="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-xl border-b border-red-100">
         <div class="max-w-7xl mx-auto px-8 py-5 flex justify-between items-center">
             <button onclick="showPage('home')" class="font-black text-2xl tracking-tighter italic">
                 <span style="color: var(--umd-red)">RISHABH</span> <span style="color: var(--asu-maroon)">BARAL</span>
@@ -84,121 +95,93 @@
                 <button onclick="showPage('research')" class="hover:text-red-600 transition">Research</button>
                 <button onclick="showPage('projects')" class="hover:text-red-600 transition">Experience</button>
                 <button onclick="showPage('countdowns')" class="hover:text-red-600 transition">Milestones</button>
-                <button onclick="showPage('contact')" class="hover:text-red-600 transition">Contact</button>
+                <a href="#" class="hover:text-red-600 transition">📄 Resume</a>
             </div>
         </div>
     </nav>
 
     <main id="home" class="page-content page-active pt-52">
         <div class="max-w-6xl mx-auto px-8">
-            <span class="inline-block px-4 py-1 rounded-full bg-slate-200 text-slate-600 text-[10px] font-black uppercase tracking-widest mb-6 animate__animated animate__fadeIn">
-                ASU MSCS '26 &bull; AI & Applied NLP
+            <span class="inline-block px-4 py-1 rounded-full bg-red-100 text-red-600 text-[10px] font-black uppercase tracking-widest mb-6 animate__animated animate__fadeIn">
+                UMD '24 🐢 &bull; ASU '26 🔱
             </span>
             <h1 class="text-7xl md:text-9xl font-black mb-8 tracking-tighter animate__animated animate__fadeInUp leading-[0.85]">
-                ROBUST <span class="text-slate-300">AI</span> & <br>VISION.
+                ROBUST <span class="grad-text">AI</span> & <br><span class="text-slate-400">VISION.</span>
             </h1>
-            <p class="text-2xl text-slate-500 max-w-2xl mb-12 leading-relaxed animate__animated animate__fadeInUp" style="animation-delay: 0.1s">
-                Specializing in <span class="text-asu-maroon font-bold">LLM Robustness</span>, <span class="text-asu-maroon font-bold">Applied NLP</span>, and <span class="text-asu-maroon font-bold">Adverse Weather Perception</span> for Autonomous Driving.
+            <p class="text-2xl text-slate-600 max-w-2xl mb-12 leading-relaxed animate__animated animate__fadeInUp" style="animation-delay: 0.1s">
+                Specializing in <span class="text-red-600 font-bold">LLM Robustness</span>, <span class="text-red-600 font-bold">Applied NLP</span>, and 
+                <span class="text-asu-maroon font-bold">Research Focus: Cross-Domain Perception</span> for Autonomous Driving.
             </p>
             <div class="flex flex-wrap gap-4 animate__animated animate__fadeInUp" style="animation-delay: 0.2s">
-                <button onclick="showPage('research')" class="bg-slate-900 text-white px-10 py-5 rounded-full font-bold shadow-2xl hover:bg-black transition">Research Portfolio</button>
-                <button onclick="showPage('projects')" class="bg-white border border-slate-200 px-10 py-5 rounded-full font-bold hover:bg-slate-50 transition">Technical Experience</button>
+                <button onclick="showPage('research')" class="bg-red-600 text-white px-10 py-5 rounded-full font-bold shadow-xl hover:bg-red-700 transition">🚀 Research Portfolio</button>
+                <button onclick="showPage('contact')" class="bg-white border-2 border-red-600 text-red-600 px-10 py-5 rounded-full font-bold hover:bg-red-50 transition">👋 Get In Touch</button>
             </div>
         </div>
     </main>
 
     <section id="research" class="page-content pt-40 pb-20">
         <div class="max-w-6xl mx-auto px-8">
-            <h1 class="text-6xl font-black mb-16 tracking-tighter italic">Research</h1>
+            <h1 class="text-6xl font-black mb-4 tracking-tighter italic">Graduate Research</h1>
+            <p class="text-asu-maroon font-bold mb-16 uppercase tracking-widest text-xs">Arizona State University 🔱</p>
+            
             <div class="grid md:grid-cols-3 gap-6">
                 <button onclick="showPage('paper-phantom')" class="glass-card p-8 text-left group">
-                    <span class="text-[9px] font-black text-red-600 uppercase tracking-widest">Applied NLP | ARR Jan '26</span>
-                    <h3 class="text-2xl font-black mt-4 mb-4 group-hover:text-asu-maroon transition leading-tight">Phantom Recall</h3>
-                    <p class="text-slate-500 text-xs mb-8">Exposing the gap between pattern matching and reasoning in LLMs via semantic perturbations.</p>
-                    <div class="text-[10px] font-black uppercase tracking-widest text-asu-maroon">View Summary →</div>
+                    <span class="text-[9px] font-black text-red-600 uppercase tracking-widest">🧠 Applied NLP</span>
+                    <h3 class="text-2xl font-black mt-4 mb-4 group-hover:text-asu-maroon transition">Phantom Recall</h3>
+                    <p class="text-slate-500 text-xs mb-8">Exposing pattern-matching vs. reasoning in LLMs via semantic puzzles.</p>
+                    <div class="text-[10px] font-black uppercase tracking-widest text-asu-maroon">Read More →</div>
                 </button>
 
                 <button onclick="showPage('paper-moneyball')" class="glass-card p-8 text-left group">
-                    <span class="text-[9px] font-black text-red-600 uppercase tracking-widest">Robustness | ARR Jan '26</span>
-                    <h3 class="text-2xl font-black mt-4 mb-4 group-hover:text-asu-maroon transition leading-tight">Moneyball with LLMs</h3>
-                    <p class="text-slate-500 text-xs mb-8">SporTabSet: Evaluating long-context entity tracking in sports play-by-play narratives.</p>
-                    <div class="text-[10px] font-black uppercase tracking-widest text-asu-maroon">View Summary →</div>
+                    <span class="text-[9px] font-black text-red-600 uppercase tracking-widest">📊 Robustness</span>
+                    <h3 class="text-2xl font-black mt-4 mb-4 group-hover:text-asu-maroon transition">Moneyball LLM</h3>
+                    <p class="text-slate-500 text-xs mb-8">Evaluating multi-table generation and entity tracking in long contexts.</p>
+                    <div class="text-[10px] font-black uppercase tracking-widest text-asu-maroon">Read More →</div>
                 </button>
 
                 <button onclick="showPage('paper-vision')" class="glass-card p-8 text-left group">
-                    <span class="text-[9px] font-black text-red-600 uppercase tracking-widest">CV & Autonomous Systems</span>
-                    <h3 class="text-2xl font-black mt-4 mb-4 group-hover:text-asu-maroon transition leading-tight">Temporal Perception</h3>
-                    <p class="text-slate-500 text-xs mb-8">"Historical-Aware" perception for autonomous driving in whiteout/blizzard conditions.</p>
-                    <div class="text-[10px] font-black uppercase tracking-widest text-asu-maroon">View Summary →</div>
+                    <span class="text-[9px] font-black text-red-600 uppercase tracking-widest">❄️ Perception</span>
+                    <h3 class="text-2xl font-black mt-4 mb-4 group-hover:text-asu-maroon transition">Temporal Vision</h3>
+                    <p class="text-slate-500 text-xs mb-8">Using historical "sunny day" memory to see through whiteout blizzards.</p>
+                    <div class="text-[10px] font-black uppercase tracking-widest text-asu-maroon">Read More →</div>
                 </button>
+            </div>
+
+            <h1 class="text-5xl font-black mt-24 mb-4 tracking-tighter italic text-slate-400">Undergraduate Projects</h1>
+            <p class="text-slate-400 font-bold mb-16 uppercase tracking-widest text-xs">University of Maryland 🐢</p>
+            
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="glass-card p-10">
+                    <span class="text-[9px] font-black text-red-600 uppercase tracking-widest">🛰️ GIS & CV</span>
+                    <h3 class="text-2xl font-black mt-4 mb-4 italic">Multi-Spectral Analysis</h3>
+                    <p class="text-slate-500 text-sm">Processed Landsat-8 and Sentinel-2 data using QGIS and ImageMagick to animate Hurricane Idalia's motion.</p>
+                </div>
+                <div class="glass-card p-10">
+                    <span class="text-[9px] font-black text-red-600 uppercase tracking-widest">💻 Systems</span>
+                    <h3 class="text-2xl font-black mt-4 mb-4 italic">MicroCaml Engineer</h3>
+                    <p class="text-slate-500 text-sm">Architected a functional sublanguage of OCaml including a custom Lexer, Parser, and Interpreter.</p>
+                </div>
             </div>
         </div>
     </section>
 
     <section id="paper-phantom" class="page-content pt-40 pb-20 bg-white">
         <div class="max-w-3xl mx-auto px-8 summary-body">
-            <button onclick="showPage('research')" class="text-slate-400 font-black text-[10px] uppercase mb-12 block hover:text-black">← Back to Research</button>
-            <h1 class="text-5xl font-black italic mb-2 tracking-tighter">PHANTOM RECALL</h1>
-            <p class="text-red-600 font-black uppercase tracking-widest text-[10px]">Robustness in Applied NLP</p>
-            <h2>Abstract</h2>
-            <p>Large language models often achieve high scores on classic logic puzzles, but we investigate if they are truly reasoning or simply replaying memorized scripts. <strong>PHANTOM RECALL</strong> is a benchmark of puzzles paired with perturbations that maintain surface-level details but change logic templates.</p>
-            <ul>
-                <li>Exposed memorization vs. true reasoning through <strong>Template-Perturbation</strong> frameworks across 8 LLM families.</li>
-                <li>Developed an automated logical-equivalence judge and a step-level error taxonomy achieving 96% human agreement.</li>
-                <li>Proved that "Think" modes improve accuracy significantly, but robustness remains a critical unresolved gap.</li>
-            </ul>
+            <button onclick="showPage('research')" class="text-slate-400 font-black text-[10px] uppercase mb-12 block hover:text-black">← Back</button>
+            <h1 class="text-5xl font-black italic mb-2 tracking-tighter">PHANTOM RECALL 🧠</h1>
+            <p>Research on whether LLMs are truly reasoning or simply replaying memorized scripts through <strong>Template-Perturbation</strong>.</p>
         </div>
     </section>
-
-    <section id="paper-moneyball" class="page-content pt-40 pb-20 bg-white">
-        <div class="max-w-3xl mx-auto px-8 summary-body">
-            <button onclick="showPage('research')" class="text-slate-400 font-black text-[10px] uppercase mb-12 block hover:text-black">← Back to Research</button>
-            <h1 class="text-5xl font-black italic mb-2 tracking-tighter">MONEYBALL WITH LLMS</h1>
-            <p class="text-red-600 font-black uppercase tracking-widest text-[10px]">Long-Context Applied NLP</p>
-            <h2>SporTabSet Benchmark</h2>
-            <p>Introduced a diagnostic benchmark for event-to-tuple extraction in sports play-by-play narratives, requiring models to maintain state over evolving, 10k+ token contexts.</p>
-            <ul>
-                <li><strong>Entity Interference:</strong> Discovered that failures in long-context summarization stem from "interference" (confusing player identities) rather than arithmetic errors.</li>
-                <li><strong>Decomposition Evaluation:</strong> Systematically evaluated extraction vs. aggregation strategies.</li>
-                <li><strong>Numerical Fidelity:</strong> Proved that performance gains come from better dissection of the narrative rather than improved global arithmetic.</li>
-            </ul>
-        </div>
-    </section>
-
-    <section id="paper-vision" class="page-content pt-40 pb-20 bg-white">
-        <div class="max-w-3xl mx-auto px-8 summary-body">
-            <button onclick="showPage('research')" class="text-slate-400 font-black text-[10px] uppercase mb-12 block hover:text-black">← Back to Research</button>
-            <h1 class="text-5xl font-black italic mb-2 tracking-tighter">TEMPORAL PERCEPTION</h1>
-            <p class="text-red-600 font-black uppercase tracking-widest text-[10px]">Cross-Domain Perception in Adverse Weather</p>
-            <h2>Research Objective</h2>
-            <p>Autonomous vehicle perception fails in "Whiteout" (snow/fog) conditions. This project targets a <strong>5-10% mAP increase</strong> by introducing a Historical-Aware Perception system that "remembers" the road from clear weather.</p>
-            <ul>
-                <li><strong>Hierarchical Swin-Transformer:</strong> Replaced ResNet18 with a transformer backbone to capture global contextual clues for adverse weather classification.</li>
-                <li><strong>Generative Stacking:</strong> Engineered a pipeline using contrastive learning to synthesize "Snowy Night" data from clear-day imagery, solving the real-world data scarcity problem.</li>
-                <li><strong>Temporal Cross-Attention:</strong> Developed a GPS-based retrieval system (using Ithaca365) that pulls a historical clear-day frame of the current coordinate to help the model "see through" current occlusion.</li>
-            </ul>
-        </div>
-    </section>
-
     <section id="projects" class="page-content pt-40 pb-20">
         <div class="max-w-5xl mx-auto px-8">
-            <h1 class="text-6xl font-black mb-16 tracking-tighter italic">Experience</h1>
+            <h1 class="text-6xl font-black mb-16 tracking-tighter italic">Experience 🔱</h1>
             <div class="glass-card p-12 border-l-[16px] border-asu-maroon">
                 <h3 class="text-4xl font-black mb-2">Arizona State University</h3>
                 <p class="text-slate-400 font-bold uppercase text-[10px] tracking-[0.3em] mb-10">Graduate Assistant • 2024 - Present</p>
                 <div class="space-y-8 text-slate-700">
-                    <div>
-                        <h4 class="font-black text-asu-maroon uppercase text-xs mb-2">Perception & Systems Engineering</h4>
-                        <p>Implemented a <strong>"Digital Snowplow"</strong> algorithm using Statistical Outlier Removal (SOR) to filter sensor noise in blizzard datasets. Pivoted to a "Pure Python" research stack with Open3D and Metal (MPS) acceleration to optimize iteration speed.</p>
-                    </div>
-                    <div>
-                        <h4 class="font-black text-asu-maroon uppercase text-xs mb-2">Applied NLP Research</h4>
-                        <p>Led evaluation of LLMs (GPT-4o, Gemini 2.0) for <strong>SportsT2T</strong>, developing sophisticated prompts for unstructured-to-tabular data transformation with 90%+ accuracy in domain-specific terminology.</p>
-                    </div>
-                    <div>
-                        <h4 class="font-black text-asu-maroon uppercase text-xs mb-2">Systems & AI Architecture</h4>
-                        <p>Architected a Distributed Hash Table (DHT) for NOAA weather record management and engineered custom neural networks with backpropagation from scratch.</p>
-                    </div>
+                    <p><strong>🛠️ Digital Snowplow:</strong> SOR-based sensor noise filtering for autonomous driving.</p>
+                    <p><strong>🏀 SportsT2T:</strong> Prompt engineering for complex tabular extraction with 90%+ accuracy.</p>
+                    <p><strong>🕸️ DHT Architecture:</strong> Distributed Hash Table for NOAA records management.</p>
                 </div>
             </div>
         </div>
@@ -206,22 +189,24 @@
 
     <section id="countdowns" class="page-content pt-40 pb-20 bg-slate-900 text-white">
         <div class="max-w-5xl mx-auto px-8 text-center">
-            <h1 class="text-6xl font-black mb-20 tracking-tighter italic">Milestones</h1>
+            <h1 class="text-6xl font-black mb-20 tracking-tighter italic">Milestones ⏰</h1>
             <div class="grid md:grid-cols-2 gap-12">
                 <div>
                     <h3 class="text-[10px] font-black uppercase tracking-[0.4em] mb-10 text-asu-gold">ACL Rebuttal Period</h3>
-                    <div class="flex justify-center gap-4">
-                        <div class="flex flex-col"><div class="flip-box text-4xl font-black" id="reb-d">00</div><div class="unit-label">Days</div></div>
-                        <div class="flex flex-col"><div class="flip-box text-4xl font-black" id="reb-h">00</div><div class="unit-label">Hrs</div></div>
-                        <div class="flex flex-col"><div class="flip-box text-4xl font-black" id="reb-m">00</div><div class="unit-label">Min</div></div>
+                    <div class="flex justify-center gap-3">
+                        <div class="flex flex-col"><div class="flip-box text-3xl font-black" id="reb-d">00</div><div class="unit-label">Days</div></div>
+                        <div class="flex flex-col"><div class="flip-box text-3xl font-black" id="reb-h">00</div><div class="unit-label">Hrs</div></div>
+                        <div class="flex flex-col"><div class="flip-box text-3xl font-black" id="reb-m">00</div><div class="unit-label">Min</div></div>
+                        <div class="flex flex-col"><div class="flip-box text-3xl font-black text-red-500" id="reb-s">00</div><div class="unit-label">Sec</div></div>
                     </div>
                 </div>
                 <div>
                     <h3 class="text-[10px] font-black uppercase tracking-[0.4em] mb-10 text-asu-gold">Meta Reviews Release</h3>
-                    <div class="flex justify-center gap-4">
-                        <div class="flex flex-col"><div class="flip-box text-4xl font-black" id="meta-d">00</div><div class="unit-label">Days</div></div>
-                        <div class="flex flex-col"><div class="flip-box text-4xl font-black" id="meta-h">00</div><div class="unit-label">Hrs</div></div>
-                        <div class="flex flex-col"><div class="flip-box text-4xl font-black" id="meta-m">00</div><div class="unit-label">Min</div></div>
+                    <div class="flex justify-center gap-3">
+                        <div class="flex flex-col"><div class="flip-box text-3xl font-black" id="meta-d">00</div><div class="unit-label">Days</div></div>
+                        <div class="flex flex-col"><div class="flip-box text-3xl font-black" id="meta-h">00</div><div class="unit-label">Hrs</div></div>
+                        <div class="flex flex-col"><div class="flip-box text-3xl font-black" id="meta-m">00</div><div class="unit-label">Min</div></div>
+                        <div class="flex flex-col"><div class="flip-box text-3xl font-black text-red-500" id="meta-s">00</div><div class="unit-label">Sec</div></div>
                     </div>
                 </div>
             </div>
@@ -230,23 +215,33 @@
 
     <section id="contact" class="page-content pt-40 pb-20">
         <div class="max-w-4xl mx-auto px-8 text-center">
-            <h1 class="text-7xl font-black mb-16 tracking-tighter italic">Connect</h1>
+            <h1 class="text-7xl font-black mb-16 tracking-tighter italic">Connect 👋</h1>
             <div class="grid md:grid-cols-2 gap-6">
                 <a href="mailto:rishabhbaral2024@yahoo.com" class="glass-card p-12 hover:bg-white transition-colors">
-                    <p class="font-black text-red-600 text-[10px] uppercase tracking-widest mb-4">Email</p>
+                    <p class="font-black text-red-600 text-[10px] uppercase tracking-widest mb-4">📧 Email</p>
                     <p class="text-xl font-bold">rishabhbaral2024@yahoo.com</p>
                 </a>
                 <a href="tel:2147010146" class="glass-card p-12 hover:bg-white transition-colors">
-                    <p class="font-black text-asu-maroon text-[10px] uppercase tracking-widest mb-4">Phone</p>
+                    <p class="font-black text-asu-maroon text-[10px] uppercase tracking-widest mb-4">📱 Phone</p>
                     <p class="text-xl font-bold">214-701-0146</p>
                 </a>
             </div>
-            <div class="mt-24 grayscale opacity-40 flex justify-center gap-12 text-2xl font-black italic">
-                <span>🐢 Fear the Turtle</span>
-                <span>🔱 Fear the Fork</span>
+            <div class="mt-12">
+                <a href="#" class="inline-block bg-asu-maroon text-white px-12 py-5 rounded-full font-black uppercase tracking-widest shadow-2xl hover:scale-105 transition">📂 Download Full Resume</a>
             </div>
         </div>
     </section>
+
+    <footer class="py-12 bg-white border-t border-slate-100 text-center">
+        <div class="max-w-6xl mx-auto px-8">
+            <p class="text-[10px] font-black uppercase tracking-[0.3em] text-slate-400 mb-2">
+                &copy; 2026 Rishabh Baral &bull; All Rights Reserved
+            </p>
+            <p class="text-[9px] font-bold text-slate-300">
+                Tempe, AZ 85282 &bull; MSCS Candidate &bull; 🐢 🔱
+            </p>
+        </div>
+    </footer>
 
     <script>
         function showPage(pageId) {
@@ -269,6 +264,7 @@
                 document.getElementById(key + '-d').innerText = Math.floor(diff / (1000 * 60 * 60 * 24)).toString().padStart(2, '0');
                 document.getElementById(key + '-h').innerText = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)).toString().padStart(2, '0');
                 document.getElementById(key + '-m').innerText = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60)).toString().padStart(2, '0');
+                document.getElementById(key + '-s').innerText = Math.floor((diff % (1000 * 60)) / 1000).toString().padStart(2, '0');
             });
         }
         setInterval(updateClocks, 1000);
