@@ -3,246 +3,227 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rishabh Baral | MSCS @ ASU</title>
+    <title>Rishabh Baral | AI Researcher</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     <style>
-        :root {
-            --umd-red: #E21833;
-            --asu-maroon: #8C1D40;
-            --asu-gold: #FFC627;
-        }
-        .hero-gradient {
-            background: linear-gradient(135deg, var(--umd-red) 0%, var(--asu-maroon) 100%);
-        }
-        .nav-link {
-            position: relative;
-            transition: all 0.3s ease;
-        }
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -4px;
-            left: 0;
-            background-color: var(--asu-maroon);
-            transition: width 0.3s ease;
-        }
-        .nav-link:hover::after { width: 100%; }
-        
-        /* Hide all sections by default */
-        .page-content { display: none; min-height: 80vh; }
+        :root { --umd-red: #E21833; --asu-maroon: #8C1D40; --asu-gold: #FFC627; }
+        body { font-family: 'Inter', sans-serif; }
+        .hero-gradient { background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%); }
+        .page-content { display: none; min-height: 100vh; }
         .page-active { display: block; }
-
-        .float-icon {
-            position: absolute;
-            font-size: 2rem;
-            opacity: 0.05;
-            z-index: 0;
-            animation: float 15s infinite linear;
-            pointer-events: none;
+        
+        /* Flip Clock Aesthetics */
+        .flip-card {
+            background: #1e293b;
+            border-radius: 8px;
+            padding: 15px 10px;
+            min-width: 80px;
+            position: relative;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+            border-bottom: 4px solid #000;
         }
-        @keyframes float {
-            0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
-            10% { opacity: 0.1; }
-            90% { opacity: 0.1; }
-            100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
-        }
+        .flip-label { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 2px; color: var(--asu-gold); margin-top: 8px; font-weight: 800; }
+        
+        /* Summary Styling */
+        .summary-body h2 { font-weight: 900; color: var(--asu-maroon); font-size: 1.4rem; margin: 2rem 0 1rem; text-transform: uppercase; border-left: 4px solid var(--asu-maroon); padding-left: 1rem; }
+        .summary-body p { margin-bottom: 1.5rem; line-height: 1.8; color: #334155; font-size: 1.1rem; }
+        .summary-body ul { list-style: square; padding-left: 1.5rem; margin-bottom: 1.5rem; color: #334155; }
+        .summary-body li { margin-bottom: 0.75rem; }
     </style>
 </head>
-<body class="bg-white text-slate-900 font-sans leading-relaxed overflow-x-hidden">
+<body class="bg-white text-slate-900 overflow-x-hidden">
 
-    <nav class="fixed top-0 w-full z-50 bg-white/90 backdrop-blur-md border-b border-slate-100">
+    <nav class="fixed top-0 w-full z-50 bg-white/90 backdrop-blur-xl border-b border-slate-100">
         <div class="max-w-7xl mx-auto px-8 py-5 flex justify-between items-center">
-            <a href="#" onclick="showPage('home')" class="font-black text-2xl tracking-tighter italic cursor-pointer">
+            <button onclick="showPage('home')" class="font-black text-2xl tracking-tighter italic">
                 <span style="color: var(--umd-red)">RISHABH</span> <span style="color: var(--asu-maroon)">BARAL.</span>
-            </a>
+            </button>
             <div class="hidden md:flex space-x-10 text-xs font-black uppercase tracking-widest text-slate-500">
-                <button onclick="showPage('research')" class="nav-link">Research</button>
-                <button onclick="showPage('projects')" class="nav-link">Experience</button>
-                <button onclick="showPage('countdowns')" class="nav-link">Milestones</button>
-                <button onclick="showPage('contact')" class="nav-link">Contact</button>
+                <button onclick="showPage('research')" class="hover:text-red-600 transition">Research</button>
+                <button onclick="showPage('projects')" class="hover:text-red-600 transition">Experience</button>
+                <button onclick="showPage('countdowns')" class="hover:text-red-600 transition">Milestones</button>
+                <button onclick="showPage('contact')" class="hover:text-red-600 transition">Contact</button>
             </div>
         </div>
     </nav>
 
-    <main id="home" class="page-content page-active pt-32 pb-20 relative">
-        <div class="float-icon" style="left: 10%; animation-delay: 0s;">🐢</div>
-        <div class="float-icon" style="left: 80%; animation-delay: 5s;">🔱</div>
-        
+    <main id="home" class="page-content page-active pt-52">
         <div class="max-w-5xl mx-auto px-8">
-            <div class="mb-8 animate__animated animate__fadeIn">
-                <span class="bg-slate-100 text-slate-600 px-4 py-2 rounded-full text-xs font-bold uppercase tracking-widest">
-                    Arizona State University • MSCS 2026
-                </span>
-            </div>
-            <h1 class="text-7xl md:text-8xl font-black mb-8 tracking-tighter animate__animated animate__fadeInUp">
-                Specializing in <span style="color: var(--asu-maroon)">AI</span> & <span style="color: var(--umd-red)">Systems.</span>
-            </h1>
-            <p class="text-2xl text-slate-500 max-w-3xl mb-12 leading-relaxed animate__animated animate__fadeInUp" style="animation-delay: 0.2s">
-                Graduate Assistant at ASU focused on LLM Reasoning and Information Assurance. Formerly at the University of Maryland.
-            </p>
-            <div class="flex gap-6 animate__animated animate__fadeInUp" style="animation-delay: 0.4s">
-                <button onclick="showPage('research')" class="bg-slate-900 text-white px-10 py-5 rounded-full font-bold hover:bg-black transition shadow-2xl">View Research</button>
-                <a href="resume.pdf" target="_blank" class="border-2 border-slate-200 px-10 py-5 rounded-full font-bold hover:bg-slate-50 transition">Download CV</a>
+            <div class="animate__animated animate__fadeInLeft">
+                <span class="text-asu-maroon font-black tracking-[0.3em] uppercase text-sm">Arizona State University</span>
+                <h1 class="text-7xl md:text-9xl font-black mb-8 tracking-tighter mt-4 leading-none">AI & <br><span class="text-slate-300">SYSTEMS.</span></h1>
+                <p class="text-2xl text-slate-500 max-w-2xl mb-12 leading-relaxed">
+                    MSCS Researcher specializing in LLM Robustness, Reasoning Benchmarks, and Information Assurance.
+                </p>
+                <div class="flex gap-6">
+                    <button onclick="showPage('research')" class="bg-slate-900 text-white px-10 py-5 rounded-full font-bold hover:scale-105 transition shadow-2xl">Research Papers</button>
+                    <button onclick="showPage('countdowns')" class="border-2 border-slate-200 px-10 py-5 rounded-full font-bold hover:bg-slate-50 transition">Deadlines</button>
+                </div>
             </div>
         </div>
     </main>
 
-    <section id="research" class="page-content pt-32 pb-20 bg-slate-50">
+    <section id="research" class="page-content pt-40 bg-slate-50">
         <div class="max-w-5xl mx-auto px-8">
-            <h2 class="text-sm font-black text-red-600 uppercase tracking-[0.3em] mb-4">Scholarly Work</h2>
-            <h1 class="text-5xl font-black mb-16 tracking-tight">Research at ASU</h1>
+            <h2 class="text-asu-maroon font-black uppercase tracking-widest text-xs mb-4">January 2026 ACL Rolling Review</h2>
+            <h1 class="text-6xl font-black mb-16 tracking-tight">Publications</h1>
             
+            <div class="grid md:grid-cols-2 gap-10">
+                <button onclick="showPage('paper-phantom')" class="group text-left bg-white p-12 rounded-[2.5rem] shadow-sm hover:shadow-2xl transition-all border border-slate-100">
+                    <h3 class="text-3xl font-black mb-4 group-hover:text-red-600 transition">Phantom Recall</h3>
+                    <p class="text-slate-500 mb-8 italic">When Familiar Puzzles Fool Smart Models</p>
+                    <div class="flex items-center text-xs font-black text-asu-maroon uppercase tracking-widest">
+                        Open Summary <span class="ml-2 group-hover:translate-x-2 transition-transform">→</span>
+                    </div>
+                </button>
+
+                <button onclick="showPage('paper-moneyball')" class="group text-left bg-white p-12 rounded-[2.5rem] shadow-sm hover:shadow-2xl transition-all border border-slate-100">
+                    <h3 class="text-3xl font-black mb-4 group-hover:text-red-600 transition">Moneyball with LLMs</h3>
+                    <p class="text-slate-500 mb-8 italic">Analyzing Tabular Summarization in Sports Narratives</p>
+                    <div class="flex items-center text-xs font-black text-asu-maroon uppercase tracking-widest">
+                        Open Summary <span class="ml-2 group-hover:translate-x-2 transition-transform">→</span>
+                    </div>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <section id="paper-phantom" class="page-content pt-40 pb-20">
+        <div class="max-w-3xl mx-auto px-8 summary-body">
+            <button onclick="showPage('research')" class="text-slate-400 font-bold text-xs uppercase mb-12 block hover:text-black">← Back to Research</button>
+            <h1 class="text-5xl font-black tracking-tight mb-2">PHANTOM RECALL</h1>
+            <p class="text-asu-maroon font-black uppercase tracking-widest text-xs">January 2026 ARR Submission</p>
+            
+            <h2>The Problem</h2>
+            <p>Large language models (LLMs) often achieve high performance on standard reasoning benchmarks. However, this performance is frequently a result of pattern matching or memorizing specific puzzle templates from training data—a phenomenon we term <strong>Phantom Recall</strong>.</p>
+            
+            <h2>Methodology</h2>
+            <p>We introduced a benchmark of well-known logic puzzles paired with semantic perturbations. These perturbations maintain the surface-level details of the "classic" puzzle but change the underlying logic, requiring a different answer. If a model fails by providing the answer to the classic version, it demonstrates a failure of reasoning in favor of memorization.</p>
+            
+            <h2>Core Results</h2>
+            <ul>
+                <li><strong>Confident Failure:</strong> Models output standard solutions even when prompt modifications make them logically impossible.</li>
+                <li><strong>Reasoning Gap:</strong> While "Think" modes (e.g., GPT-o1) improve baseline accuracy, robustness against perturbations remains low.</li>
+                <li><strong>Human Agreement:</strong> Developed an automated step-level error taxonomy that aligns with human judgment at a 96% rate.</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="paper-moneyball" class="page-content pt-40 pb-20">
+        <div class="max-w-3xl mx-auto px-8 summary-body">
+            <button onclick="showPage('research')" class="text-slate-400 font-bold text-xs uppercase mb-12 block hover:text-black">← Back to Research</button>
+            <h1 class="text-5xl font-black tracking-tight mb-2">MONEYBALL WITH LLMS</h1>
+            <p class="text-asu-maroon font-black uppercase tracking-widest text-xs">January 2026 ARR Submission</p>
+            
+            <h2>The SporTabSet Benchmark</h2>
+            <p>Tabular summarization in long-context environments (like sports play-by-play) is a major challenge for LLMs. We introduced <strong>SPORTABSET</strong>, a diagnostic benchmark for event-to-tuple extraction in cricket and basketball narratives.</p>
+            
+            <h2>Research Findings</h2>
+            <ul>
+                <li><strong>Entity Interference:</strong> Errors in long-context summarization are rarely due to poor math; they are caused by "interference," where the model confuses actions between different players or teams.</li>
+                <li><strong>Decomposition:</strong> We systematically evaluated decomposition-based strategies (Step 1: Extraction, Step 2: Aggregation). Results show that while these pipelines help, models remain highly sensitive to "surface-level" phrasing changes.</li>
+                <li><strong>Numeric Fidelity:</strong> Proved that model accuracy in sports tracking stems from better extraction of intermediate representations rather than an inherent improvement in global arithmetic capabilities.</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="projects" class="page-content pt-40">
+        <div class="max-w-5xl mx-auto px-8">
+            <h1 class="text-6xl font-black mb-16 tracking-tight">Experience</h1>
             <div class="space-y-12">
-                <div class="bg-white p-10 rounded-[2rem] shadow-sm border border-slate-100 hover:shadow-xl transition-all duration-500">
-                    <div class="flex justify-between items-start mb-6">
-                        <span class="bg-maroon-50 text-maroon-700 text-xs px-3 py-1 rounded-full font-black border border-maroon-100">ARR JAN 2026</span>
-                        <span class="text-3xl">🔱</span>
+                <div class="border-l-8 border-asu-maroon pl-10">
+                    <h3 class="text-3xl font-black mb-4">Arizona State University</h3>
+                    <p class="font-bold text-slate-400 uppercase text-xs mb-8 tracking-widest">Graduate Assistant | Aug 2024 – Present</p>
+                    <div class="space-y-8 text-slate-700 max-w-3xl">
+                        <p><strong>SportsT2T:</strong> Led an evaluation of GPT-4o and Gemini 2.0 Flash capabilities in transforming unstructured sports commentary into structured tabular data. Developed sophisticated prompts to accurately tabulate player statistics, focusing on the models' ability to handle complex, domain-specific terminology and multi-table formatting.</p>
+                        <p><strong>Information Assurance:</strong> Performed a comprehensive security analysis for the healthcare industry by applying AI/ML techniques to identify systemic vulnerabilities. Evaluated information assurance protocols and predictive modeling to ensure data integrity and patient privacy.</p>
+                        <p><strong>Systems:</strong> Architected and implemented a fully functional Distributed Hash Table (DHT) in Python to manage and retrieve NOAA weather records efficiently.</p>
                     </div>
-                    <h3 class="text-3xl font-black mb-6">PHANTOM RECALL: When Familiar Puzzles Fool Smart Models</h3>
-                    <ul class="text-slate-600 space-y-4 text-lg">
-                        <li>• Benchmarked LLM reasoning via puzzle variations to expose memorization vs. true reasoning.</li>
-                        <li>• Developed automated error classification achieving 96% human agreement.</li>
-                    </ul>
-                </div>
-
-                <div class="bg-white p-10 rounded-[2rem] shadow-sm border border-slate-100 hover:shadow-xl transition-all duration-500">
-                    <div class="flex justify-between items-start mb-6">
-                        <span class="bg-maroon-50 text-maroon-700 text-xs px-3 py-1 rounded-full font-black border border-maroon-100">ARR JAN 2026</span>
-                        <span class="text-3xl">🔱</span>
-                    </div>
-                    <h3 class="text-3xl font-black mb-6">CMT Bench: Cricket Multi-Table Generation</h3>
-                    <ul class="text-slate-600 space-y-4 text-lg">
-                        <li>• Developed a multi-table generation benchmark to probe robustness and data-tabulation logic in LLMs.</li>
-                    </ul>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="projects" class="page-content pt-32 pb-20">
-        <div class="max-w-6xl mx-auto px-8">
-            <h2 class="text-sm font-black text-red-600 uppercase tracking-[0.3em] mb-4">Career</h2>
-            <h1 class="text-5xl font-black mb-16 tracking-tight">Experience & Engineering</h1>
+    <section id="countdowns" class="page-content pt-40 hero-gradient text-white">
+        <div class="max-w-5xl mx-auto px-8 text-center">
+            <h1 class="text-6xl font-black mb-20 tracking-tight">Milestones</h1>
             
-            <div class="grid lg:grid-cols-2 gap-10">
-                <div class="space-y-8">
-                    <div class="border-l-4 border-asu-maroon pl-8 py-2">
-                        <h3 class="text-2xl font-black mb-6 text-slate-800 italic">ASU Graduate Assistantship</h3>
-                        <div class="space-y-8 text-slate-600">
-                            <div>
-                                <h4 class="font-bold text-slate-900 mb-2">SportsT2T</h4>
-                                <p class="text-sm">Led an evaluation of GPT-4o and Gemini 2.0 Flash capabilities in transforming unstructured sports commentary into structured tabular data. Developed sophisticated prompts to accurately tabulate player statistics, focusing on the models' ability to handle complex, domain-specific terminology and multi-table formatting.</p>
-                            </div>
-                            <div>
-                                <h4 class="font-bold text-slate-900 mb-2">Information Assurance</h4>
-                                <p class="text-sm">Performed a comprehensive security analysis for the healthcare industry by applying AI/ML techniques to identify systemic vulnerabilities. Evaluated information assurance protocols and predictive modeling to ensure data integrity and patient privacy within clinical and multimedia database environments.</p>
-                            </div>
-                        </div>
+            <div class="grid md:grid-cols-2 gap-16">
+                <div>
+                    <h3 class="text-sm font-black uppercase tracking-[0.3em] mb-10 text-white/50">ACL Rebuttal Period Begins</h3>
+                    <div class="flex justify-center gap-4">
+                        <div class="flex flex-col items-center"><div class="flip-card text-4xl font-black" id="reb-d">00</div><div class="flip-label">Days</div></div>
+                        <div class="flex flex-col items-center"><div class="flip-card text-4xl font-black" id="reb-h">00</div><div class="flip-label">Hrs</div></div>
+                        <div class="flex flex-col items-center"><div class="flip-card text-4xl font-black" id="reb-m">00</div><div class="flip-label">Min</div></div>
+                        <div class="flex flex-col items-center"><div class="flip-card text-4xl font-black" id="reb-s">00</div><div class="flip-label">Sec</div></div>
                     </div>
+                    <p class="mt-8 text-xs font-bold text-white/30 tracking-widest uppercase">Feb 15, 2026 • 06:00 AZT</p>
                 </div>
 
-                <div class="space-y-8">
-                    <div class="bg-slate-900 p-8 rounded-[2rem] text-white">
-                        <h3 class="text-xl font-bold mb-6 text-asu-gold">Selected Projects From Undergraduate Coursework</h3>
-                        <div class="space-y-6">
-                            <div class="border-b border-white/10 pb-4">
-                                <h4 class="font-bold mb-1">GIS & Image Processing</h4>
-                                <p class="text-xs text-slate-400">Analyzed Landsat-8/Sentinel-2 data in QGIS and animated Hurricane Idalia via NOAA GOES-16E imagery.</p>
-                            </div>
-                            <div class="border-b border-white/10 pb-4">
-                                <h4 class="font-bold mb-1">AI/ML Architecture</h4>
-                                <p class="text-xs text-slate-400">Engineered backpropagation-based neural network and transfer learning benchmarks from scratch.</p>
-                            </div>
-                            <div class="border-b border-white/10 pb-4">
-                                <h4 class="font-bold mb-1">MicroCaml</h4>
-                                <p class="text-xs text-slate-400">Architected a functional sublanguage of OCaml with Lexer, Parser, and Interpreter.</p>
-                            </div>
-                        </div>
+                <div>
+                    <h3 class="text-sm font-black uppercase tracking-[0.3em] mb-10 text-white/50">Meta Reviews Release</h3>
+                    <div class="flex justify-center gap-4">
+                        <div class="flex flex-col items-center"><div class="flip-card text-4xl font-black" id="meta-d">00</div><div class="flip-label">Days</div></div>
+                        <div class="flex flex-col items-center"><div class="flip-card text-4xl font-black" id="meta-h">00</div><div class="flip-label">Hrs</div></div>
+                        <div class="flex flex-col items-center"><div class="flip-card text-4xl font-black" id="meta-m">00</div><div class="flip-label">Min</div></div>
+                        <div class="flex flex-col items-center"><div class="flip-card text-4xl font-black" id="meta-s">00</div><div class="flip-label">Sec</div></div>
                     </div>
+                    <p class="mt-8 text-xs font-bold text-white/30 tracking-widest uppercase">Mar 10, 2026 • 06:00 AZT</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="countdowns" class="page-content pt-32 pb-20 hero-gradient text-white">
+    <section id="contact" class="page-content pt-40 bg-slate-50">
         <div class="max-w-4xl mx-auto px-8 text-center">
-            <h1 class="text-5xl font-black mb-16 tracking-tight">Strategic Milestones</h1>
-            <div class="bg-black/20 p-16 rounded-[3rem] backdrop-blur-xl border border-white/10">
-                <h3 class="text-asu-gold font-black uppercase tracking-[0.3em] mb-6">ACL Rebuttal Period Begins</h3>
-                <div id="countdown-timer" class="text-6xl md:text-8xl font-black tracking-tighter tabular-nums mb-6">
-                    00d 00h 00m 00s
-                </div>
-                <p class="text-white/60 font-medium">February 15, 2026 — 06:00 AM AZT</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="contact" class="page-content pt-32 pb-20 bg-slate-50">
-        <div class="max-w-4xl mx-auto px-8 text-center">
-            <h1 class="text-6xl font-black mb-16 tracking-tight">Connect</h1>
-            <div class="grid md:grid-cols-2 gap-8">
-                <a href="mailto:rishabhbaral2024@yahoo.com" class="group bg-white p-12 rounded-[2.5rem] shadow-sm hover:shadow-2xl transition-all duration-500 border border-slate-100">
-                    <div class="w-16 h-16 bg-red-50 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:bg-red-600 transition-colors">
-                        <span class="text-2xl group-hover:filter group-hover:invert">✉️</span>
-                    </div>
-                    <h3 class="text-sm font-black uppercase tracking-widest text-slate-400 mb-2">Email</h3>
-                    <p class="text-xl font-bold">rishabhbaral2024@yahoo.com</p>
+            <h1 class="text-7xl font-black mb-12 tracking-tight">Connect</h1>
+            <div class="grid md:grid-cols-2 gap-6">
+                <a href="mailto:rishabhbaral2024@yahoo.com" class="p-10 bg-white rounded-3xl shadow-sm hover:shadow-xl transition-all border border-slate-100">
+                    <p class="font-black text-asu-maroon uppercase tracking-widest text-xs mb-2">Email</p>
+                    <p class="font-bold text-xl">rishabhbaral2024@yahoo.com</p>
                 </a>
-                <a href="tel:2147010146" class="group bg-white p-12 rounded-[2.5rem] shadow-sm hover:shadow-2xl transition-all duration-500 border border-slate-100">
-                    <div class="w-16 h-16 bg-maroon-50 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:bg-[#8C1D40] transition-colors">
-                        <span class="text-2xl group-hover:filter group-hover:invert">📞</span>
-                    </div>
-                    <h3 class="text-sm font-black uppercase tracking-widest text-slate-400 mb-2">Phone</h3>
-                    <p class="text-xl font-bold">214-701-0146</p>
+                <a href="tel:2147010146" class="p-10 bg-white rounded-3xl shadow-sm hover:shadow-xl transition-all border border-slate-100">
+                    <p class="font-black text-asu-maroon uppercase tracking-widest text-xs mb-2">Phone</p>
+                    <p class="font-bold text-xl">214-701-0146</p>
                 </a>
             </div>
-            <div class="mt-20">
-                <p class="text-slate-400 font-bold mb-4 uppercase tracking-[0.2em] text-xs">Based in</p>
-                <p class="text-2xl font-black italic">Tempe, Arizona</p>
-            </div>
         </div>
     </section>
-
-    <footer class="py-12 border-t border-slate-100">
-        <div class="max-w-7xl mx-auto px-8 flex flex-col md:row justify-between items-center gap-6">
-            <p class="text-xs font-black text-slate-400 uppercase tracking-widest">© 2026 Rishabh Baral — Fear the Turtle • Fear the Fork</p>
-            <div class="flex gap-8 grayscale opacity-50">
-                <span class="text-xl">🐢</span>
-                <span class="text-xl">🔱</span>
-            </div>
-        </div>
-    </footer>
 
     <script>
-        // Page Switching Logic
         function showPage(pageId) {
-            // Hide all pages
-            document.querySelectorAll('.page-content').forEach(page => {
-                page.classList.remove('page-active', 'animate__animated', 'animate__fadeIn');
-            });
-            // Show target page
+            document.querySelectorAll('.page-content').forEach(p => p.classList.remove('page-active', 'animate__animated', 'animate__fadeIn'));
             const activePage = document.getElementById(pageId);
             activePage.classList.add('page-active', 'animate__animated', 'animate__fadeIn');
-            // Scroll to top
             window.scrollTo(0, 0);
         }
 
-        // Countdown Logic
-        const targetDate = new Date("February 15, 2026 06:00:00").getTime();
-        function updateTimer() {
+        const rebuttalDate = new Date("February 15, 2026 06:00:00").getTime();
+        const metaDate = new Date("March 10, 2026 06:00:00").getTime();
+
+        function updateClocks() {
             const now = new Date().getTime();
-            const diff = targetDate - now;
-            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
-            document.getElementById("countdown-timer").innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+            
+            function setTimer(target, prefix) {
+                const diff = target - now;
+                const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+                const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+                const s = Math.floor((diff % (1000 * 60)) / 1000);
+                
+                document.getElementById(prefix + '-d').innerText = d.toString().padStart(2, '0');
+                document.getElementById(prefix + '-h').innerText = h.toString().padStart(2, '0');
+                document.getElementById(prefix + '-m').innerText = m.toString().padStart(2, '0');
+                document.getElementById(prefix + '-s').innerText = s.toString().padStart(2, '0');
+            }
+
+            setTimer(rebuttalDate, 'reb');
+            setTimer(metaDate, 'meta');
         }
-        setInterval(updateTimer, 1000);
-        updateTimer();
+
+        setInterval(updateClocks, 1000);
+        updateClocks();
     </script>
 </body>
 </html>
