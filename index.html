@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rishabh Baral | AI & Applied NLP</title>
+    <title>Rishabh Baral | AI & Autonomous Systems</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     <style>
@@ -21,7 +21,7 @@
             min-height: 100vh;
         }
 
-        /* RESTORED FLOATING BACKGROUND */
+        /* FLOATING BACKGROUND */
         .floating-bg {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             pointer-events: none; z-index: -1; overflow: hidden;
@@ -41,10 +41,9 @@
             background: var(--glass);
             backdrop-filter: blur(16px);
             border: 1px solid rgba(226, 24, 51, 0.1);
-            border-radius: 2.5rem;
+            border-radius: 2rem;
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
-        .glass-card:hover { transform: translateY(-8px); }
 
         .page-content { display: none; min-height: 100vh; }
         .page-active { display: block; }
@@ -53,32 +52,23 @@
             background: #1a1a1a;
             color: white;
             border-radius: 8px;
-            padding: 1rem 0.5rem;
-            min-width: 65px;
-            box-shadow: 0 4px 0px #000;
+            padding: 0.8rem 0.2rem;
+            min-width: 55px;
+            text-align: center;
             font-family: 'monospace';
+            box-shadow: 0 4px 0 #000;
         }
 
         .calendar-grid {
             display: grid; grid-template-columns: repeat(7, 1fr);
-            gap: 2px; background: #334155; padding: 5px; border-radius: 8px;
-            font-size: 0.6rem; color: #fff;
+            gap: 2px; background: #334155; padding: 4px; border-radius: 6px;
+            font-size: 0.5rem; color: #fff;
         }
-        .cal-day { background: #475569; padding: 4px; text-align: center; border-radius: 2px; }
-        .cal-today { background: #94a3b8; font-weight: bold; }
-        .cal-target { outline: 2px solid var(--umd-red); color: var(--asu-gold); font-weight: 900; background: var(--umd-red); }
+        .cal-day { background: #475569; padding: 2px; text-align: center; border-radius: 2px; }
+        .cal-today { background: #94a3b8; font-weight: bold; color: #000; }
+        .cal-target { background: var(--umd-red); color: white; font-weight: 900; outline: 1px solid white; animation: pulse 2s infinite; }
 
-        .btn-resume {
-            background: var(--asu-maroon);
-            color: var(--asu-gold);
-            border: 2px solid var(--asu-gold);
-        }
-
-        .footer-dark {
-            background: #111827;
-            color: #f9fafb;
-            padding: 4rem 0;
-        }
+        @keyframes pulse { 0% { opacity: 1; } 50% { opacity: 0.7; } 100% { opacity: 1; } }
 
         .summary-body h2 { font-weight: 900; color: var(--asu-maroon); font-size: 1.5rem; margin-top: 2.5rem; display: flex; align-items: center; gap: 10px; }
         .summary-body h2::before { content: "🔱"; }
@@ -90,21 +80,20 @@
 <body>
 
     <div class="floating-bg">
-        <div class="bubble" style="left: 10%; animation-delay: 0s;">🐢</div>
+        <div class="bubble" style="left: 10%;">🐢</div>
         <div class="bubble" style="left: 40%; animation-delay: 5s;">🔱</div>
         <div class="bubble" style="left: 70%; animation-delay: 10s;">🐢</div>
-        <div class="bubble" style="left: 85%; animation-delay: 3.5s;">🔱</div>
-        <div class="bubble" style="left: 25%; animation-delay: 12s;">🐢</div>
+        <div class="bubble" style="left: 85%; animation-delay: 3s;">🔱</div>
     </div>
 
     <nav class="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-xl border-b border-red-100">
-        <div class="max-w-7xl mx-auto px-8 py-5 flex justify-between items-center">
-            <button onclick="showPage('home')" class="font-black text-2xl tracking-tighter italic">
+        <div class="max-w-7xl mx-auto px-8 py-4 flex justify-between items-center">
+            <button onclick="showPage('home')" class="font-black text-2xl italic tracking-tighter">
                 <span style="color: var(--umd-red)">RISHABH</span> <span style="color: var(--asu-maroon)">BARAL</span>
             </button>
-            <div class="hidden md:flex space-x-8 text-[10px] font-black uppercase tracking-[0.2em] text-slate-500">
+            <div class="hidden md:flex space-x-6 text-[10px] font-black uppercase tracking-widest text-slate-500">
                 <button onclick="showPage('research')" class="hover:text-red-600 transition">Research</button>
-                <button onclick="showPage('projects')" class="hover:text-red-600 transition">Experience</button>
+                <button onclick="showPage('experience')" class="hover:text-red-600 transition">Experience</button>
                 <button onclick="showPage('countdowns')" class="hover:text-red-600 transition">Milestones</button>
                 <a href="resume.pdf" target="_blank" class="hover:text-red-600 transition">📄 Resume</a>
             </div>
@@ -112,117 +101,122 @@
     </nav>
 
     <main id="home" class="page-content page-active pt-52">
-        <div class="max-w-6xl mx-auto px-8">
-            <span class="inline-block px-4 py-1 rounded-full bg-red-100 text-red-600 text-[10px] font-black uppercase tracking-widest mb-6">
-                UMD '24 🐢 &bull; ASU MSCS '26 🔱
-            </span>
-            <h1 class="text-7xl md:text-9xl font-black mb-8 tracking-tighter animate__animated animate__fadeInUp">
-                ROBUST <span class="text-red-600">AI</span> & <br><span class="text-slate-400">VISION.</span>
-            </h1>
-            <p class="text-2xl text-slate-600 max-w-2xl mb-12 leading-relaxed">
-                Specializing in LLM Robustness and Cross-Domain Perception for Autonomous Driving.
-            </p>
-            <div class="flex flex-wrap gap-4">
-                <button onclick="showPage('research')" class="bg-red-600 text-white px-10 py-5 rounded-full font-bold shadow-xl">🚀 Research Portfolio</button>
-                <button onclick="showPage('contact')" class="bg-white border-2 border-red-600 text-red-600 px-10 py-5 rounded-full font-bold">👋 Get In Touch</button>
+        <div class="max-w-5xl mx-auto px-8">
+            <span class="inline-block px-3 py-1 rounded-full bg-red-100 text-red-600 text-[9px] font-black uppercase tracking-widest mb-6 animate__animated animate__fadeIn">UMD '24 &bull; ASU MSCS '26</span>
+            <h1 class="text-7xl md:text-9xl font-black mb-8 tracking-tighter leading-none animate__animated animate__fadeInUp">ROBUST <span class="text-red-600">AI</span> & <br><span class="text-slate-400">VISION.</span></h1>
+            <div class="flex gap-4 animate__animated animate__fadeInUp">
+                <button onclick="showPage('research')" class="bg-red-600 text-white px-8 py-4 rounded-full font-bold shadow-lg hover:scale-105 transition">View Research</button>
+                <button onclick="showPage('experience')" class="bg-white border-2 border-red-600 text-red-600 px-8 py-4 rounded-full font-bold hover:bg-red-50 transition">Experience</button>
             </div>
         </div>
     </main>
 
-    <section id="research" class="page-content pt-40 pb-20">
+    <section id="research" class="page-content pt-32 pb-20">
         <div class="max-w-6xl mx-auto px-8">
-            <h1 class="text-6xl font-black mb-16 tracking-tighter italic">Graduate Research</h1>
-            <div class="grid md:grid-cols-3 gap-6">
-                <button onclick="showPage('paper-phantom')" class="glass-card p-8 text-left group">
-                    <span class="text-[9px] font-black text-red-600 uppercase tracking-widest">🧠 Applied NLP</span>
-                    <h3 class="text-2xl font-black mt-4 mb-4 group-hover:text-asu-maroon transition">Phantom Recall</h3>
-                    <div class="text-[10px] font-black uppercase text-asu-maroon">View Summary →</div>
+            <h2 class="text-4xl font-black mb-10 italic">Research Portfolio</h2>
+            <div class="grid md:grid-cols-3 gap-6 mb-20">
+                <button onclick="showPage('paper-phantom')" class="glass-card p-8 text-left group hover:bg-red-50 transition">
+                    <span class="text-[9px] font-black text-red-600 uppercase">🧠 NLP</span>
+                    <h3 class="text-xl font-bold mt-2">Phantom Recall</h3>
+                    <p class="text-xs text-slate-500 mt-4">Logic puzzles & LLM pattern matching.</p>
                 </button>
-                <button onclick="showPage('paper-moneyball')" class="glass-card p-8 text-left group">
-                    <span class="text-[9px] font-black text-red-600 uppercase tracking-widest">📊 Robustness</span>
-                    <h3 class="text-2xl font-black mt-4 mb-4 group-hover:text-asu-maroon transition">Moneyball LLM</h3>
-                    <div class="text-[10px] font-black uppercase text-asu-maroon">View Summary →</div>
+                <button onclick="showPage('paper-moneyball')" class="glass-card p-8 text-left group hover:bg-red-50 transition">
+                    <span class="text-[9px] font-black text-red-600 uppercase">📊 Robustness</span>
+                    <h3 class="text-xl font-bold mt-2">Moneyball LLM</h3>
+                    <p class="text-xs text-slate-500 mt-4">Long-context tabular summarization.</p>
                 </button>
-                <button onclick="showPage('paper-vision')" class="glass-card p-8 text-left group">
-                    <span class="text-[9px] font-black text-red-600 uppercase tracking-widest">❄️ Perception</span>
-                    <h3 class="text-2xl font-black mt-4 mb-4 group-hover:text-asu-maroon transition">Temporal Vision</h3>
-                    <div class="text-[10px] font-black uppercase text-asu-maroon">View Summary →</div>
-                </button>
-            </div>
-
-            <h1 class="text-5xl font-black mt-24 mb-16 tracking-tighter italic text-slate-400">Undergraduate Projects</h1>
-            <div class="grid md:grid-cols-3 gap-6">
-                <button onclick="showPage('paper-undergrad-ai')" class="glass-card p-8 text-left group">
-                    <span class="text-[9px] font-black text-red-600 uppercase tracking-widest">🤖 Neural Nets</span>
-                    <h3 class="text-xl font-black mt-4 italic">AI/ML Architecture</h3>
-                </button>
-                <button onclick="showPage('paper-undergrad-satellite')" class="glass-card p-8 text-left group">
-                    <span class="text-[9px] font-black text-red-600 uppercase tracking-widest">🛰️ GIS & CV</span>
-                    <h3 class="text-xl font-black mt-4 italic">Satellite Perception</h3>
-                </button>
-                <button onclick="showPage('paper-undergrad-caml')" class="glass-card p-8 text-left group">
-                    <span class="text-[9px] font-black text-red-600 uppercase tracking-widest">💻 Systems</span>
-                    <h3 class="text-xl font-black mt-4 italic">MicroCaml Engineer</h3>
+                <button onclick="showPage('paper-vision')" class="glass-card p-8 text-left group hover:bg-red-50 transition">
+                    <span class="text-[9px] font-black text-red-600 uppercase">❄️ Perception</span>
+                    <h3 class="text-xl font-bold mt-2">Temporal Vision</h3>
+                    <p class="text-xs text-slate-500 mt-4">Adverse weather AV perception.</p>
                 </button>
             </div>
         </div>
     </section>
 
-    <section id="paper-phantom" class="page-content pt-40 pb-20 bg-white">
+    <section id="paper-phantom" class="page-content pt-32 pb-20 bg-white">
         <div class="max-w-3xl mx-auto px-8 summary-body">
-            <button onclick="showPage('research')" class="text-slate-400 font-black text-[10px] uppercase mb-12 block">← Back to Research</button>
-            <h1 class="text-5xl font-black italic mb-2 tracking-tighter">PHANTOM RECALL 🧠</h1>
-            <p class="text-red-600 font-black uppercase tracking-widest text-[10px]">Research | ARR Jan '26</p>
-            <h2>Summary</h2>
-            <p>PHANTOM RECALL investigates whether LLMs truly reason or just replay scripts. We designed a benchmark of familiar puzzles with logic-changing perturbations.</p>
+            <button onclick="showPage('research')" class="text-slate-400 font-bold text-xs uppercase mb-8">← Back to Hub</button>
+            <h1 class="text-4xl font-black italic">PHANTOM RECALL 🧠</h1>
+            <h2>Research Summary</h2>
+            <p><strong>Paper:</strong> PHANTOM RECALL: When Familiar Puzzles Fool Smart Models (ACL ARR '26)</p>
+            <p>This work investigates whether LLMs truly reason or just replay scripts. We designed a benchmark of familiar puzzles with logic-changing perturbations.</p>
             <ul>
-                <li>Exposed memorization vs. reasoning across 8 LLM families.</li>
-                <li>Developed automated logical-equivalence judge with 96% human agreement.</li>
-                <li>Mitigation prompts boosted open-source models by +10 points.</li>
+                <li>Exposed "Phantom Recall" mode in 8 model families.</li>
+                <li>Developed automated judge for logical equivalence achieving 96% human agreement.</li>
+                <li>Developed step-level error taxonomy and mitigation framework.</li>
             </ul>
         </div>
     </section>
-    <section id="countdowns" class="page-content pt-40 pb-20 bg-slate-900 text-white">
+
+    <section id="experience" class="page-content pt-32 pb-20">
         <div class="max-w-5xl mx-auto px-8">
-            <h1 class="text-6xl font-black mb-20 tracking-tighter text-center italic">Milestones ⏰</h1>
-            <div class="grid md:grid-cols-2 gap-16">
-                <div class="bg-slate-800 p-8 rounded-[2rem] border border-slate-700">
-                    <h3 class="text-[10px] font-black uppercase tracking-[0.4em] mb-8 text-asu-gold">ACL Rebuttal Period</h3>
-                    <div class="flex justify-between items-center gap-6">
-                        <div class="flex gap-2">
-                            <div class="flex flex-col items-center"><div class="flip-box text-2xl" id="reb-d">00</div><span class="text-[8px] mt-2">Days</span></div>
-                            <div class="flex flex-col items-center"><div class="flip-box text-2xl" id="reb-h">00</div><span class="text-[8px] mt-2">Hrs</span></div>
+            <h2 class="text-5xl font-black mb-12 italic">Experience</h2>
+            <div class="space-y-8">
+                <div class="glass-card p-10 border-l-8 border-asu-maroon">
+                    <h3 class="text-2xl font-bold">Arizona State University 🔱</h3>
+                    <p class="text-xs font-black text-slate-400 uppercase tracking-widest mb-4">Graduate Project Assistant • 2024-Present</p>
+                    <p class="text-slate-600 leading-relaxed">
+                        • Leading research on <strong>Phantom Recall</strong> (LLM Reasoning) and <strong>SportsT2T</strong> (Long-Context Tabular).<br>
+                        • Engineering <strong>Digital Snowplow</strong>: L1 noise filtering using Open3D and Metal acceleration.<br>
+                        • Developing <strong>Temporal Cross-Attention</strong> layers for AV perception in blizzards.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="countdowns" class="page-content pt-32 pb-20 bg-slate-900 text-white">
+        <div class="max-w-6xl mx-auto px-8">
+            <h2 class="text-5xl font-black mb-16 text-center italic">Milestones ⏰</h2>
+            
+            <div class="grid lg:grid-cols-2 gap-10">
+                <div class="bg-slate-800 p-8 rounded-3xl border border-slate-700">
+                    <h3 class="text-asu-gold font-black text-xs uppercase mb-6 tracking-[0.3em]">ACL Rebuttal Period</h3>
+                    <div class="flex flex-col md:flex-row gap-8 items-center">
+                        <div class="grid grid-cols-4 gap-2">
+                            <div class="flex flex-col items-center"><div class="flip-box text-2xl" id="reb-d">00</div><span class="text-[7px] mt-1 text-slate-500 uppercase">Days</span></div>
+                            <div class="flex flex-col items-center"><div class="flip-box text-2xl" id="reb-h">00</div><span class="text-[7px] mt-1 text-slate-500 uppercase">Hrs</span></div>
+                            <div class="flex flex-col items-center"><div class="flip-box text-2xl" id="reb-m">00</div><span class="text-[7px] mt-1 text-slate-500 uppercase">Min</span></div>
+                            <div class="flex flex-col items-center"><div class="flip-box text-2xl text-red-500" id="reb-s">00</div><span class="text-[7px] mt-1 text-slate-500 uppercase">Sec</span></div>
                         </div>
-                        <div id="cal-reb" class="w-48"></div>
+                        <div id="cal-reb" class="flex gap-4"></div>
                     </div>
                 </div>
-                <div class="bg-slate-800 p-8 rounded-[2rem] border border-slate-700">
-                    <h3 class="text-[10px] font-black uppercase tracking-[0.4em] mb-8 text-asu-gold">Meta Reviews Release</h3>
-                    <div class="flex justify-between items-center gap-6">
-                        <div class="flex gap-2">
-                            <div class="flex flex-col items-center"><div class="flip-box text-2xl" id="meta-d">00</div><span class="text-[8px] mt-2">Days</span></div>
-                            <div class="flex flex-col items-center"><div class="flip-box text-2xl" id="meta-h">00</div><span class="text-[8px] mt-2">Hrs</span></div>
+
+                <div class="bg-slate-800 p-8 rounded-3xl border border-slate-700">
+                    <h3 class="text-asu-gold font-black text-xs uppercase mb-6 tracking-[0.3em]">Meta Reviews Release</h3>
+                    <div class="flex flex-col md:flex-row gap-8 items-center">
+                        <div class="grid grid-cols-4 gap-2">
+                            <div class="flex flex-col items-center"><div class="flip-box text-2xl" id="meta-d">00</div><span class="text-[7px] mt-1 text-slate-500 uppercase">Days</span></div>
+                            <div class="flex flex-col items-center"><div class="flip-box text-2xl" id="meta-h">00</div><span class="text-[7px] mt-1 text-slate-500 uppercase">Hrs</span></div>
+                            <div class="flex flex-col items-center"><div class="flip-box text-2xl" id="meta-m">00</div><span class="text-[7px] mt-1 text-slate-500 uppercase">Min</span></div>
+                            <div class="flex flex-col items-center"><div class="flip-box text-2xl text-red-500" id="meta-s">00</div><span class="text-[7px] mt-1 text-slate-500 uppercase">Sec</span></div>
                         </div>
-                        <div id="cal-meta" class="w-48"></div>
+                        <div id="cal-meta" class="flex gap-2"></div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <footer class="footer-dark text-center">
-        <div class="max-w-6xl mx-auto px-8">
-            <a href="resume.pdf" target="_blank" class="btn-resume inline-block px-12 py-5 rounded-full font-black uppercase tracking-widest shadow-2xl hover:scale-105 transition mb-12">📂 Download Full Resume</a>
-            <div class="bg-slate-800 inline-block px-8 py-6 rounded-2xl mb-12 border border-slate-700">
-                <p class="text-xl font-bold text-asu-gold leading-tight tracking-wide">
-                    3255 South Dorsey Lane #2069<br>
-                    Tempe, Arizona 85282
-                </p>
-                <p class="text-slate-400 font-bold mt-2">214-701-0146</p>
+    <footer class="bg-slate-950 text-white pt-20 pb-12 text-center">
+        <div class="max-w-4xl mx-auto px-8">
+            <a href="resume.pdf" target="_blank" class="inline-block bg-asu-maroon text-asu-gold border-2 border-asu-gold px-12 py-4 rounded-full font-black uppercase tracking-widest hover:scale-105 transition shadow-2xl mb-12">📂 Download Full Resume</a>
+            
+            <div class="bg-slate-900 px-8 py-4 rounded-full border border-slate-800 inline-flex flex-wrap justify-center items-center gap-6 mb-12">
+                <p class="text-sm font-black text-asu-gold tracking-tight">3255 South Dorsey Lane #2069, Tempe, AZ 85282</p>
+                <div class="hidden md:block w-px h-6 bg-slate-700"></div>
+                <p class="text-sm font-black text-white">214-701-0146</p>
+                <div class="hidden md:block w-px h-6 bg-slate-700"></div>
+                <p class="text-sm font-black text-red-500">rishabhbaral2024@yahoo.com</p>
             </div>
-            <p class="text-[10px] font-black uppercase tracking-[0.4em] text-slate-500">
-                &copy; 2026 Rishabh Baral &bull; MSCS Student &bull; 🐢 🔱
-            </p>
+
+            <div class="flex justify-center gap-12 opacity-20 grayscale mb-8 italic font-black text-xl">
+                <span>Fear the Turtle 🐢</span>
+                <span>Fear the Fork 🔱</span>
+            </div>
+            <p class="text-[9px] font-black text-slate-600 uppercase tracking-[0.5em]">&copy; 2026 Rishabh Baral &bull; MSCS Student (Project-Track)</p>
         </div>
     </footer>
 
@@ -236,31 +230,38 @@
             }
         }
 
-        const dates = {
-            reb: new Date("February 15, 2026"),
-            meta: new Date("March 10, 2026")
+        const dates = { 
+            reb: new Date("February 15, 2026 09:00:00"), 
+            meta: new Date("March 10, 2026 09:00:00") 
         };
 
-        function generateCalendar(targetId, targetDate) {
-            const container = document.getElementById(targetId);
+        function renderMonth(dateObj, targetDate) {
             const now = new Date();
-            const year = targetDate.getFullYear();
-            const month = targetDate.getMonth();
+            const year = dateObj.getFullYear();
+            const month = dateObj.getMonth();
             const firstDay = new Date(year, month, 1).getDay();
             const daysInMonth = new Date(year, month + 1, 0).getDate();
             
-            let html = `<div class="text-[9px] font-black mb-2 uppercase text-center text-slate-400">${targetDate.toLocaleString('default', { month: 'long' })}</div>`;
+            let html = `<div class="w-32"><div class="text-[7px] font-black mb-1 text-center text-slate-500 uppercase">${dateObj.toLocaleString('default', { month: 'short' })}</div>`;
             html += `<div class="calendar-grid">`;
-            ['S','M','T','W','T','F','S'].forEach(d => html += `<div class="font-bold text-[6px] opacity-50">${d}</div>`);
             for(let i=0; i<firstDay; i++) html += `<div></div>`;
             for(let d=1; d<=daysInMonth; d++) {
                 let cls = "cal-day";
                 if(d === now.getDate() && month === now.getMonth()) cls += " cal-today";
-                if(d === targetDate.getDate()) cls += " cal-target";
+                if(d === targetDate.getDate() && month === targetDate.getMonth()) cls += " cal-target";
                 html += `<div class="${cls}">${d}</div>`;
             }
-            html += `</div>`;
-            container.innerHTML = html;
+            html += `</div></div>`;
+            return html;
+        }
+
+        function initCalendars() {
+            // Rebuttal Calendar (Just Feb)
+            document.getElementById('cal-reb').innerHTML = renderMonth(new Date(2026, 1), dates.reb);
+            // Meta Calendar (Feb + March)
+            document.getElementById('cal-meta').innerHTML = 
+                renderMonth(new Date(2026, 1), dates.meta) + 
+                renderMonth(new Date(2026, 2), dates.meta);
         }
 
         function updateClocks() {
@@ -270,11 +271,12 @@
                 if (diff < 0) return;
                 document.getElementById(key + '-d').innerText = Math.floor(diff / (1000 * 60 * 60 * 24)).toString().padStart(2, '0');
                 document.getElementById(key + '-h').innerText = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)).toString().padStart(2, '0');
+                document.getElementById(key + '-m').innerText = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60)).toString().padStart(2, '0');
+                document.getElementById(key + '-s').innerText = Math.floor((diff % (1000 * 60)) / 1000).toString().padStart(2, '0');
             });
         }
 
-        generateCalendar('cal-reb', dates.reb);
-        generateCalendar('cal-meta', dates.meta);
+        initCalendars();
         setInterval(updateClocks, 1000);
         updateClocks();
     </script>
