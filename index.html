@@ -41,20 +41,10 @@
                 will-change: transform, opacity;
             }
             @keyframes float-up {
-                0% {
-                    transform: translateY(0) rotate(0deg);
-                    opacity: 0;
-                }
-                10% {
-                    opacity: 0.4;
-                }
-                90% {
-                    opacity: 0.4;
-                }
-                100% {
-                    transform: translateY(-130vh) rotate(360deg);
-                    opacity: 0;
-                }
+                0% { transform: translateY(0) rotate(0deg); opacity: 0; }
+                10% { opacity: 0.4; }
+                90% { opacity: 0.4; }
+                100% { transform: translateY(-130vh) rotate(360deg); opacity: 0; }
             }
 
             .page-content {
@@ -150,6 +140,31 @@
                 color: var(--asu-gold);
                 border: 2px solid var(--asu-gold);
             }
+
+            /* Map Highlight Style */
+            .map-container {
+                position: relative;
+                width: 100%;
+                height: 200px;
+                background: #f8fafc;
+                border-radius: 1rem;
+                overflow: hidden;
+                border: 1px solid #e2e8f0;
+            }
+            .map-svg {
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+                opacity: 0.15;
+            }
+            .state-overlay {
+                position: absolute;
+                inset: 0;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                pointer-events: none;
+            }
         </style>
     </head>
     <body>
@@ -196,18 +211,26 @@
                     </p>
                 </div>
 
-                <button
-                    onclick="showPage('portfolio')"
-                    class="btn-asu px-10 py-4 rounded-full font-black uppercase tracking-widest shadow-lg"
-                >
-                    View Portfolio
-                </button>
+                <div class="flex flex-wrap gap-4">
+                    <button
+                        onclick="showPage('portfolio')"
+                        class="btn-asu px-10 py-4 rounded-full font-black uppercase tracking-widest shadow-lg"
+                    >
+                        View Portfolio
+                    </button>
+                    <a href="resume.pdf" target="_blank" class="px-10 py-4 rounded-full font-black uppercase tracking-widest border-2 border-slate-200 hover:bg-slate-50 transition text-slate-500">
+                        View Resume
+                    </a>
+                </div>
             </div>
         </main>
 
         <section id="portfolio" class="page-content pt-32 pb-20">
             <div class="max-w-6xl mx-auto px-8">
-                <h2 class="text-4xl font-black mb-10 italic">Research Under Review 📄</h2>
+                <div class="flex justify-between items-end mb-10">
+                    <h2 class="text-4xl font-black italic">Research Under Review 📄</h2>
+                    <button onclick="showPage('home')" class="text-[10px] font-black uppercase tracking-widest text-slate-400 hover:text-asu-maroon transition">🏠 Back to Home</button>
+                </div>
                 <div class="grid md:grid-cols-2 gap-6 mb-16">
                     <button
                         onclick="showPage('paper-phantom')"
@@ -272,7 +295,10 @@
 
         <section id="experience" class="page-content pt-32 pb-20">
             <div class="max-w-5xl mx-auto px-8">
-                <h2 class="text-5xl font-black mb-12 italic">Experience</h2>
+                <div class="flex justify-between items-end mb-12">
+                    <h2 class="text-5xl font-black italic">Experience</h2>
+                    <button onclick="showPage('home')" class="text-[10px] font-black uppercase tracking-widest text-slate-400 hover:text-asu-maroon transition">🏠 Back to Home</button>
+                </div>
                 <div class="space-y-8">
                     <div class="glass-card p-10 border-l-8 border-asu-maroon">
                         <h3 class="text-2xl font-bold">Arizona State University 🔱</h3>
@@ -330,7 +356,10 @@
 
         <section id="milestones" class="page-content pt-32 pb-20">
             <div class="max-w-6xl mx-auto px-8">
-                <h2 class="text-5xl font-black mb-4 italic text-white">ASU Milestones ⏰</h2>
+                <div class="flex justify-between items-end mb-10">
+                    <h2 class="text-5xl font-black italic text-white">ASU Milestones ⏰</h2>
+                    <button onclick="showPage('home')" class="text-[10px] font-black uppercase tracking-widest text-white/50 hover:text-asu-gold transition">🏠 Back to Home</button>
+                </div>
                 <div class="grid lg:grid-cols-2 gap-10">
                     <div class="bg-black/20 p-8 rounded-3xl border border-asu-gold/30">
                         <h3 class="text-asu-gold font-black text-xs uppercase mb-2">START OF ACL Rebuttal Period</h3>
@@ -421,7 +450,10 @@
 
         <section id="contact" class="page-content pt-40 pb-20">
             <div class="max-w-4xl mx-auto px-8 text-center animate__animated animate__fadeIn">
-                <h1 class="text-6xl font-black mb-6 italic">Contact</h1>
+                <div class="flex justify-between items-center mb-6">
+                    <h1 class="text-6xl font-black italic">Contact</h1>
+                    <button onclick="showPage('home')" class="text-[10px] font-black uppercase tracking-widest text-slate-400 hover:text-asu-maroon transition">🏠 Back to Home</button>
+                </div>
 
                 <div
                     class="mb-12 inline-block px-8 py-3 rounded-full border-2 border-[#FFC627] bg-[#8C1D40] text-[#FFC627] text-[11px] font-black uppercase tracking-[0.2em] shadow-lg"
@@ -462,65 +494,36 @@
                                     Academic Focus
                                 </h2>
                             </div>
+                            
+                            <div class="map-container mb-6 group relative">
+                                <svg class="map-svg" viewBox="0 0 1000 600" xmlns="http://www.w3.org/2000/svg">
+                                    <rect width="1000" height="600" fill="#f1f5f9"/>
+                                    <path d="M100,100 L900,100 L900,500 L100,500 Z" fill="#cbd5e1"/>
+                                    <circle cx="200" cy="350" r="40" fill="#8c1d40" opacity="0.8"/> <circle cx="500" cy="400" r="50" fill="#8c1d40" opacity="0.8"/> <circle cx="850" cy="270" r="35" fill="#8c1d40" opacity="0.8"/> <circle cx="650" cy="210" r="30" fill="#8c1d40" opacity="0.8"/> <circle cx="750" cy="380" r="25" fill="#8c1d40" opacity="0.8"/> </svg>
+                                <div class="state-overlay">
+                                    <div class="text-[8px] font-black text-asu-maroon bg-white/90 px-3 py-1 rounded-full shadow-sm border border-asu-gold uppercase tracking-tighter">
+                                        Preferred: AZ • CA • TX • IL • GA • MD • VA • DC
+                                    </div>
+                                </div>
+                            </div>
+                    
                             <p class="text-[10px] font-black text-asu-maroon uppercase mb-4 tracking-[0.2em]">
                                 Lecturer • CS & DS Instruction
                             </p>
-
+                    
                             <p class="text-sm text-slate-600 leading-relaxed mb-6">
-                                Leveraging my experience as a <strong>Graduate TA for FSE 100</strong>, I am seeking
-                                faculty positions to mentor students through the Engineering Design Process and
-                                foundational logic in <strong>Python</strong> and <strong>JS</strong>.
+                                Leveraging my experience as a <strong>Graduate TA for FSE 100</strong>, I am seeking faculty positions to mentor students through the Engineering Design Process and foundational logic in <strong>Python</strong> and <strong>JS</strong>.
                             </p>
-
-                            <div class="bg-slate-50 p-4 rounded-xl border border-slate-100 mb-6">
-                                <p
-                                    class="text-[9px] font-bold text-slate-400 uppercase mb-3 tracking-widest text-center"
-                                >
-                                    Preferred Relocation Zones
-                                </p>
-                                <div class="flex flex-wrap justify-center gap-2">
-                                    <span class="px-2 py-1 bg-asu-maroon text-asu-gold text-xs font-bold rounded"
-                                        >AZ</span
-                                    >
-                                    <span class="px-2 py-1 bg-asu-maroon text-asu-gold text-xs font-bold rounded"
-                                        >TX</span
-                                    >
-                                    <span class="px-2 py-1 bg-asu-maroon text-asu-gold text-xs font-bold rounded"
-                                        >CA</span
-                                    >
-                                    <span class="px-2 py-1 bg-asu-maroon text-asu-gold text-xs font-bold rounded"
-                                        >IL</span
-                                    >
-                                    <span class="px-2 py-1 bg-asu-maroon text-asu-gold text-xs font-bold rounded"
-                                        >GA</span
-                                    >
-                                    <span class="px-2 py-1 bg-asu-maroon text-asu-gold text-xs font-bold rounded"
-                                        >MD</span
-                                    >
-                                    <span class="px-2 py-1 bg-asu-maroon text-asu-gold text-xs font-bold rounded"
-                                        >VA</span
-                                    >
-                                    <span class="px-2 py-1 bg-asu-maroon text-asu-gold text-xs font-bold rounded"
-                                        >DC</span
-                                    >
-                                </div>
-                            </div>
                         </div>
-
+                    
                         <ul class="text-[11px] text-slate-500 space-y-3 pt-6 border-t border-slate-100">
                             <li class="flex items-start gap-3">
                                 <span class="text-asu-maroon font-bold">📍</span>
-                                <span
-                                    ><strong>Primary Hubs:</strong> Focused on the Southwest, DMV area, and major tech
-                                    corridors.</span
-                                >
+                                <span><strong>Primary Hubs:</strong> Focused on major tech corridors within the Southwest, Midwest, and DMV regions.</span>
                             </li>
                             <li class="flex items-start gap-3">
                                 <span class="text-asu-maroon font-bold">🏛️</span>
-                                <span
-                                    >Open to premier institutions nationwide (e.g. <strong>Yale University</strong> in
-                                    New Haven, CT).</span
-                                >
+                                <span>Open to prestigious opportunities nationwide outside of primary hubs (e.g., <strong>Yale University</strong>).</span>
                             </li>
                         </ul>
                     </div>
@@ -549,9 +552,10 @@
 
         <section id="paper-phantom" class="page-content pt-32 pb-20 bg-white">
             <div class="max-w-3xl mx-auto px-8 summary-body">
-                <button onclick="showPage('portfolio')" class="text-slate-400 font-bold text-xs uppercase mb-8">
-                    ← Back
-                </button>
+                <div class="flex justify-between items-center mb-8">
+                    <button onclick="showPage('portfolio')" class="text-slate-400 font-bold text-xs uppercase hover:text-red-600 transition">← Back to Portfolio</button>
+                    <button onclick="showPage('home')" class="text-slate-400 font-bold text-xs uppercase hover:text-asu-maroon transition">🏠 Home</button>
+                </div>
                 <h1 class="text-5xl font-black italic">PHANTOM RECALL 🧠</h1>
 
                 <h2>Under Review: ACL Rolling Review</h2>
@@ -570,9 +574,10 @@
         </section>
         <section id="paper-moneyball" class="page-content pt-32 pb-20 bg-white">
             <div class="max-w-3xl mx-auto px-8 summary-body">
-                <button onclick="showPage('portfolio')" class="text-slate-400 font-bold text-xs uppercase mb-8">
-                    ← Back
-                </button>
+                <div class="flex justify-between items-center mb-8">
+                    <button onclick="showPage('portfolio')" class="text-slate-400 font-bold text-xs uppercase hover:text-red-600 transition">← Back to Portfolio</button>
+                    <button onclick="showPage('home')" class="text-slate-400 font-bold text-xs uppercase hover:text-asu-maroon transition">🏠 Home</button>
+                </div>
                 <h1 class="text-5xl font-black italic">MONEYBALL LLM 📊</h1>
                 <h2>Under Review: ACL Rolling Review</h2>
                 <p>
@@ -599,30 +604,31 @@
 
         <section id="grad-lidar" class="page-content pt-32 pb-20 bg-white">
             <div class="max-w-3xl mx-auto px-8 summary-body">
-                <button onclick="showPage('portfolio')" class="text-slate-400 font-bold text-xs uppercase mb-8">
-                    ← Back
-                </button>
+                <div class="flex justify-between items-center mb-8">
+                    <button onclick="showPage('portfolio')" class="text-slate-400 font-bold text-xs uppercase hover:text-red-600 transition">← Back to Portfolio</button>
+                    <button onclick="showPage('home')" class="text-slate-400 font-bold text-xs uppercase hover:text-asu-maroon transition">🏠 Home</button>
+                </div>
                 <h1 class="text-5xl font-black italic">L2 PERCEPTION & LIDAR 📡</h1>
 
                 <h2>The Digital Snowplow Pipeline</h2>
                 <p>
                     Unified architecture for adverse weather perception. Leverages a Python-native "Research Stack" for
-                    rapid iteration of filtering algorithms.
+                    rapid iteration of filtering algorithms. [cite_start]Transitioned from a ROS 2 Humble stack to a lean Python/Open3D architecture to minimize middleware latency[cite: 1, 4].
                 </p>
-                <ul>
-                    <li><strong>L1 Noise Filter:</strong> Statistical Outlier Removal (SOR) to "plow" snow noise.</li>
-                    <li>
-                        <strong>L2 Transformer:</strong> Temporal Cross-Attention pulling Historical Frames via GPS
-                        metadata.
-                    </li>
+                                <ul>
+                    [cite_start]<li><strong>Hardware Acceleration:</strong> Integrated <strong>Apple Metal (MPS)</strong> GPU acceleration for real-time point cloud processing on local research machines[cite: 3].</li>
+                    [cite_start]<li><strong>L1 Noise Filter:</strong> Successfully implemented <strong>Statistical Outlier Removal (SOR)</strong> to isolate and remove "floating" snow noise while preserving environmental structures[cite: 2].</li>
+                    [cite_start]<li><strong>Ground Detection:</strong> Utilized <strong>RANSAC</strong> plane segmentation to differentiate between drivable surfaces and potential hazards in denoise-filtered scans[cite: 2].</li>
+                    [cite_start]<li><strong>Trajectory Mapping:</strong> Implemented <strong>LiDAR Odometry via Iterative Closest Point (ICP)</strong> to generate trajectory "breadcrumb trails," providing spatial memory for GPS-denied navigation[cite: 4, 5].</li>
                 </ul>
             </div>
         </section>
         <section id="undergrad-caml" class="page-content pt-32 pb-20 bg-white">
             <div class="max-w-3xl mx-auto px-8 summary-body">
-                <button onclick="showPage('portfolio')" class="text-slate-400 font-bold text-xs uppercase mb-8">
-                    ← Back
-                </button>
+                <div class="flex justify-between items-center mb-8">
+                    <button onclick="showPage('portfolio')" class="text-slate-400 font-bold text-xs uppercase hover:text-red-600 transition">← Back to Portfolio</button>
+                    <button onclick="showPage('home')" class="text-slate-400 font-bold text-xs uppercase hover:text-asu-maroon transition">🏠 Home</button>
+                </div>
                 <h1 class="text-5xl font-black italic">MICROCAML 💻</h1>
                 <h2>Compiler Architecture & Engineering</h2>
                 <p>
@@ -647,9 +653,10 @@
         </section>
         <section id="undergrad-satellite" class="page-content pt-32 pb-20 bg-white">
             <div class="max-w-3xl mx-auto px-8 summary-body">
-                <button onclick="showPage('portfolio')" class="text-slate-400 font-bold text-xs uppercase mb-8">
-                    ← Back
-                </button>
+                <div class="flex justify-between items-center mb-8">
+                    <button onclick="showPage('portfolio')" class="text-slate-400 font-bold text-xs uppercase hover:text-red-600 transition">← Back to Portfolio</button>
+                    <button onclick="showPage('home')" class="text-slate-400 font-bold text-xs uppercase hover:text-asu-maroon transition">🏠 Home</button>
+                </div>
                 <h1 class="text-5xl font-black italic">SATELLITE PERCEPTION 🛰️</h1>
                 <h2>Multi-Spectral Analysis & GIS</h2>
                 <p>
@@ -674,9 +681,10 @@
         </section>
         <section id="undergrad-ai" class="page-content pt-32 pb-20 bg-white">
             <div class="max-w-3xl mx-auto px-8 summary-body">
-                <button onclick="showPage('portfolio')" class="text-slate-400 font-bold text-xs uppercase mb-8">
-                    ← Back
-                </button>
+                <div class="flex justify-between items-center mb-8">
+                    <button onclick="showPage('portfolio')" class="text-slate-400 font-bold text-xs uppercase hover:text-red-600 transition">← Back to Portfolio</button>
+                    <button onclick="showPage('home')" class="text-slate-400 font-bold text-xs uppercase hover:text-asu-maroon transition">🏠 Home</button>
+                </div>
                 <h1 class="text-5xl font-black italic">AI ARCHITECT 🤖</h1>
                 <h2>Neural Networks from First Principles</h2>
                 <p>
