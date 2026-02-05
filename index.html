@@ -252,6 +252,19 @@
             </ul>
         </div>
     </section>
+    <section id="paper-moneyball" class="page-content pt-32 pb-20 bg-white">
+        <div class="max-w-3xl mx-auto px-8 summary-body">
+            <button onclick="showPage('portfolio')" class="text-slate-400 font-bold text-xs uppercase mb-8">← Back</button>
+            <h1 class="text-5xl font-black italic">MONEYBALL LLM 📊</h1>
+            <h2>Under Review: ACL Rolling Review</h2>
+            <p>Introduced <strong>SporTabSet</strong>: a diagnostic benchmark for long-context tabular summarization in sports (Cricket & Basketball), requiring models to maintain state over narratives exceeding 9k tokens.</p>
+            <ul>
+                <li><strong>Multi-Entity Bottleneck:</strong> Identified that failures in table generation stem from multi-entity interference rather than local arithmetic errors.</li>
+                <li><strong>Decomposition:</strong> Evaluated "Divide and Generate" strategies, showing that dissecting interference significantly improves numerical fidelity across 6,500+ commentaries.</li>
+                <li><strong>CMT Bench:</strong> Developed a multi-table generation benchmark to probe data-tabulation logic and robustness against OOD (Out-of-Distribution) entity names.</li>
+            </ul>
+        </div>
+    </section>
     
     <section id="grad-lidar" class="page-content pt-32 pb-20 bg-white">
         <div class="max-w-3xl mx-auto px-8 summary-body">
@@ -263,6 +276,45 @@
             <ul>
                 <li><strong>L1 Noise Filter:</strong> Statistical Outlier Removal (SOR) to "plow" snow noise.</li>
                 <li><strong>L2 Transformer:</strong> Temporal Cross-Attention pulling Historical Frames via GPS metadata.</li>
+            </ul>
+        </div>
+    </section>
+    <section id="undergrad-caml" class="page-content pt-32 pb-20 bg-white">
+        <div class="max-w-3xl mx-auto px-8 summary-body">
+            <button onclick="showPage('portfolio')" class="text-slate-400 font-bold text-xs uppercase mb-8">← Back</button>
+            <h1 class="text-5xl font-black italic">MICROCAML 💻</h1>
+            <h2>Compiler Architecture & Engineering</h2>
+            <p>Architected a functional sub-language of OCaml, building a full execution pipeline from raw source text to higher-order function evaluation.</p>
+            <ul>
+                <li><strong>Frontend:</strong> Developed a custom Lexer for tokenization and a recursive-descent Parser for Abstract Syntax Tree (AST) generation.</li>
+                <li><strong>Backend:</strong> Engineered a custom Interpreter capable of handling environment-based variable binding and closure-based function calls.</li>
+                <li><strong>Foundations:</strong> Simulated a regular expression engine and a tree-based database system purely within the OCaml environment.</li>
+            </ul>
+        </div>
+    </section>
+    <section id="undergrad-satellite" class="page-content pt-32 pb-20 bg-white">
+        <div class="max-w-3xl mx-auto px-8 summary-body">
+            <button onclick="showPage('portfolio')" class="text-slate-400 font-bold text-xs uppercase mb-8">← Back</button>
+            <h1 class="text-5xl font-black italic">SATELLITE PERCEPTION 🛰️</h1>
+            <h2>Multi-Spectral Analysis & GIS</h2>
+            <p>Utilized GIS tools to analyze environmental impacts through multi-spectral imagery, focusing on automated feature identification and motion tracking.</p>
+            <ul>
+                <li><strong>Geospatial Data:</strong> Processed Landsat-8 and Sentinel-2 data using color composites to identify geographical features and wildfire damage.</li>
+                <li><strong>Storm Tracking:</strong> Built high-resolution animations of Hurricane Idalia using NOAA GOES-16E imagery and ImageMagick for temporal analysis.</li>
+                <li><strong>Spatial Modeling:</strong> Conducted advanced analysis through ArcGIS and QGIS to evaluate proximity impacts of California wildfires on local ecosystems.</li>
+            </ul>
+        </div>
+    </section>
+    <section id="undergrad-ai" class="page-content pt-32 pb-20 bg-white">
+        <div class="max-w-3xl mx-auto px-8 summary-body">
+            <button onclick="showPage('portfolio')" class="text-slate-400 font-bold text-xs uppercase mb-8">← Back</button>
+            <h1 class="text-5xl font-black italic">AI ARCHITECT 🤖</h1>
+            <h2>Neural Networks from First Principles</h2>
+            <p>Moved beyond high-level libraries (like PyTorch) to build the mathematical foundations of deep learning from scratch in Python.</p>
+            <ul>
+                <li><strong>Custom Backprop:</strong> Manually implemented the backpropagation algorithm, including gradient descent and weight optimization for synthetic datasets.</li>
+                <li><strong>Transfer Learning:</strong> Developed a benchmarking suite to evaluate pre-trained model performance across CV, NLP, and multi-modal integration.</li>
+                <li><strong>Systems View:</strong> Analyzed the trade-offs between model complexity and computational efficiency in vanilla vs. optimized architectures.</li>
             </ul>
         </div>
     </section>
