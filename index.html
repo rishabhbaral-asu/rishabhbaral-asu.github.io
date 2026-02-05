@@ -98,7 +98,7 @@
             
             <div class="max-w-3xl mb-12">
                 <p class="text-xl text-slate-600 leading-relaxed font-medium">
-                    I am a Graduate Researcher at <span class="text-asu-maroon font-bold">Arizona State University</span> specializing in AI Perception and Large Language Models. Beyond engineering, I am a <strong>passionate educator</strong>. Beyond research, I am a passionate educator. As a Graduate Teaching Assistant for FSE 100, I mentor the next generation of engineers through the fundamental design process, helping them bridge the gap between initial concepts and working prototypes.
+                    I am a Graduate Researcher at <span class="text-asu-maroon font-bold">Arizona State University</span> specializing in AI Perception and Large Language Models. Beyond engineering, I am a <strong>passionate educator</strong>. As a Graduate Teaching Assistant for FSE 100, I mentor the next generation of engineers through the fundamental design process, helping them bridge the gap between initial concepts and working prototypes.
             </div>
 
             <button onclick="showPage('portfolio')" class="btn-asu px-10 py-4 rounded-full font-black uppercase tracking-widest shadow-lg">View Portfolio</button>
@@ -155,17 +155,17 @@
                 <div class="glass-card p-10 border-l-8 border-asu-maroon">
                     <h3 class="text-2xl font-bold">Arizona State University 🔱</h3>
                     <p class="text-[10px] font-black text-asu-maroon uppercase tracking-widest mb-4">Graduate Project / Teaching Assistant • Aug 2024 - Present</p>
-                    <p class="text-slate-600 mb-6">Leading development of the **L2 Perception Stack** and **SportsT2T** pipeline. Built a high-speed Python/Open3D research stack leveraging Apple Metal (MPS) acceleration.</p>
+                    <p class="text-slate-600 mb-6">Leading development of the L2 Perception Stack and SportsT2T pipeline. Built a high-speed Python/Open3D research stack leveraging Apple Metal (MPS) acceleration.</p>
                     
                     <div class="bg-asu-maroon/5 p-6 rounded-xl border border-asu-maroon/20">
-                        <p class="text-xs font-black text-asu-maroon uppercase mb-2 tracking-widest">Teaching & Pedagogy</p>
+                        <p class="text-xs font-black text-asu-maroon uppercase mb-2 tracking-widest">Instructional Lead: FSE 100</p>
                         <p class="text-sm text-slate-700 leading-relaxed mb-4">
-                            <strong>Instructional Lead:</strong> Facilitated weekly laboratory sessions for 100+ undergraduate students. My teaching philosophy focuses on <strong>"Systemic Transparency"</strong>—demystifying AI by tracing logic back to its architectural roots.
+                            <strong>FSE 100 (Introduction to Engineering):</strong> Served as a Graduate TA for the ASU engineering cornerstone. I mentored multidisciplinary teams through the <strong>Engineering Design Process</strong>, moving projects from abstract requirements to functional prototypes.
                         </p>
                         <ul class="text-xs text-slate-500 space-y-2 list-disc pl-5">
-                            <li>Managed curriculum evaluation and grading for high-enrollment engineering courses.</li>
-                            <li>Mentored students in debugging complex C, Java, and Python environments.</li>
-                            <li>Developed instructional materials for Abstract Syntax Trees (AST) and Neural Network backpropagation.</li>
+                            <li><strong>Technical Mentorship:</strong> Guided 100+ students through foundational programming in <strong>Python</strong> and <strong>JavaScript</strong> to solve automated logic and hardware interface challenges.</li>
+                            <li><strong>Design Cycle:</strong> Led students through the full lifecycle of engineering: brainstorming, rapid prototyping (Arduino/Breadboarding), and iterative testing.</li>
+                            <li><strong>Philosophy:</strong> Applied "Systemic Transparency" to help students understand how high-level code interacts with physical components, demystifying the "Black Box" of modern hardware.</li>
                         </ul>
                     </div>
                 </div>
@@ -228,7 +228,7 @@
     <section id="contact" class="page-content pt-40 pb-20">
         <div class="max-w-4xl mx-auto px-8 text-center animate__animated animate__fadeIn">
             <h1 class="text-6xl font-black mb-6 italic">Contact</h1>
-            <div class="mb-12 inline-block px-6 py-2 rounded-full bg-slate-900 text-asu-gold text-[10px] font-black uppercase tracking-[0.3em]">
+            <div class="mb-12 inline-block px-8 py-3 rounded-full border-2 border-[#FFC627] bg-[#8C1D40] text-[#FFC627] text-[11px] font-black uppercase tracking-[0.2em] shadow-lg animate__animated animate__pulse animate__infinite">
                 🇺🇸 US Citizen &bull; Open to Full-Time & Lecturer Roles
             </div>
             <a href="resume.pdf" target="_blank" class="btn-asu inline-block px-12 py-5 rounded-full font-black uppercase tracking-widest text-lg mb-12 shadow-2xl">📂 Download Full Resume</a>
@@ -312,7 +312,7 @@
 
         document.getElementById('cal-reb').innerHTML = renderMonth(new Date(2026, 1), dates.reb);
         document.getElementById('cal-meta').innerHTML = renderMonth(new Date(2026, 1), dates.meta) + renderMonth(new Date(2026, 2), dates.meta);
-        document.getElementById('cal-comm').innerHTML = renderMonth(new Date(2026, 2), dates.comm);
+        document.getElementById('cal-comm').innerHTML = renderMonth(new Date(2026, 1), dates.comm) + renderMonth(new Date(2026, 2), dates.comm);
         setInterval(updateClocks, 1000);
         updateClocks();
     </script>
