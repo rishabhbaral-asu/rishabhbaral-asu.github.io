@@ -23,40 +23,21 @@
             }
 
             .floating-bg {
-                position: fixed;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                pointer-events: none;
-                z-index: 0;
-                overflow: hidden;
+                position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+                pointer-events: none; z-index: 0; overflow: hidden;
             }
             .bubble {
-                position: absolute;
-                bottom: -100px;
-                font-size: 2.5rem;
-                opacity: 0;
-                animation: float-up 15s infinite linear;
-                will-change: transform, opacity;
+                position: absolute; bottom: -100px; font-size: 2.5rem; opacity: 0;
+                animation: float-up 15s infinite linear; will-change: transform, opacity;
             }
             @keyframes float-up {
                 0% { transform: translateY(0) rotate(0deg); opacity: 0; }
                 10% { opacity: 0.4; }
-                90% { opacity: 0.4; }
                 100% { transform: translateY(-130vh) rotate(360deg); opacity: 0; }
             }
 
-            .page-content {
-                display: none;
-                min-height: 100vh;
-                position: relative;
-                z-index: 10;
-                background: transparent !important;
-            }
-            .page-active {
-                display: block;
-            }
+            .page-content { display: none; min-height: 100vh; position: relative; z-index: 10; }
+            .page-active { display: block; }
 
             .glass-card {
                 background: var(--glass);
@@ -66,111 +47,33 @@
                 transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             }
 
-            #milestones {
-                background: var(--asu-maroon) !important;
-                color: white;
-            }
+            #milestones { background: var(--asu-maroon) !important; color: white; }
             .flip-box {
-                background: #2a0a14;
-                color: var(--asu-gold);
-                border-radius: 8px;
-                padding: 0.8rem 0.2rem;
-                min-width: 55px;
-                text-align: center;
-                font-family: "monospace";
-                box-shadow: 0 4px 0 #000;
-                border: 1px solid var(--asu-gold);
+                background: #2a0a14; color: var(--asu-gold); border-radius: 8px;
+                padding: 0.8rem 0.2rem; min-width: 55px; text-align: center;
+                font-family: monospace; box-shadow: 0 4px 0 #000; border: 1px solid var(--asu-gold);
             }
             .calendar-grid {
-                display: grid;
-                grid-template-columns: repeat(7, 1fr);
-                gap: 2px;
-                background: #5c132a;
-                padding: 4px;
-                border-radius: 6px;
-                font-size: 0.5rem;
+                display: grid; grid-template-columns: repeat(7, 1fr); gap: 2px;
+                background: #5c132a; padding: 4px; border-radius: 6px; font-size: 0.5rem;
             }
-            .cal-day {
-                background: #8c1d40;
-                padding: 2px;
-                text-align: center;
-                border-radius: 2px;
-            }
-            .cal-today {
-                background: var(--asu-gold);
-                color: black;
-                font-weight: bold;
-            }
-            .cal-target {
-                background: white;
-                color: var(--asu-maroon);
-                font-weight: 900;
-            }
+            .cal-day { background: #8c1d40; padding: 2px; text-align: center; border-radius: 2px; }
+            .cal-target { background: white; color: var(--asu-maroon); font-weight: 900; }
 
-            .summary-body h2 {
-                font-weight: 900;
-                color: var(--asu-maroon);
-                font-size: 1.5rem;
-                margin-top: 2rem;
-                display: flex;
-                align-items: center;
-                gap: 10px;
-            }
-            .summary-body p {
-                margin-bottom: 1.25rem;
-                line-height: 1.8;
-                color: #334155;
-            }
-            .summary-body li {
-                margin-bottom: 0.75rem;
-                color: #475569;
-                padding-left: 1rem;
-                position: relative;
-            }
-            .summary-body li::before {
-                content: "→";
-                position: absolute;
-                left: -10px;
-                color: var(--umd-red);
-                font-weight: bold;
-            }
-
-            .btn-asu {
-                background-color: var(--asu-maroon);
-                color: var(--asu-gold);
-                border: 2px solid var(--asu-gold);
-            }
-
+            /* Professional Map Styling */
             .map-container {
-                position: relative;
-                width: 100%;
-                height: 220px;
-                background: #f8fafc;
-                border-radius: 1rem;
-                overflow: hidden;
-                border: 1px solid #e2e8f0;
-                display: flex;
-                align-items: center;
-                justify-content: center;
+                width: 100%; height: auto; background: #f8fafc;
+                border-radius: 1rem; border: 1px solid #e2e8f0;
+                padding: 10px; display: flex; align-items: center; justify-content: center;
             }
-
-            /* Map specific overrides */
-            #usa-map-inline {
-                width: 100%;
-                height: 100%;
-                padding: 10px;
+            #usa-map-svg { width: 100%; height: auto; filter: drop-shadow(0 4px 6px rgba(0,0,0,0.05)); }
+            .state-path { 
+                fill: #cbd5e1; stroke: #ffffff; stroke-width: 0.75; 
+                transition: fill 0.3s ease, transform 0.2s ease;
+                cursor: pointer;
             }
-            #usa-map-inline path {
-                fill: #e2e8f0; /* Default gray for non-target states */
-                stroke: #ffffff;
-                stroke-width: 0.5;
-            }
-            #usa-map-inline text {
-                font-family: 'Inter', sans-serif;
-                font-size: 12px;
-                fill: #64748b;
-                pointer-events: none;
-            }
+            .state-path:hover { transform: scale(1.01); filter: brightness(1.1); }
+            .highlighted-state { fill: var(--asu-maroon) !important; stroke: var(--asu-gold) !important; stroke-width: 1.5; }
         </style>
     </head>
     <body>
@@ -184,8 +87,7 @@
         <nav class="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-xl border-b border-red-100">
             <div class="max-w-7xl mx-auto px-8 py-4 flex justify-between items-center">
                 <button onclick="showPage('home')" class="font-black text-2xl italic tracking-tighter">
-                    <span style="color: var(--umd-red)">RISHABH</span>
-                    <span style="color: var(--asu-maroon)">BARAL</span>
+                    <span style="color: var(--umd-red)">RISHABH</span><span style="color: var(--asu-maroon)">BARAL</span>
                 </button>
                 <div class="hidden md:flex space-x-6 text-[10px] font-black uppercase tracking-widest text-slate-500">
                     <button onclick="showPage('portfolio')" class="hover:text-red-600">Portfolio</button>
@@ -199,21 +101,9 @@
         <main id="home" class="page-content page-active pt-52">
             <div class="max-w-5xl mx-auto px-8 animate__animated animate__fadeInUp">
                 <span class="inline-block px-3 py-1 rounded-full bg-red-100 text-red-600 text-[9px] font-black uppercase tracking-widest mb-6">UMD Alum &bull; ASU MSCS Graduate Student</span>
-                <h1 class="text-7xl md:text-9xl font-black mb-8 tracking-tighter leading-none">
-                    A TURTLE <br /><span class="text-red-600">IGNITING THE INFERNO.</span>
-                </h1>
-                <div class="max-w-3xl mb-12">
-                    <p class="text-xl text-slate-600 leading-relaxed font-medium">
-                        I am a Graduate Researcher at
-                        <span class="text-asu-maroon font-bold">Arizona State University</span> specializing in AI
-                        Perception and Large Language Models. Beyond engineering, I am a
-                        <strong>passionate educator</strong>. As a Graduate Teaching Assistant for FSE 100, I mentor the
-                        next generation of engineers through the fundamental design process.
-                    </p>
-                </div>
+                <h1 class="text-7xl md:text-9xl font-black mb-8 tracking-tighter leading-none">A TURTLE <br /><span class="text-red-600">IGNITING THE INFERNO.</span></h1>
                 <div class="flex flex-wrap gap-4">
                     <button onclick="showPage('portfolio')" class="btn-asu px-10 py-4 rounded-full font-black uppercase tracking-widest shadow-lg">View Portfolio</button>
-                    <a href="resume.pdf" target="_blank" class="px-10 py-4 rounded-full font-black uppercase tracking-widest border-2 border-slate-200 hover:bg-slate-50 transition text-slate-500">View Resume</a>
                 </div>
             </div>
         </main>
@@ -222,13 +112,12 @@
             <div class="max-w-6xl mx-auto px-8">
                 <div class="flex justify-between items-end mb-10">
                     <h2 class="text-5xl font-black italic text-white">ASU Milestones ⏰</h2>
-                    <button onclick="showPage('home')" class="text-[10px] font-black uppercase tracking-widest text-white/50 hover:text-asu-gold transition">🏠 Back to Home</button>
+                    <button onclick="showPage('home')" class="text-[10px] font-black uppercase tracking-widest text-white/50">🏠 Back Home</button>
                 </div>
                 <div class="grid lg:grid-cols-2 gap-10">
                     <div class="bg-black/20 p-8 rounded-3xl border border-asu-gold/30">
-                        <h3 class="text-asu-gold font-black text-xs uppercase mb-2">START OF ACL Rebuttal Period</h3>
-                        <p class="text-[10px] text-white/50 font-mono mb-6 italic text-center">BEGINS: Sunday, Feb 15, 2026 @ 06:00 AM AZT</p>
-                        <div class="flex gap-4 items-center">
+                        <h3 class="text-asu-gold font-black text-xs uppercase mb-2 text-center">ACL Rebuttal Period</h3>
+                        <div class="flex gap-4 items-center justify-center">
                             <div class="grid grid-cols-4 gap-2">
                                 <div class="flex flex-col items-center"><div class="flip-box text-2xl" id="reb-d">00</div><span class="text-[7px]">Days</span></div>
                                 <div class="flex flex-col items-center"><div class="flip-box text-2xl" id="reb-h">00</div><span class="text-[7px]">Hrs</span></div>
@@ -238,108 +127,38 @@
                             <div id="cal-reb"></div>
                         </div>
                     </div>
-                    <div class="bg-black/20 p-8 rounded-3xl border border-asu-gold/30">
-                        <h3 class="text-asu-gold font-black text-xs uppercase mb-2">Meta Reviews Release</h3>
-                        <p class="text-[10px] text-white/50 font-mono mb-6 italic text-center">ENDS: Tuesday, Mar 10, 2026 @ 06:00 AM AZT</p>
-                        <div class="flex gap-4 items-center">
-                            <div class="grid grid-cols-4 gap-2">
-                                <div class="flex flex-col items-center"><div class="flip-box text-2xl" id="meta-d">00</div><span class="text-[7px]">Days</span></div>
-                                <div class="flex flex-col items-center"><div class="flip-box text-2xl" id="meta-h">00</div><span class="text-[7px]">Hrs</span></div>
-                                <div class="flex flex-col items-center"><div class="flip-box text-2xl" id="meta-m">00</div><span class="text-[7px]">Min</span></div>
-                                <div class="flex flex-col items-center"><div class="flip-box text-2xl text-white" id="meta-s">00</div><span class="text-[7px]">Sec</span></div>
-                            </div>
-                            <div id="cal-meta"></div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </section>
 
         <section id="contact" class="page-content pt-40 pb-20">
-            <div class="max-w-4xl mx-auto px-8 text-center animate__animated animate__fadeIn">
-                <div class="flex justify-between items-center mb-6">
-                    <h1 class="text-6xl font-black italic">Contact</h1>
-                    <button onclick="showPage('home')" class="text-[10px] font-black uppercase tracking-widest text-slate-400 hover:text-asu-maroon transition">🏠 Back to Home</button>
-                </div>
-                <div class="mb-12 inline-block px-8 py-3 rounded-full border-2 border-[#FFC627] bg-[#8C1D40] text-[#FFC627] text-[11px] font-black uppercase tracking-[0.2em] shadow-lg">
-                    🇺🇸 US Citizen &bull; Seeking May 2026 Opportunities
-                </div>
-                <div class="grid md:grid-cols-2 gap-8 mb-16 text-left">
-                    <div class="glass-card p-10 border-t-4 border-red-600">
-                        <div class="flex items-center gap-3 mb-4">
-                            <span class="text-2xl">🚀</span>
-                            <h2 class="text-xl font-black uppercase tracking-tighter">Industry Focus</h2>
+            <div class="max-w-5xl mx-auto px-8">
+                <div class="grid md:grid-cols-2 gap-8 items-start">
+                    <div class="glass-card p-10 border-t-8 border-asu-maroon">
+                        <h2 class="text-3xl font-black mb-6 italic">Target Locations</h2>
+                        <div class="map-container">
+                            <svg id="usa-map-svg" viewBox="0 0 959 593" xmlns="http://www.w3.org/2000/svg">
+                                <path id="HI" class="state-path" d="M246.2,506.4l-1.9,4.7l-4.4-0.1l-1.3-4.9l1.4-4.8l4.4,0.1L246.2,506.4z m16.4,14.7l-2.1,4.7l-4.4,0l-1.5-4.8l1.3-4.9l4.4-0.1L262.6,521.1z m16.3,13.2l-1.9,4.7l-4.4-0.1l-1.3-4.9l1.4-4.8l4.4,0.1L278.9,534.3z"/>
+                                <path id="AK" class="state-path" d="M192.9,493.5l-0.3,1.3l-0.8-0.1l-0.1-1.2l0.8-0.2L192.9,493.5z m-29.2,32.3l-6.2,1.5l1.8,2.8l3.6,1l3.5-2.2L163.7,525.8z"/>
+                                <path id="CA" class="state-path" d="M53.1,165.4l27.1,5.2l20.4,36.9l40.4,103.5l-2.2,2.8l-1.5,10.1l-6.8,11l23.5,39.3l-2.5,16.2l12.4,22.4l-10.9,13.6l4.2,12l-10.7,5l2,4.8l-21.7,11.2l-3.3-6l-10.5,1.9l-4.9-3.8l-30.8-0.8l-11.2-12.7l-25.7-86.8L37.1,385.2l-3.4-14.8l2.9-10.2l-5.6-20.9l7.7-27.1L35,273.8l6.3-24l-3-12.8L53.1,165.4z"/>
+                                <path id="AZ" class="state-path" d="M151.3,445.6l106,19.3l-18.7,121l-44.5-8.1l-0.3-6.5l-10.5-0.7l-15.6,5.3l-10.5-5.9l-11.8,1.2l-3.3-6l-12.4-22.4l2.5-16.2l-23.5-39.3l6.8-11l1.5-10.1L151.3,445.6z"/>
+                                <path id="TX" class="state-path" d="M433.8,402.1l63.5,11.6l4.6,35l40,7.3l27.2,56.7l-7.3,10.6l3.5,14l-6,11.3l0.7,10.2l-10.8,20.1l-14,6.7l-0.1,7.2l-14.5,14.6l-9.3,2.4l-11.5,12.3l-17.5-3.3l-12.8,11.4l-10.8-1.5l-14.8,11.1l-11.2-4l-11.2,3.3l-18.8-17.8l-14.7,1.8l-12.8-11.6l-11.7,3.1l-11.3-8.8l-2.5-10.3l-13.6-7.8l-0.6-11.3l-10.1-13.1l6.7-18l-7.2-12.8l2-20.4l-10.1-17.1l1.1-11.3l-13.2-13l3.6-14l-13.8-12.5l31.5-121l132.8,24.2L433.8,402.1z"/>
+                                <path id="IL" class="state-path" d="M608.1,202.8l17.7,3.2l0.4,12l6,4.6l-0.9,13.6l10,3.5l1.8,10l-4.6,7l3.8,7.2l-3,10.1l5,10.8l-3.6,13.8l6.7,17.8l-0.3,17.2l-14,24.1l-15.5-2.8l-10.3-15.5l-14.1-3.6l-7,7.2l-10.6-0.7l-5.3-7.2l1.3-14.1l-6.8-11.5l1-17.5l-6.3-8.1l1.6-13.1l-6.2-11.6l0.3-4.9l51.5,9.4L608.1,202.8z"/>
+                                <path id="GA" class="state-path" d="M784.5,416.7l50.8,9.2l-14.1,65.3l-20.6,13.1l-4.4,10.8l-13.5,4.7l-13,11.5l-15.1-4.8l-3.3,6.2l-11.2-1.2l-14.1-17l7.3-10.8l-3.1-6.8l5.2-10.7l-0.6-10.3l12.8-21.7l1.1-11.2l13.5-23.4L784.5,416.7z"/>
+                                <path id="MD" class="state-path" d="M856.9,297.4l3.1,0.6l1.3,13.6l-10.1,6.5l-3.8-3.5l-3.3,1.3l-3.5-3.6l0.1-10.6l10.4-3.5L856.9,297.4z"/>
+                                <path id="VA" class="state-path" d="M801.3,348.6l15.1,2.8l32.5,5.9l8.6,12.5l5.2,1.3l3.3,6.5l-14,3.3l-7.7,11l-10.1,0.9l-3.1,10.3l-10.6,0.7l-20.6-12.8l-60-10.9L739.9,380l60.1,10.9l1.3-39.5L801.3,348.6z"/>
+                                <path id="DC" class="state-path" d="M858.3,313.2l2,0.4l-0.4,2.5l-2-0.4L858.3,313.2z"/>
+                                <path class="state-path" d="M300,100 L500,100 L500,300 L300,300 Z" style="opacity: 0.1;" />
+                            </svg>
                         </div>
-                        <p class="text-sm text-slate-600 leading-relaxed mb-6">
-                            I am seeking engineering roles that bridge the gap between low-level systems and high-level
-                            AI perception. Open to relocation <strong>anywhere in America</strong>.
-                        </p>
                     </div>
-                    <div class="glass-card p-10 border-t-8 border-asu-maroon flex flex-col justify-between">
-                        <div>
-                            <div class="flex items-center gap-3 mb-6">
-                                <span class="text-3xl">🎓</span>
-                                <h2 class="text-2xl font-black uppercase tracking-tighter text-slate-800">Academic Focus</h2>
-                            </div>
-                            <div class="map-container mb-6">
-                                <svg id="usa-map-inline" viewBox="0 0 1000 600" xmlns="http://www.w3.org/2000/svg">
-                                    <path id="HI" d="M220,520l10,5l15,-10l-5,-15z"/>
-                                    <path id="AK" d="M50,450l100,0l20,80l-120,20z"/>
-                                    <path id="WA" d="M70,50l120,20l-10,70l-110,-20z"/>
-                                    <path id="OR" d="M60,140l120,20l-20,90l-110,-20z"/>
-                                    <path id="CA" d="M50,250l110,20l-40,240l-70,-20z"/>
-                                    <path id="ID" d="M190,70l50,10l10,120l-70,-10z"/>
-                                    <path id="NV" d="M160,270l100,20l-20,130l-80,-20z"/>
-                                    <path id="AZ" d="M150,440l110,20l-20,130l-90,-20z"/>
-                                    <path id="UT" d="M260,290l90,10l-10,130l-80,-10z"/>
-                                    <path id="MT" d="M240,80l160,20l-10,100l-150,-20z"/>
-                                    <path id="WY" d="M250,200l150,20l-10,100l-140,-20z"/>
-                                    <path id="CO" d="M350,310l150,20l-10,110l-140,-20z"/>
-                                    <path id="NM" d="M340,440l150,20l-20,130l-130,-20z"/>
-                                    <path id="ND" d="M400,100l110,10l-10,90l-100,-10z"/>
-                                    <path id="SD" d="M400,200l110,10l-10,90l-100,-10z"/>
-                                    <path id="NE" d="M400,300l140,20l-10,90l-130,-20z"/>
-                                    <path id="KS" d="M490,410l130,10l-10,90l-120,-10z"/>
-                                    <path id="OK" d="M500,510l130,10l-10,60l-120,-10z"/>
-                                    <path id="TX" d="M400,580l240,20l-40,150l-180,-30z"/>
-                                    <path id="MN" d="M510,110l100,30l-20,140l-80,-20z"/>
-                                    <path id="IA" d="M540,280l100,10l-10,90l-90,-10z"/>
-                                    <path id="MO" d="M550,380l110,20l-20,120l-90,-20z"/>
-                                    <path id="AR" d="M570,520l90,10l-10,90l-80,-10z"/>
-                                    <path id="LA" d="M580,620l90,10l-20,80l-70,-10z"/>
-                                    <path id="WI" d="M610,140l90,20l-20,110l-70,-10z"/>
-                                    <path id="IL" d="M640,290l80,10l-20,160l-60,-10z"/>
-                                    <path id="MS" d="M670,530l70,10l-10,150l-60,-10z"/>
-                                    <path id="MI" d="M700,160l80,20l-20,110l-60,-10z"/>
-                                    <path id="IN" d="M720,300l70,10l-10,130l-60,-10z"/>
-                                    <path id="KY" d="M720,440l100,10l-20,60l-80,-10z"/>
-                                    <path id="TN" d="M710,510l110,10l-10,60l-100,-10z"/>
-                                    <path id="AL" d="M740,540l70,10l-10,140l-60,-10z"/>
-                                    <path id="GA" d="M810,550l80,10l-30,140l-50,-10z"/>
-                                    <path id="FL" d="M850,700l100,20l-40,80l-60,-20z"/>
-                                    <path id="OH" d="M790,310l80,10l-20,100l-60,-10z"/>
-                                    <path id="WV" d="M840,420l40,10l-10,60l-30,-10z"/>
-                                    <path id="VA" d="M880,430l80,20l-30,60l-50,-10z"/>
-                                    <path id="NC" d="M850,520l110,20l-20,60l-90,-10z"/>
-                                    <path id="SC" d="M890,590l80,10l-20,60l-60,-10z"/>
-                                    <path id="PA" d="M870,320l90,10l-10,80l-80,-10z"/>
-                                    <path id="NY" d="M900,180l80,20l-30,110l-50,-10z"/>
-                                    <path id="MD" d="M930,410l30,5l-5,15l-25,-5z"/>
-                                    <path id="DC" d="M940,420l10,0l0,10l-10,0z"/>
-                                    <path id="NJ" d="M960,330l20,5l-5,50l-15,-5z"/>
-                                    <path id="CT" d="M980,310l20,0l0,15l-20,0z"/>
-                                    <path id="RI" d="M1005,310l10,0l0,15l-10,0z"/>
-                                    <path id="MA" d="M980,290l30,0l0,15l-30,0z"/>
-                                    <path id="VT" d="M970,210l15,0l0,75l-15,0z"/>
-                                    <path id="NH" d="M985,210l15,0l0,75l-15,0z"/>
-                                    <path id="ME" d="M1000,150l40,30l-20,100l-20,-10z"/>
-                                </svg>
-                            </div>
-                            <p class="text-sm text-slate-600 mb-6">Lecturer • Graduate TA for FSE 100.</p>
+                    <div class="glass-card p-10">
+                        <h2 class="text-3xl font-black mb-4">Let's Connect</h2>
+                        <p class="text-slate-500 mb-6 uppercase text-[10px] font-black tracking-widest">Available May 2026</p>
+                        <div class="space-y-4">
+                            <div class="p-4 bg-white rounded-xl border border-slate-100"><p class="text-xs text-slate-400">EMAIL</p><p class="font-bold">rishabhbaral2024@yahoo.com</p></div>
+                            <div class="p-4 bg-white rounded-xl border border-slate-100"><p class="text-xs text-slate-400">PHONE</p><p class="font-bold">214-701-0146</p></div>
                         </div>
-                        <ul class="text-[11px] text-slate-500 space-y-3 pt-6 border-t border-slate-100">
-                            <li class="flex items-start gap-3"><span class="text-asu-maroon font-bold">📍</span><span><strong>Target Geos:</strong> AZ, CA, TX, IL, GA, MD, VA, DC.</span></li>
-                        </ul>
                     </div>
                 </div>
             </div>
@@ -347,72 +166,36 @@
 
         <script>
             function showPage(pageId) {
-                const bgLayer = document.getElementById("bg-layer");
-                if (bgLayer) bgLayer.style.display = pageId === "milestones" ? "none" : "block";
-                document.querySelectorAll(".page-content").forEach((p) => p.classList.remove("page-active"));
-                const target = document.getElementById(pageId);
-                if (target) target.classList.add("page-active");
-                window.scrollTo(0, 0);
+                document.querySelectorAll(".page-content").forEach(p => p.classList.remove("page-active"));
+                document.getElementById(pageId).classList.add("page-active");
+                window.scrollTo(0,0);
             }
 
-            // COUNTDOWN LOGIC
-            const dates = {
-                reb: new Date("February 15, 2026 06:00:00"),
-                meta: new Date("March 10, 2026 06:00:00")
-            };
-
-            function renderMonth(dateObj, targetDate) {
-                const year = dateObj.getFullYear();
-                const month = dateObj.getMonth();
-                const firstDay = new Date(year, month, 1).getDay();
-                const daysInMonth = new Date(year, month + 1, 0).getDate();
-                let html = `<div class="w-28 text-white"><div class="text-[7px] font-black mb-1 text-center text-asu-gold uppercase">${dateObj.toLocaleString("default", { month: "short" })}</div><div class="calendar-grid">`;
-                for (let i = 0; i < firstDay; i++) html += `<div></div>`;
-                for (let d = 1; d <= daysInMonth; d++) {
-                    let cls = "cal-day";
-                    if (d === targetDate.getDate() && month === targetDate.getMonth()) cls += " cal-target";
-                    html += `<div class="${cls}">${d}</div>`;
-                }
-                html += `</div></div>`;
-                return html;
-            }
-
+            // High Precision Countdown
+            const dates = { reb: new Date("February 15, 2026 06:00:00") };
             function updateClocks() {
                 const now = new Date().getTime();
-                Object.keys(dates).forEach((key) => {
-                    const diff = dates[key].getTime() - now;
-                    if (diff < 0) return;
-                    document.getElementById(key + "-d").innerText = Math.floor(diff / (1000 * 60 * 60 * 24)).toString().padStart(2, "0");
-                    document.getElementById(key + "-h").innerText = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)).toString().padStart(2, "0");
-                    document.getElementById(key + "-m").innerText = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60)).toString().padStart(2, "0");
-                    document.getElementById(key + "-s").innerText = Math.floor((diff % (1000 * 60)) / 1000).toString().padStart(2, "0");
+                const diff = dates.reb.getTime() - now;
+                if (diff < 0) return;
+                document.getElementById("reb-d").innerText = Math.floor(diff / (86400000)).toString().padStart(2,"0");
+                document.getElementById("reb-h").innerText = Math.floor((diff % 86400000) / 3600000).toString().padStart(2,"0");
+                document.getElementById("reb-m").innerText = Math.floor((diff % 3600000) / 60000).toString().padStart(2,"0");
+                document.getElementById("reb-s").innerText = Math.floor((diff % 60000) / 1000).toString().padStart(2,"0");
+            }
+
+            // Map Highlight
+            function setupMap() {
+                const targetStates = ['AZ', 'CA', 'TX', 'IL', 'GA', 'MD', 'VA', 'DC'];
+                targetStates.forEach(id => {
+                    const el = document.getElementById(id);
+                    if (el) el.classList.add('highlighted-state');
                 });
             }
 
-            // MAP COLORING LOGIC
-            function colorMap() {
-                const preferredStates = ['AZ', 'CA', 'TX', 'IL', 'GA', 'MD', 'VA', 'DC'];
-                preferredStates.forEach(stateId => {
-                    const state = document.getElementById(stateId);
-                    if (state) {
-                        state.style.fill = "#8C1D40"; // ASU Maroon
-                        state.style.stroke = "#FFC627"; // ASU Gold
-                        state.style.strokeWidth = "2px";
-                    }
-                });
-            }
-
-            window.onload = function() {
-                // Initialize Calendars
-                document.getElementById("cal-reb").innerHTML = renderMonth(new Date(2026, 1), dates.reb);
-                document.getElementById("cal-meta").innerHTML = renderMonth(new Date(2026, 1), dates.meta) + renderMonth(new Date(2026, 2), dates.meta);
-                
-                // Start Clocks
+            window.onload = () => {
                 setInterval(updateClocks, 1000);
                 updateClocks();
-
-                // Color Map
-                colorMap();
+                setupMap();
             };
         </script>
     </body>
