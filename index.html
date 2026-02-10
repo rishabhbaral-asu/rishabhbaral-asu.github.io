@@ -1633,14 +1633,11 @@
                 
                 // Function to color the map
                 function colorMap() {
-                    const svgDoc = mapObject.contentDocument;
-                    if (!svgDoc) return;
-            
                     const preferredStates = ['AZ', 'CA', 'TX', 'IL', 'GA', 'MD', 'VA', 'DC'];
                     
                     preferredStates.forEach(stateId => {
                         // Find the state by ID (e.g., id="TX")
-                        const state = svgDoc.getElementById(stateId);
+                        const state = document.getElementById(stateId);
                         if (state) {
                             state.style.fill = "#8C1D40"; // ASU Maroon
                             state.style.stroke = "#FFC627"; // ASU Gold Border
@@ -1657,11 +1654,7 @@
                 }
             
                 // Try to color immediately or wait for load
-                if (mapObject.contentDocument) {
-                    colorMap();
-                } else {
-                    mapObject.addEventListener('load', colorMap);
-                }
+               colorMap();
             };
         </script>
     </body>
