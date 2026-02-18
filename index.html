@@ -221,24 +221,35 @@
                <button onclick="showPage('home')" class="text-[10px] font-black uppercase tracking-widest text-slate-400 hover:text-asu-maroon transition">🏠 Back to Home</button>
             </div>
             <div class="grid md:grid-cols-2 gap-6 mb-16">
-               <button
-                  onclick="showPage('paper-phantom')"
-                  class="glass-card p-8 text-left hover:bg-red-50 transition"
-                  >
-                  <span class="text-[9px] font-black text-red-600 uppercase">🧠 LLM Logic</span>
-                  <h3 class="text-xl font-bold mt-2">Phantom Recall</h3>
-                  <p class="text-xs text-slate-500 mt-2">Benchmarking memorization vs. reasoning in LLMs.</p>
-               </button>
-               <button
-                  onclick="showPage('paper-moneyball')"
-                  class="glass-card p-8 text-left hover:bg-red-50 transition"
-                  >
-                  <span class="text-[9px] font-black text-red-600 uppercase">📊 Tabular LLM</span>
-                  <h3 class="text-xl font-bold mt-2">Moneyball LLM</h3>
-                  <p class="text-xs text-slate-500 mt-2">
-                     Tabular summarization in long-context sports narratives.
-                  </p>
-               </button>
+                <button
+                    onclick="showPage('paper-phantom')"
+                    class="glass-card p-8 text-left hover:bg-indigo-50 transition border-l-4 border-indigo-600"
+                    >
+                    <span class="text-[9px] font-black text-indigo-600 uppercase">🧠 LLM Logic</span>
+                    <h3 class="text-xl font-bold mt-2">Phantom Recall</h3>
+                    <p class="text-xs text-slate-500 mt-2">
+                        Benchmarking memorization vs. reasoning. Investigating the "Phantom Limit" where LLM confidence \( P(y|x) \) persists despite counterfactual logic contradictions.
+                    </p>
+                    <div class="mt-4 flex gap-2">
+                        <span class="px-2 py-1 bg-slate-100 text-[8px] font-bold rounded">PYTORCH</span>
+                        <span class="px-2 py-1 bg-slate-100 text-[8px] font-bold rounded">LOGIC-PROBING</span>
+                    </div>
+                </button>
+            
+                <button
+                    onclick="showPage('paper-moneyball')"
+                    class="glass-card p-8 text-left hover:bg-emerald-50 transition border-l-4 border-emerald-600"
+                    >
+                    <span class="text-[9px] font-black text-emerald-600 uppercase">📊 Tabular LLM</span>
+                    <h3 class="text-xl font-bold mt-2">Moneyball LLM</h3>
+                    <p class="text-xs text-slate-500 mt-2">
+                        Sports narrative extraction using Cross-Encoder re-rankers and constrained JSON decoding to transform long-form prose into structured statistical insights.
+                    </p>
+                    <div class="mt-4 flex gap-2">
+                        <span class="px-2 py-1 bg-slate-100 text-[8px] font-bold rounded">RAG</span>
+                        <span class="px-2 py-1 bg-slate-100 text-[8px] font-bold rounded">PYDANTIC</span>
+                    </div>
+                </button>
             </div>
             <h2 class="text-4xl font-black mb-10 italic">Graduate Research 🔱</h2>
             <div class="grid md:grid-cols-1 gap-6 mb-16">
@@ -1417,54 +1428,40 @@
          </div>
       </section>
       <section id="paper-phantom" class="page-content pt-32 pb-20 bg-white">
-         <div class="max-w-3xl mx-auto px-8 summary-body">
-            <div class="flex justify-between items-center mb-8">
-               <button onclick="showPage('portfolio')" class="text-slate-400 font-bold text-xs uppercase hover:text-red-600 transition">← Back to Portfolio</button>
-               <button onclick="showPage('home')" class="text-slate-400 font-bold text-xs uppercase hover:text-asu-maroon transition">🏠 Home</button>
-            </div>
-            <h1 class="text-5xl font-black italic">PHANTOM RECALL 🧠</h1>
-            <h2>Under Review: ICLR Workshops 2026</h2>
-            <p>
-               Benchmarked 8 LLM families to expose "phantom recall"—where models replay remembered scripts instead
-               of re-solving puzzles after perturbations.
-            </p>
-            <ul>
-               <li><strong>Logic Judge:</strong> 96% human agreement in evaluating rationale.</li>
-               <li>
-                  <strong>Mitigation:</strong> Boosted open-source performance by +10.1 points via
-                  logic-forbidding prompts.
-               </li>
-            </ul>
-         </div>
+          <div class="max-w-3xl mx-auto px-8 summary-body">
+              <div class="flex justify-between items-center mb-8">
+                  <button onclick="showPage('portfolio')" class="text-slate-400 font-bold text-xs uppercase hover:text-red-600 transition">← Back to Portfolio</button>
+                  <button onclick="showPage('home')" class="text-slate-400 font-bold text-xs uppercase hover:text-slate-900 transition">🏠 Home</button>
+              </div>
+              <h1 class="text-5xl font-black italic uppercase">Phantom Recall 👻</h1>
+              <h2>Benchmarking Memorization vs. Reasoning</h2>
+              <p>
+                  An investigation into the "stochastic parrot" phenomenon. This research benchmarks whether LLMs are truly reasoning through logic puzzles or simply performing high-dimensional lookup of training data.
+              </p>
+              <ul>
+                  <li><strong>Methodology:</strong> Developed a "Counterfactual Logic" dataset where standard logic puzzles (e.g., Zebra Puzzle) were permuted to invalidate known training patterns.</li>
+                  <li><strong>Metrics:</strong> Evaluated the decay of accuracy \( A \) as a function of "n-gram overlap" \( O \) with training corpora, identifying a sharp drop-off when memory fails.</li>
+                  <li><strong>Key Finding:</strong> Identified the "Phantom Limit"—the point where model confidence \( P(y|x) \) remains high despite logical contradictions in the output.</li>
+              </ul>
+          </div>
       </section>
       <section id="paper-moneyball" class="page-content pt-32 pb-20 bg-white">
-         <div class="max-w-3xl mx-auto px-8 summary-body">
-            <div class="flex justify-between items-center mb-8">
-               <button onclick="showPage('portfolio')" class="text-slate-400 font-bold text-xs uppercase hover:text-red-600 transition">← Back to Portfolio</button>
-               <button onclick="showPage('home')" class="text-slate-400 font-bold text-xs uppercase hover:text-asu-maroon transition">🏠 Home</button>
-            </div>
-            <h1 class="text-5xl font-black italic">MONEYBALL LLM 📊</h1>
-            <h2>Under Review: ACL Rolling Review</h2>
-            <p>
-               Introduced <strong>SporTabSet</strong>: a diagnostic benchmark for long-context tabular
-               summarization in sports (Cricket & Basketball), requiring models to maintain state over narratives
-               exceeding 9k tokens.
-            </p>
-            <ul>
-               <li>
-                  <strong>Multi-Entity Bottleneck:</strong> Identified that failures in table generation stem from
-                  multi-entity interference rather than local arithmetic errors.
-               </li>
-               <li>
-                  <strong>Decomposition:</strong> Evaluated "Divide and Generate" strategies, showing that
-                  dissecting interference significantly improves numerical fidelity across 6,500+ commentaries.
-               </li>
-               <li>
-                  <strong>CMT Bench:</strong> Developed a multi-table generation benchmark to probe
-                  data-tabulation logic and robustness against OOD (Out-of-Distribution) entity names.
-               </li>
-            </ul>
-         </div>
+          <div class="max-w-3xl mx-auto px-8 summary-body">
+              <div class="flex justify-between items-center mb-8">
+                  <button onclick="showPage('portfolio')" class="text-slate-400 font-bold text-xs uppercase hover:text-red-600 transition">← Back to Portfolio</button>
+                  <button onclick="showPage('home')" class="text-slate-400 font-bold text-xs uppercase hover:text-slate-900 transition">🏠 Home</button>
+              </div>
+              <h1 class="text-5xl font-black italic uppercase">Moneyball LLM 📊</h1>
+              <h2>Tabular Summarization in Long-Context Narratives</h2>
+              <p>
+                  Sports narratives are dense with tabular data hidden in prose. This project implements a RAG (Retrieval-Augmented Generation) pipeline to extract and summarize box-score statistics from long-form play-by-play text.
+              </p>
+              <ul>
+                  <li><strong>Architecture:</strong> Hybrid Long-Context windowing with a <strong>Cross-Encoder</strong> re-ranker to identify statistically significant game events.</li>
+                  <li><strong>Extraction:</strong> Transformed unstructured narratives into structured JSON/DataFrames using constrained decoding and <strong>pydantic</strong> validation.</li>
+                  <li><strong>Application:</strong> Successfully reduced 10,000+ word game logs into unified "Narrative Summaries" with 94% statistical accuracy.</li>
+              </ul>
+          </div>
       </section>
       <section id="mtl-perception" class="page-content pt-32 pb-20 bg-white">
          <div class="max-w-3xl mx-auto px-8 summary-body">
@@ -1559,32 +1556,18 @@
          </div>
       </section>
       <section id="undergrad-ai" class="page-content pt-32 pb-20 bg-white">
-         <div class="max-w-3xl mx-auto px-8 summary-body">
-            <div class="flex justify-between items-center mb-8">
-               <button onclick="showPage('portfolio')" class="text-slate-400 font-bold text-xs uppercase hover:text-red-600 transition">← Back to Portfolio</button>
-               <button onclick="showPage('home')" class="text-slate-400 font-bold text-xs uppercase hover:text-asu-maroon transition">🏠 Home</button>
-            </div>
-            <h1 class="text-5xl font-black italic">AI ARCHITECT 🤖</h1>
-            <h2>Neural Networks from First Principles</h2>
-            <p>
-               Moved beyond high-level libraries (like PyTorch) to build the mathematical foundations of deep
-               learning from scratch in Python.
-            </p>
-            <ul>
-               <li>
-                  <strong>Custom Backprop:</strong> Manually implemented the backpropagation algorithm, including
-                  gradient descent and weight optimization for synthetic datasets.
-               </li>
-               <li>
-                  <strong>Transfer Learning:</strong> Developed a benchmarking suite to evaluate pre-trained model
-                  performance across CV, NLP, and multi-modal integration.
-               </li>
-               <li>
-                  <strong>Systems View:</strong> Analyzed the trade-offs between model complexity and
-                  computational efficiency in vanilla vs. optimized architectures.
-               </li>
-            </ul>
-         </div>
+          <div class="max-w-3xl mx-auto px-8 summary-body">
+              <h1 class="text-5xl font-black italic uppercase">DL from Scratch 🤖</h1>
+              <h2>Manual Implementation of Backpropagation</h2>
+              <p>
+                  Before using PyTorch, I built the engine. This project is a pure <strong>NumPy</strong> implementation of a modular deep learning framework.
+              </p>
+              <ul>
+                  <li><strong>Core Engine:</strong> Manual derivation of gradients for Linear, ReLU, and Softmax layers. </li>
+                  <li><strong>Mathematics:</strong> Implemented the chain rule for weight updates: \( \frac{\partial L}{\partial W} = \frac{\partial L}{\partial z} \cdot \frac{\partial z}{\partial W} \).</li>
+                  <li><strong>Optimization:</strong> Built custom Adam and SGD optimizers with momentum and weight decay from first principles.</li>
+              </ul>
+          </div>
       </section>
       <script>
          function showPage(pageId) {
