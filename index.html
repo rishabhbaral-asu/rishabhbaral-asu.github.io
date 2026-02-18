@@ -158,6 +158,8 @@
          pointer-events: none;
          }
       </style>
+      <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
    </head>
    <body>
       <div id="bg-layer" class="floating-bg">
@@ -1483,11 +1485,11 @@
                </li>
                <li>
                   <strong>Training Strategy:</strong> 
-                  Implemented <strong>Mixup Data Augmentation</strong> (&alpha;=0.2) to smoothen decision boundaries and <strong>Label Smoothing</strong> (0.15) to mitigate labeling noise in "Overcast" vs "Cloudy" edge cases.
+                  Implemented <strong>Mixup Data Augmentation</strong> \(\alpha=0.2\) to smoothen decision boundaries and <strong>Label Smoothing</strong> (0.15) to mitigate labeling noise in "Overcast" vs "Cloudy" edge cases.
                </li>
                <li>
                   <strong>Optimization:</strong> 
-                  Utilized <strong>Differential Learning Rates</strong> (2 &times; 10^{-6} backbone vs 5 &times; 10^{-5} heads) to fine-tune high-level semantic heads without destroying pre-trained low-level geometric filters.
+                  Utilized <strong>Differential Learning Rates</strong> (\(2 \times 10^{-6}\) backbone vs \(5 \times 10^{-5}\) heads) to fine-tune high-level semantic heads without destroying pre-trained low-level geometric filters.
                </li>
                <li>
                   <strong>Hardware Integration:</strong> 
