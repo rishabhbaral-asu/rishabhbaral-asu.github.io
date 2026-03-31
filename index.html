@@ -353,97 +353,143 @@
             </div>
          </div>
       </section>
-      <section id="milestones" class="page-content pt-32 pb-20">
-         <div class="max-w-6xl mx-auto px-8">
-            <div class="flex justify-between items-end mb-10">
-               <h2 class="text-5xl font-black italic text-white">ASU Milestones ⏰</h2>
-               <button onclick="showPage('home')" class="text-[10px] font-black uppercase tracking-widest text-white/50 hover:text-asu-gold transition">🏠 Back to Home</button>
+     <section id="milestones" class="page-content pt-32 pb-20 page-active">
+    <div class="max-w-6xl mx-auto px-8">
+        <div class="flex justify-between items-end mb-10">
+            <h2 class="text-5xl font-black italic text-white">ASU Milestones ⏰</h2>
+            <button onclick="showPage('home')" class="text-[10px] font-black uppercase tracking-widest text-white/50 hover:text-asu-gold transition">🏠 Back to Home</button>
+        </div>
+        <div class="grid lg:grid-cols-2 gap-10">
+            
+            <div class="bg-black/20 p-8 rounded-3xl border border-asu-gold/30">
+                <h3 class="text-asu-gold font-black text-xs uppercase mb-2">ACL 2026 Results</h3>
+                <p class="text-[10px] text-white/50 font-mono mb-6 italic text-center">
+                    RELEASE: Sunday, Apr 5, 2026 @ 05:00 AM AZT
+                </p>
+                <div class="flex gap-4 items-center">
+                    <div class="grid grid-cols-4 gap-2">
+                        <div class="flex flex-col items-center">
+                            <div class="flip-box text-2xl" id="acl-res-d">00</div>
+                            <span class="text-[7px]">Days</span>
+                        </div>
+                        <div class="flex flex-col items-center">
+                            <div class="flip-box text-2xl" id="acl-res-h">00</div>
+                            <span class="text-[7px]">Hrs</span>
+                        </div>
+                        <div class="flex flex-col items-center">
+                            <div class="flip-box text-2xl" id="acl-res-m">00</div>
+                            <span class="text-[7px]">Min</span>
+                        </div>
+                        <div class="flex flex-col items-center">
+                            <div class="flip-box text-2xl text-white" id="acl-res-s">00</div>
+                            <span class="text-[7px]">Sec</span>
+                        </div>
+                    </div>
+                    <div id="cal-acl-res">
+                        <div class="w-28 text-white">
+                            <div class="text-[7px] font-black mb-1 text-center text-asu-gold uppercase">Apr</div>
+                            <div class="calendar-grid">
+                                <div class="cal-day">1</div><div class="cal-day">2</div><div class="cal-day">3</div><div class="cal-day">4</div>
+                                <div class="cal-day cal-target">5</div><div class="cal-day">6</div><div class="cal-day">7</div><div class="cal-day">8</div>
+                                <div class="cal-day">9</div><div class="cal-day">10</div><div class="cal-day">11</div><div class="cal-day">12</div>
+                                <div class="cal-day">13</div><div class="cal-day">14</div><div class="cal-day">15</div><div class="cal-day">16</div>
+                                <div class="cal-day">17</div><div class="cal-day">18</div><div class="cal-day">19</div><div class="cal-day">20</div>
+                                <div class="cal-day">21</div><div class="cal-day">22</div><div class="cal-day">23</div><div class="cal-day">24</div>
+                                <div class="cal-day">25</div><div class="cal-day">26</div><div class="cal-day">27</div><div class="cal-day">28</div>
+                                <div class="cal-day">29</div><div class="cal-day">30</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="grid lg:grid-cols-2 gap-10">
-               <div class="bg-black/20 p-8 rounded-3xl border border-asu-gold/30">
-                  <h3 class="text-asu-gold font-black text-xs uppercase mb-2">START OF ACL Rebuttal Period</h3>
-                  <p class="text-[10px] text-white/50 font-mono mb-6 italic text-center">
-                     BEGINS: Sunday, Feb 15, 2026 @ 06:00 AM AZT
-                  </p>
-                  <div class="flex gap-4 items-center">
-                     <div class="grid grid-cols-4 gap-2">
+
+            <div class="bg-black/20 p-8 rounded-3xl border border-asu-gold/30">
+                <h3 class="text-asu-gold font-black text-xs uppercase mb-2">NeurIPS Submission Open</h3>
+                <p class="text-[10px] text-white/50 font-mono mb-6 italic text-center">
+                    OPENS: Monday, Apr 6, 2026 @ 05:00 AM AZT
+                </p>
+                <div class="flex gap-4 items-center">
+                    <div class="grid grid-cols-4 gap-2">
                         <div class="flex flex-col items-center">
-                           <div class="flip-box text-2xl" id="reb-d">00</div>
-                           <span class="text-[7px]">Days</span>
+                            <div class="flip-box text-2xl" id="nips-d">00</div>
+                            <span class="text-[7px]">Days</span>
                         </div>
                         <div class="flex flex-col items-center">
-                           <div class="flip-box text-2xl" id="reb-h">00</div>
-                           <span class="text-[7px]">Hrs</span>
+                            <div class="flip-box text-2xl" id="nips-h">00</div>
+                            <span class="text-[7px]">Hrs</span>
                         </div>
                         <div class="flex flex-col items-center">
-                           <div class="flip-box text-2xl" id="reb-m">00</div>
-                           <span class="text-[7px]">Min</span>
+                            <div class="flip-box text-2xl" id="nips-m">00</div>
+                            <span class="text-[7px]">Min</span>
                         </div>
                         <div class="flex flex-col items-center">
-                           <div class="flip-box text-2xl text-white" id="reb-s">00</div>
-                           <span class="text-[7px]">Sec</span>
+                            <div class="flip-box text-2xl text-white" id="nips-s">00</div>
+                            <span class="text-[7px]">Sec</span>
                         </div>
-                     </div>
-                     <div id="cal-reb"></div>
-                  </div>
-               </div>
-               <div class="bg-black/20 p-8 rounded-3xl border border-asu-gold/30">
-                  <h3 class="text-asu-gold font-black text-xs uppercase mb-2">Meta Reviews Release</h3>
-                  <p class="text-[10px] text-white/50 font-mono mb-6 italic text-center">
-                     ENDS: Tuesday, Mar 10, 2026 @ 06:00 AM AZT
-                  </p>
-                  <div class="flex gap-4 items-center">
-                     <div class="grid grid-cols-4 gap-2">
-                        <div class="flex flex-col items-center">
-                           <div class="flip-box text-2xl" id="meta-d">00</div>
-                           <span class="text-[7px]">Days</span>
+                    </div>
+                    <div id="cal-nips">
+                        <div class="w-28 text-white">
+                            <div class="text-[7px] font-black mb-1 text-center text-asu-gold uppercase">Apr</div>
+                            <div class="calendar-grid">
+                                <div class="cal-day">1</div><div class="cal-day">2</div><div class="cal-day">3</div><div class="cal-day">4</div>
+                                <div class="cal-day">5</div><div class="cal-day cal-target">6</div><div class="cal-day">7</div><div class="cal-day">8</div>
+                                <div class="cal-day">9</div><div class="cal-day">10</div><div class="cal-day">11</div><div class="cal-day">12</div>
+                                <div class="cal-day">13</div><div class="cal-day">14</div><div class="cal-day">15</div><div class="cal-day">16</div>
+                                <div class="cal-day">17</div><div class="cal-day">18</div><div class="cal-day">19</div><div class="cal-day">20</div>
+                                <div class="cal-day">21</div><div class="cal-day">22</div><div class="cal-day">23</div><div class="cal-day">24</div>
+                                <div class="cal-day">25</div><div class="cal-day">26</div><div class="cal-day">27</div><div class="cal-day">28</div>
+                                <div class="cal-day">29</div><div class="cal-day">30</div>
+                            </div>
                         </div>
-                        <div class="flex flex-col items-center">
-                           <div class="flip-box text-2xl" id="meta-h">00</div>
-                           <span class="text-[7px]">Hrs</span>
-                        </div>
-                        <div class="flex flex-col items-center">
-                           <div class="flip-box text-2xl" id="meta-m">00</div>
-                           <span class="text-[7px]">Min</span>
-                        </div>
-                        <div class="flex flex-col items-center">
-                           <div class="flip-box text-2xl text-white" id="meta-s">00</div>
-                           <span class="text-[7px]">Sec</span>
-                        </div>
-                     </div>
-                     <div id="cal-meta"></div>
-                  </div>
-               </div>
-               <div class="bg-black/20 p-8 rounded-3xl border border-asu-gold/30">
-                  <h3 class="text-asu-gold font-black text-xs uppercase mb-2">ACL 2026 Commitment</h3>
-                  <p class="text-[10px] text-white/50 font-mono mb-6 italic text-center">
-                     ENDS: Monday, Mar 16, 2026 @ 04:59 AM AZT
-                  </p>
-                  <div class="flex gap-4 items-center">
-                     <div class="grid grid-cols-4 gap-2">
-                        <div class="flex flex-col items-center">
-                           <div class="flip-box text-2xl" id="comm-d">00</div>
-                           <span class="text-[7px]">Days</span>
-                        </div>
-                        <div class="flex flex-col items-center">
-                           <div class="flip-box text-2xl" id="comm-h">00</div>
-                           <span class="text-[7px]">Hrs</span>
-                        </div>
-                        <div class="flex flex-col items-center">
-                           <div class="flip-box text-2xl" id="comm-m">00</div>
-                           <span class="text-[7px]">Min</span>
-                        </div>
-                        <div class="flex flex-col items-center">
-                           <div class="flip-box text-2xl text-white" id="comm-s">00</div>
-                           <span class="text-[7px]">Sec</span>
-                        </div>
-                     </div>
-                     <div id="cal-comm"></div>
-                  </div>
-               </div>
+                    </div>
+                </div>
             </div>
-         </div>
-      </section>
+
+            <div class="bg-black/20 p-8 rounded-3xl border border-asu-gold/30 lg:col-span-2">
+                <h3 class="text-asu-gold font-black text-xs uppercase mb-2">Graduation Day 🎓</h3>
+                <p class="text-[10px] text-white/50 font-mono mb-6 italic text-center">
+                    Saturday, May 9, 2026 @ 02:00 PM AZT
+                </p>
+                <div class="flex gap-12 justify-center items-center">
+                    <div class="grid grid-cols-4 gap-4">
+                        <div class="flex flex-col items-center">
+                            <div class="flip-box text-4xl" id="grad-d">00</div>
+                            <span class="text-[9px] uppercase tracking-widest mt-2">Days</span>
+                        </div>
+                        <div class="flex flex-col items-center">
+                            <div class="flip-box text-4xl" id="grad-h">00</div>
+                            <span class="text-[9px] uppercase tracking-widest mt-2">Hrs</span>
+                        </div>
+                        <div class="flex flex-col items-center">
+                            <div class="flip-box text-4xl" id="grad-m">00</div>
+                            <span class="text-[9px] uppercase tracking-widest mt-2">Min</span>
+                        </div>
+                        <div class="flex flex-col items-center">
+                            <div class="flip-box text-4xl text-white" id="grad-s">00</div>
+                            <span class="text-[9px] uppercase tracking-widest mt-2">Sec</span>
+                        </div>
+                    </div>
+                    <div id="cal-grad">
+                        <div class="w-32 text-white">
+                            <div class="text-[8px] font-black mb-1 text-center text-asu-gold uppercase">May 2026</div>
+                            <div class="calendar-grid">
+                                <div class="cal-day text-white/20">29</div><div class="cal-day text-white/20">30</div><div class="cal-day">1</div><div class="cal-day">2</div>
+                                <div class="cal-day">3</div><div class="cal-day">4</div><div class="cal-day">5</div><div class="cal-day">6</div>
+                                <div class="cal-day">7</div><div class="cal-day">8</div><div class="cal-day cal-target">9</div><div class="cal-day">10</div>
+                                <div class="cal-day">11</div><div class="cal-day">12</div><div class="cal-day">13</div><div class="cal-day">14</div>
+                                <div class="cal-day">15</div><div class="cal-day">16</div><div class="cal-day">17</div><div class="cal-day">18</div>
+                                <div class="cal-day">19</div><div class="cal-day">20</div><div class="cal-day">21</div><div class="cal-day">22</div>
+                                <div class="cal-day">23</div><div class="cal-day">24</div><div class="cal-day">25</div><div class="cal-day">26</div>
+                                <div class="cal-day">27</div><div class="cal-day">28</div><div class="cal-day">29</div><div class="cal-day">30</div>
+                                <div class="cal-day">31</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
       <section id="contact" class="page-content pt-40 pb-20">
          <div class="max-w-4xl mx-auto px-8 text-center animate__animated animate__fadeIn">
          <div class="flex justify-between items-center mb-6">
@@ -1462,38 +1508,38 @@
               </ul>
           </div>
       </section>
-      <section id="mtl-perception" class="page-content pt-32 pb-20 bg-white">
+      <section id="mtl-perception" class="page-content pt-32 pb-20 bg-white page-active">
          <div class="max-w-3xl mx-auto px-8 summary-body">
             <div class="flex justify-between items-center mb-8">
                <button onclick="showPage('portfolio')" class="text-slate-400 font-bold text-xs uppercase hover:text-blue-600 transition">← Back to Portfolio</button>
                <button onclick="showPage('home')" class="text-slate-400 font-bold text-xs uppercase hover:text-slate-900 transition">🏠 Home</button>
             </div>
-            <h1 class="text-5xl font-black italic uppercase">Multi-Task Vision 🧠</h1>
-            <h2>Adverse Weather & Scene Understanding</h2>
+            <h1 class="text-5xl font-black italic uppercase">Edge-Optimized VLM 🧠</h1>
+            <h2>Diagnosing Geographic Domain Shift in Autonomous Driving</h2>
             <p>
-               An end-to-end Multi-Task Learning (MTL) architecture designed to replicate state-of-the-art results on the <strong>BDD100K dataset</strong>. 
-               The system concurrently classifies Weather, Time of Day, and Scene Context from a shared feature representation, optimized for edge-case robustness in autonomous driving scenarios.
+               An end-to-end, edge-deployable Vision-Language Model (~50M parameters) designed to diagnose geographic covariate shift in autonomous driving. 
+               The system classifies Weather, Time of Day, and Scene Topology, trained on the North American-centric <strong>BDD100K dataset</strong> and rigorously stress-tested against a globally curated, human-verified Out-of-Distribution (OOD) diagnostic dataset spanning Tokyo, Oslo, and the San Francisco Bay Area.
             </p>
             <ul>
                <li>
-                  <strong>Backbone Architecture:</strong> 
-                  Upgraded from ResNet-18 to <strong>ResNet-50</strong> to expand feature capacity. Leverages 2,048-dimensional global average pooled features to distinguish subtle environmental cues.
+                  <strong>Architecture:</strong> 
+                  Avoided standard Global Average Pooling (GAP) by pairing a <strong>ConvNeXt-Tiny</strong> vision backbone with a <strong>49-token spatial projection layer</strong>. This preserves $7 \times 7$ geometric priors for a custom block-causal Scaled Dot-Product Attention (SDPA) Transformer decoder.
                </li>
                <li>
                   <strong>Training Strategy:</strong> 
-                  Implemented <strong>Mixup Data Augmentation</strong> \(\alpha=0.2\) to smoothen decision boundaries and <strong>Label Smoothing</strong> (0.15) to mitigate labeling noise in "Overcast" vs "Cloudy" edge cases.
+                  Implemented <strong>Homoscedastic Uncertainty Weighting</strong> to dynamically balance multi-task gradients. This probabilistic framework acts as a dynamic loss-scale modulator, preventing lower-entropy tasks from dominating the optimization space.
                </li>
                <li>
                   <strong>Optimization:</strong> 
-                  Utilized <strong>Differential Learning Rates</strong> (\(2 \times 10^{-6}\) backbone vs \(5 \times 10^{-5}\) heads) to fine-tune high-level semantic heads without destroying pre-trained low-level geometric filters.
+                  Utilized <strong>Differential Learning Rates</strong> (<mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" ctxtmenu_counter="5" style="font-size: 113.1%; position: relative;"><mjx-math class="MJX-TEX" aria-hidden="true"><mjx-mn class="mjx-n"><mjx-c class="mjx-c31"></mjx-c></mjx-mn><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-cD7"></mjx-c></mjx-mo><mjx-msup space="3"><mjx-mn class="mjx-n"><mjx-c class="mjx-c31"></mjx-c><mjx-c class="mjx-c30"></mjx-c></mjx-mn><mjx-script style="vertical-align: 0.393em;"><mjx-texatom size="s" texclass="ORD"><mjx-mo class="mjx-n"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-mn class="mjx-n"><mjx-c class="mjx-c35"></mjx-c></mjx-mn></mjx-texatom></mjx-script></mjx-msup></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mn>1</mn><mo>×</mo><msup><mn>10</mn><mrow data-mjx-texclass="ORD"><mo>−</mo><mn>5</mn></mrow></msup></math></mjx-assistive-mml></mjx-container> backbone vs <mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" ctxtmenu_counter="6" style="font-size: 113.1%; position: relative;"><mjx-math class="MJX-TEX" aria-hidden="true"><mjx-mn class="mjx-n"><mjx-c class="mjx-c31"></mjx-c></mjx-mn><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-cD7"></mjx-c></mjx-mo><mjx-msup space="3"><mjx-mn class="mjx-n"><mjx-c class="mjx-c31"></mjx-c><mjx-c class="mjx-c30"></mjx-c></mjx-mn><mjx-script style="vertical-align: 0.393em;"><mjx-texatom size="s" texclass="ORD"><mjx-mo class="mjx-n"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-mn class="mjx-n"><mjx-c class="mjx-c34"></mjx-c></mjx-mn></mjx-texatom></mjx-script></mjx-msup></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mn>1</mn><mo>×</mo><msup><mn>10</mn><mrow data-mjx-texclass="ORD"><mo>−</mo><mn>4</mn></mrow></msup></math></mjx-assistive-mml></mjx-container> decoder) using AdamW to fine-tune the semantic language space without destroying pre-trained low-level geometric filters.
                </li>
                <li>
                   <strong>Hardware Integration:</strong> 
-                  Engineered for <strong>Apple Metal Performance Shaders (MPS)</strong>, enabling high-throughput training and 1.2+ it/s inference speeds on local silicon.
+                  Engineered for extreme parameter efficiency, successfully training the entire pipeline natively on consumer hardware utilizing an <strong>Apple Silicon M3</strong> and the <strong>Metal Performance Shaders (MPS)</strong> framework.
                </li>
                <li>
-                  <strong>Performance Metrics:</strong> 
-                  Achieved a <strong>0.7256 Macro F1-score</strong>, targeting the 0.8081 paper benchmark through dynamic loss weighting and weighted random sampling for class imbalance.
+                  <strong>Performance & Analysis:</strong> 
+                  Achieved <strong>68.23% Semantic Exact Match</strong> on 10,000 ID images, matching a 2B parameter foundation model baseline (Qwen2-VL). Mechanistic failure analysis via cross-attention weights successfully identified real-world vulnerabilities like the <em>High Albedo Effect</em> and infrastructural shortcut learning.
                </li>
             </ul>
          </div>
