@@ -101,6 +101,13 @@
          color: var(--asu-maroon);
          font-weight: 900;
          }
+/* In-Between: Faded Gold Path */
+.cal-in-between {
+    color: #FFC627;
+    opacity: 0.5;
+    background: rgba(255, 198, 37, 0.1);
+    border-radius: 2px;
+}
          .summary-body h2 {
          font-weight: 900;
          color: var(--asu-maroon);
@@ -363,60 +370,63 @@
       <div class="grid lg:grid-cols-2 gap-10">
          <div class="bg-black/20 p-8 rounded-3xl border border-asu-gold/30">
             <h3 class="text-asu-gold font-black text-xs uppercase mb-2">ACL 2026 Results</h3>
-            <p class="text-[10px] text-white/50 font-mono mb-6 italic text-center">
-               Sunday, Apr 5, 2026 @ 05:00 AM AZT
-            </p>
+            <p class="text-[10px] text-white/50 font-mono mb-6 italic text-center">Sunday, Apr 5, 2026 @ 05:00 AM AZT</p>
             <div class="flex gap-4 items-center">
                <div class="grid grid-cols-4 gap-2">
-                  <div class="flex flex-col items-center">
-                     <div class="flip-box text-2xl" id="acl-res-d">00</div>
-                     <span class="text-[7px]">Days</span>
-                  </div>
-                  <div class="flex flex-col items-center">
-                     <div class="flip-box text-2xl" id="acl-res-h">00</div>
-                     <span class="text-[7px]">Hrs</span>
-                  </div>
-                  <div class="flex flex-col items-center">
-                     <div class="flip-box text-2xl" id="acl-res-m">00</div>
-                     <span class="text-[7px]">Min</span>
-                  </div>
-                  <div class="flex flex-col items-center">
-                     <div class="flip-box text-2xl text-white" id="acl-res-s">00</div>
-                     <span class="text-[7px]">Sec</span>
-                  </div>
+                  <div class="flex flex-col items-center"><div class="flip-box text-2xl" id="acl-res-d">00</div><span class="text-[7px]">Days</span></div>
+                  <div class="flex flex-col items-center"><div class="flip-box text-2xl" id="acl-res-h">00</div><span class="text-[7px]">Hrs</span></div>
+                  <div class="flex flex-col items-center"><div class="flip-box text-2xl" id="acl-res-m">00</div><span class="text-[7px]">Min</span></div>
+                  <div class="flex flex-col items-center"><div class="flip-box text-2xl text-white" id="acl-res-s">00</div><span class="text-[7px]">Sec</span></div>
                </div>
-               <div class="w-28 text-white">
-                  <div class="text-[7px] font-black mb-1 text-center text-asu-gold uppercase">Apr</div>
-                  <div class="calendar-grid">
-                     <div class="cal-day">1</div><div class="cal-day">2</div><div class="cal-day">3</div><div class="cal-day">4</div>
-                     <div class="cal-day cal-target">5</div><div class="cal-day">6</div><div class="cal-day">7</div><div class="cal-day">8</div>
-                     <div class="cal-day">9</div><div class="cal-day">10</div><div class="cal-day">11</div><div class="cal-day">12</div>
-                     <div class="cal-day">13</div><div class="cal-day">14</div><div class="cal-day">15</div><div class="cal-day">16</div>
+               <div class="flex gap-2">
+                  <div class="w-20 text-white">
+                     <div class="text-[6px] font-black mb-1 text-center text-asu-gold uppercase">Mar</div>
+                     <div class="calendar-grid">
+                        <div class="cal-day opacity-20">29</div><div class="cal-day opacity-20">30</div>
+                        <div class="cal-day cal-today">31</div>
                      </div>
+                  </div>
+                  <div class="w-20 text-white">
+                     <div class="text-[6px] font-black mb-1 text-center text-asu-gold uppercase">Apr</div>
+                     <div class="calendar-grid">
+                        <div class="cal-day cal-in-between">1</div><div class="cal-day cal-in-between">2</div>
+                        <div class="cal-day cal-in-between">3</div><div class="cal-day cal-in-between">4</div>
+                        <div class="cal-day cal-target">5</div>
+                     </div>
+                  </div>
                </div>
             </div>
          </div>
 
          <div class="bg-black/20 p-8 rounded-3xl border border-asu-gold/30">
             <h3 class="text-asu-gold font-black text-xs uppercase mb-2">NeurIPS Submission Open</h3>
-            <p class="text-[10px] text-white/50 font-mono mb-6 italic text-center">
-               Monday, Apr 6, 2026 @ 05:00 AM AZT
-            </p>
+            <p class="text-[10px] text-white/50 font-mono mb-6 italic text-center">Monday, Apr 6, 2026 @ 05:00 AM AZT</p>
             <div class="flex gap-4 items-center">
                <div class="grid grid-cols-4 gap-2">
                   <div class="flex flex-col items-center"><div class="flip-box text-2xl" id="nips-d">00</div><span class="text-[7px]">Days</span></div>
                   <div class="flex flex-col items-center"><div class="flip-box text-2xl" id="nips-h">00</div><span class="text-[7px]">Hrs</span></div>
                   <div class="flex flex-col items-center"><div class="flip-box text-2xl" id="nips-m">00</div><span class="text-[7px]">Min</span></div>
-                  <div class="flex flex-col items-center"><div class="flip-box text-2xl" id="nips-s">00</div><span class="text-[7px]">Sec</span></div>
+                  <div class="flex flex-col items-center"><div class="flip-box text-2xl text-white" id="nips-s">00</div><span class="text-[7px]">Sec</span></div>
                </div>
+               <div class="flex gap-2">
+                  <div class="w-20 text-white">
+                     <div class="text-[6px] font-black mb-1 text-center text-asu-gold uppercase">Mar</div>
+                     <div class="calendar-grid"><div class="cal-day cal-today">31</div></div>
+                  </div>
+                  <div class="w-20 text-white">
+                     <div class="text-[6px] font-black mb-1 text-center text-asu-gold uppercase">Apr</div>
+                     <div class="calendar-grid">
+                        <div class="cal-day cal-in-between">1</div><div class="cal-day cal-in-between">2</div><div class="cal-day cal-in-between">3</div>
+                        <div class="cal-day cal-in-between">4</div><div class="cal-day cal-in-between">5</div><div class="cal-day cal-target">6</div>
+                     </div>
+                  </div>
                </div>
+            </div>
          </div>
 
          <div class="bg-black/20 p-8 rounded-3xl border border-asu-gold/30 lg:col-span-2">
             <h3 class="text-asu-gold font-black text-xs uppercase mb-2 text-center">Graduation Day 🎓</h3>
-            <p class="text-[10px] text-white/50 font-mono mb-6 italic text-center">
-               Saturday, May 9, 2026 @ 02:00 PM AZT
-            </p>
+            <p class="text-[10px] text-white/50 font-mono mb-6 italic text-center">Saturday, May 9, 2026 @ 02:00 PM AZT</p>
             <div class="flex flex-col md:flex-row gap-12 justify-center items-center">
                <div class="grid grid-cols-4 gap-4">
                   <div class="flex flex-col items-center"><div class="flip-box text-4xl" id="grad-d">00</div><span class="text-[9px] uppercase tracking-widest mt-2">Days</span></div>
@@ -424,12 +434,24 @@
                   <div class="flex flex-col items-center"><div class="flip-box text-4xl" id="grad-m">00</div><span class="text-[9px] uppercase tracking-widest mt-2">Min</span></div>
                   <div class="flex flex-col items-center"><div class="flip-box text-4xl text-white" id="grad-s">00</div><span class="text-[9px] uppercase tracking-widest mt-2">Sec</span></div>
                </div>
+               <div class="flex gap-2">
+                  <div class="w-24 text-white">
+                     <div class="text-[6px] font-black mb-1 text-center text-asu-gold uppercase">Mar/Apr</div>
+                     <div class="calendar-grid"><div class="cal-day cal-today">31</div><div class="cal-day cal-in-between">...</div></div>
+                  </div>
+                  <div class="w-24 text-white">
+                     <div class="text-[6px] font-black mb-1 text-center text-asu-gold uppercase">May</div>
+                     <div class="calendar-grid">
+                        <div class="cal-day cal-in-between">1</div><div class="cal-day cal-in-between">...</div>
+                        <div class="cal-day cal-target">9</div>
+                     </div>
+                  </div>
+               </div>
             </div>
          </div>
       </div>
    </div>
 </section>
-
 <script>
 function updateCountdowns() {
     const milestones = [
