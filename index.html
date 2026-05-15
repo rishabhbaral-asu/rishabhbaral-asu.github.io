@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Rishabh Baral is a graduate researcher at Arizona State University working across AI perception, applied NLP, LLM evaluation, and teaching."
+      content="Rishabh Baral is an ASU PhD student and graduate researcher working across AI perception, applied NLP, LLM evaluation, and teaching."
     />
     <title>Rishabh Baral | AI and Applied NLP</title>
     <link rel="preload" href="states.svg" as="image" />
@@ -356,6 +356,10 @@
 
       .card.teal {
         border-left: 5px solid var(--teal);
+      }
+
+      .card.gold {
+        border-left: 5px solid #b7791f;
       }
 
       .card.maroon {
@@ -730,6 +734,28 @@
         padding-left: 20px;
       }
 
+      .research-figure {
+        overflow: hidden;
+        margin: 24px 0;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: var(--surface);
+      }
+
+      .research-figure img {
+        display: block;
+        width: 100%;
+        max-height: 360px;
+        object-fit: cover;
+      }
+
+      .research-figure figcaption {
+        padding: 12px 14px;
+        color: var(--muted);
+        font-size: 0.9rem;
+        line-height: 1.5;
+      }
+
       .skip-link {
         position: absolute;
         left: 12px;
@@ -843,15 +869,15 @@
       <section id="home" class="view is-active" data-page>
         <div class="container hero">
           <div>
-            <span class="eyebrow">UMD alum | ASU MSCS graduate student</span>
+            <span class="eyebrow">UMD alum | ASU PhD student</span>
             <h1 class="hero-title">
               AI systems<span class="mobile-break"></span> with an<span class="mobile-break"></span>
               educator's<span class="mobile-break"></span> <span class="accent">edge.</span>
             </h1>
             <p class="lead">
-              I am a graduate researcher at Arizona State University specializing in AI perception, applied NLP,
-              and large language model evaluation. As a Graduate Teaching Assistant for FSE 100, I mentor
-              first-year engineers through the design process, from uncertain early concepts to working prototypes.
+              I am pursuing my PhD at Arizona State University, where I work on AI perception, applied NLP, and
+              large language model evaluation. As a Graduate Teaching Assistant for FSE 100, I mentor first-year
+              engineers through the design process, from uncertain early concepts to working prototypes.
             </p>
             <div class="actions">
               <button class="button primary" type="button" data-page-target="portfolio">View portfolio</button>
@@ -863,7 +889,7 @@
             <img src="states.svg" alt="Map of the United States" />
             <figcaption class="visual-caption">
               <strong>Research, teaching, and relocation range</strong>
-              <span>AI perception, applied NLP, LLM benchmarking, engineering education, and nationwide roles.</span>
+              <span>AI perception, applied NLP, LLM benchmarking, engineering education, and nationwide internships.</span>
             </figcaption>
           </figure>
         </div>
@@ -879,18 +905,32 @@
             <button class="text-button" type="button" data-page-target="home">Back to home</button>
           </div>
 
-          <div class="grid two">
+          <div class="grid three">
             <button class="card blue" type="button" data-page-target="paper-phantom">
-              <span class="tagline">LLM logic evaluation</span>
+              <span class="tagline">Counterfactual reasoning benchmark</span>
               <h3>Phantom Recall</h3>
               <p>
-                Benchmarking memorization against reasoning by probing the point where model confidence persists
-                despite counterfactual logic contradictions.
+                Stress-testing when language models recite answer-shaped memories instead of recomputing the
+                world after a detail changes.
               </p>
               <div class="chips">
-                <span class="chip">PyTorch</span>
-                <span class="chip">Logic probing</span>
-                <span class="chip">Evaluation</span>
+                <span class="chip">Counterfactual data</span>
+                <span class="chip">Exact answers</span>
+                <span class="chip">RL signals</span>
+              </div>
+            </button>
+
+            <button class="card gold" type="button" data-page-target="paper-image-metaphors">
+              <span class="tagline">Figurative text-to-image</span>
+              <h3>Image Metaphors</h3>
+              <p>
+                Building subjunctive prompts and augmentation rules for images where the subject remains literal,
+                but borrows the visual logic of another object.
+              </p>
+              <div class="chips">
+                <span class="chip">T2I prompting</span>
+                <span class="chip">Visual commonsense</span>
+                <span class="chip">Failure analysis</span>
               </div>
             </button>
 
@@ -964,7 +1004,7 @@
           <div class="timeline">
             <article class="experience-card">
               <h3>Arizona State University</h3>
-              <p class="role-line">Graduate Project / Teaching Assistant | Aug 2024 - Present</p>
+              <p class="role-line">PhD Student / Graduate Teaching Assistant | Aug 2024 - Present</p>
               <p>
                 Leading work across the L2 perception stack and SportsT2T pipeline. Built a Python/Open3D
                 research stack that uses Apple Metal acceleration for rapid local experimentation.
@@ -999,7 +1039,7 @@
         <div class="container">
           <div class="section-head">
             <div>
-              <p class="section-kicker">ASU timeline</p>
+              <p class="section-kicker">PhD and research timeline</p>
               <h1>Milestones</h1>
             </div>
             <button class="text-button" type="button" data-page-target="home">Back to home</button>
@@ -1012,7 +1052,7 @@
         <div class="container">
           <div class="section-head">
             <div>
-              <p class="section-kicker">US citizen | seeking May 2026 opportunities</p>
+              <p class="section-kicker">US citizen | seeking internships from May 2027 onward</p>
               <h1>Contact</h1>
             </div>
             <button class="text-button" type="button" data-page-target="home">Back to home</button>
@@ -1020,15 +1060,15 @@
 
           <div class="contact-layout">
             <article class="contact-card">
-              <h3>Industry focus</h3>
+              <h3>Internship focus</h3>
               <p>
-                I am seeking engineering roles that bridge low-level systems and high-level AI perception. My
+                I am seeking internship roles that bridge low-level systems and high-level AI perception. My
                 background in compiler architecture and LLM benchmarking is a fit for core engineering, MLOps,
                 and applied AI teams.
               </p>
               <ul class="list">
                 <li><strong>Location:</strong> open to relocation anywhere in the United States.</li>
-                <li><strong>Availability:</strong> full-time starting May 2026.</li>
+                <li><strong>Availability:</strong> internships from May 2027 onward.</li>
               </ul>
             </article>
 
@@ -1078,15 +1118,48 @@
             <button class="text-button" type="button" data-page-target="home">Home</button>
           </div>
           <h1>Phantom Recall</h1>
-          <h2>Benchmarking memorization vs. reasoning</h2>
+          <h2>Counterfactual benchmarks for answer-shaped memory</h2>
           <p>
-            An investigation into whether LLMs reason through logic puzzles or perform high-dimensional lookup of
-            training patterns.
+            Phantom Recall asks a simple question: when a familiar problem is perturbed, does the model recompute
+            the answer, or does it keep reaching for the answer it has seen before? The benchmark uses clean
+            arithmetic and logic variants with exact expected answers, making the failure mode visible rather than
+            hidden inside vibes-based grading.
           </p>
           <ul>
-            <li><strong>Methodology:</strong> developed a counterfactual logic dataset where standard puzzles were permuted to invalidate known training patterns.</li>
-            <li><strong>Metrics:</strong> evaluated accuracy \(A\) as a function of n-gram overlap \(O\), identifying a sharp drop-off when memory fails.</li>
-            <li><strong>Key finding:</strong> identified the Phantom Limit, where model confidence \(P(y|x)\) remains high despite logical contradictions.</li>
+            <li><strong>Dataset design:</strong> generated problem variants that preserve the surface story while changing the numeric or logical dependency that determines the answer.</li>
+            <li><strong>Evaluation:</strong> scored exact answers and inspected whether generations follow the altered premise or drift back to a memorized template.</li>
+            <li><strong>Training bridge:</strong> used the benchmark as a reward signal for GRPO-style practice, turning counterfactual correctness into a model-improvement loop.</li>
+            <li><strong>Research target:</strong> isolate the Phantom Recall point, where a model sounds confident because the prompt is familiar, even though the correct computation has changed.</li>
+          </ul>
+        </article>
+      </section>
+
+      <section id="paper-image-metaphors" class="view" data-page hidden>
+        <article class="summary">
+          <div class="summary-nav">
+            <button class="text-button" type="button" data-page-target="portfolio">Back to portfolio</button>
+            <button class="text-button" type="button" data-page-target="home">Home</button>
+          </div>
+          <h1>Image Metaphors</h1>
+          <h2>Subjunctive prompts for figurative image generation</h2>
+          <p>
+            Image Metaphors studies prompts like "a waffle that looks like a chessboard" or "the moon that looks
+            like a boat." The hard part is not creativity alone. The system has to keep the subject as the main
+            object while borrowing only the source object's silhouette, material logic, texture, motion, or spatial
+            arrangement.
+          </p>
+          <figure class="research-figure">
+            <img src="image-metaphors-moon-boat.png" alt="Generated metaphor image of a moon evoking a boat" />
+            <figcaption>
+              Example metaphor probe: the moon should remain the subject while boat-like structure appears as a
+              secondary visual echo.
+            </figcaption>
+          </figure>
+          <ul>
+            <li><strong>Prompt grammar:</strong> formalized subjunctive prompts with a subject, object, action, anchor, reason, and final natural-language prompt.</li>
+            <li><strong>Failure modes:</strong> targeted side-by-side juxtaposition, fully visible source objects, and cases where the metaphor source overtakes the subject.</li>
+            <li><strong>Augmentation pipeline:</strong> used visual commonsense hints to add identity locks, natural anchors, and concrete staging that make A read as A while evoking B.</li>
+            <li><strong>Evaluation direction:</strong> compare generated outputs across prompt styles and models on subject salience, metaphor readability, and source concealment.</li>
           </ul>
         </article>
       </section>
@@ -1234,29 +1307,18 @@
 
       const milestones = [
         {
-          title: "ACL 2026 Results",
-          label: "Sunday, Apr 5, 2026 at 05:00 AM AZT",
-          date: "2026-04-05T05:00:00-07:00",
+          title: "PhD 1st Day",
+          label: "Monday, May 18, 2026 at 09:00 AM AZT",
+          date: "2026-05-18T09:00:00-07:00",
           months: [
-            [2026, 2],
-            [2026, 3],
+            [2026, 4],
           ],
         },
         {
-          title: "NeurIPS Submission Opens",
-          label: "Monday, Apr 6, 2026 at 05:00 AM AZT",
-          date: "2026-04-06T05:00:00-07:00",
+          title: "EMNLP Deadline",
+          label: "Tuesday, May 26, 2026 at 04:59 AM AZT",
+          date: "2026-05-26T04:59:00-07:00",
           months: [
-            [2026, 2],
-            [2026, 3],
-          ],
-        },
-        {
-          title: "Graduation Day",
-          label: "Saturday, May 9, 2026 at 02:00 PM AZT",
-          date: "2026-05-09T14:00:00-07:00",
-          months: [
-            [2026, 3],
             [2026, 4],
           ],
         },
