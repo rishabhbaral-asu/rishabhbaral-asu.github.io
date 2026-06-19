@@ -875,7 +875,7 @@
               educator's<span class="mobile-break"></span> <span class="accent">edge.</span>
             </h1>
             <p class="lead">
-              I am pursuing my PhD at Arizona State University (expected May 2030), where my research spans AI perception, multi-modal integration, and evaluating language and vision models. As a Graduate Teaching Assistant, I also led instructional sessions on JavaScript for undergraduate students, reinforcing object-oriented design and programming principles.
+              I am pursuing my PhD at Arizona State University (expected May 2030), where my research spans AI perception, multi-modal integration, and evaluating language and vision models. As a Graduate Teaching Assistant, I led instructional sessions on JavaScript for undergraduate students, reinforcing object-oriented design and programming principles.
             </p>
             <div class="actions">
               <button class="button primary" type="button" data-page-target="portfolio">View portfolio</button>
@@ -908,11 +908,11 @@
               <span class="tagline">LLM reasoning evaluation</span>
               <h3>Phantom Recall</h3>
               <p>
-                Benchmarked LLM reasoning via puzzle variations to expose memorization vs. true reasoning. Developed automated error classification achieving 96% human agreement.
+                Investigating memorization vs. genuine reasoning in LLMs. Phase I completed with automated error classification (96% human agreement); Phase II underway to develop prompting interventions.
               </p>
               <div class="chips">
-                <span class="chip">ACL Rolling Review</span>
-                <span class="chip">Error classification</span>
+                <span class="chip">Memorization vs Reasoning</span>
+                <span class="chip">Prompt Interventions</span>
               </div>
             </button>
 
@@ -961,7 +961,7 @@
 
           <div class="band">
             <p class="section-kicker muted-title">Selected projects & undergrad engineering</p>
-            <div class="grid three">
+            <div class="grid two">
               <button class="card red" type="button" data-page-target="undergrad-caml">
                 <span class="tagline">Functional languages</span>
                 <h3>MicroCaml Engineer</h3>
@@ -976,6 +976,11 @@
                 <span class="tagline">Custom architectures</span>
                 <h3>AI/ML Architecture</h3>
                 <p>Engineered a custom neural network from scratch, implementing a robust backpropagation algorithm to tune parameters on synthetic datasets.</p>
+              </button>
+              <button class="card red" type="button" data-page-target="undergrad-fullstack">
+                <span class="tagline">Full-Stack Dev</span>
+                <h3>Modern Applications</h3>
+                <p>Built a Kotlin weather application featuring real-time API integration, and a high-concurrency order processing supermarket application using a Node.js backend and MongoDB.</p>
               </button>
             </div>
           </div>
@@ -1010,9 +1015,17 @@
               </div>
             </article>
 
+            <article class="experience-card">
+              <h3>Arizona State University</h3>
+              <p class="role-line">Master of Science in Computer Science | May 2026</p>
+              <p>
+                Completed Master's degree focusing on advanced computational concepts, multi-modal systems, and artificial intelligence architectures.
+              </p>
+            </article>
+
             <article class="experience-card umd">
               <h3>University of Maryland</h3>
-              <p class="role-line">Bachelor of Science & Master of Science in Computer Science | 2021 - May 2026</p>
+              <p class="role-line">Bachelor of Science in Computer Science | May 2024</p>
               <p>
                 Specialized in core computer science, gaining foundational experience in systems, programming languages, and robust software engineering practices.
               </p>
@@ -1104,15 +1117,16 @@
             <button class="text-button" type="button" data-page-target="portfolio">Back to portfolio</button>
             <button class="text-button" type="button" data-page-target="home">Home</button>
           </div>
-          <h1>PHANTOM RECALL: When Familiar Puzzles Fool Smart Models</h1>
-          <h2>Submitted to ACL Rolling Review (ARR)</h2>
+          <h1>PHANTOM RECALL: Distinguishing and Mitigating Memorization in Large Language Models</h1>
+          <h2>Lead Student Researcher | Expected Completion: Dec 31, 2026</h2>
           <p>
-            PHANTOM RECALL aims to benchmark LLM reasoning via puzzle variations to expose memorization versus true reasoning.
+            This project investigates the distinction between genuine reasoning and memorized recall in Large Language Models (LLMs) through systematic benchmark variations that preserve logical structure while altering surface-level representations.
           </p>
           <ul>
-            <li><strong>Evaluation:</strong> Benchmarked LLM reasoning via specific variations to see if models fail to reason beyond their memorized responses.</li>
-            <li><strong>Automated Classification:</strong> Developed automated error classification pipelines that successfully achieved 96% human agreement.</li>
-            <li><strong>Authorship:</strong> Co-authored with S. Mukhopadhyay, N. Mahajan, et al.</li>
+            <li><strong>Phase I (Completed):</strong> Constructed benchmark variations and developed an automated error-classification system successfully achieving 96% agreement with human annotators.</li>
+            <li><strong>Phase II (In Progress):</strong> Developing prompting-based interventions designed to reduce reliance on memorized patterns and improve reasoning robustness.</li>
+            <li><strong>Expected Deliverables:</strong> An open-source benchmark suite, an automated reasoning-failure taxonomy, public software release, and a peer-reviewed publication by December 31, 2026.</li>
+            <li><strong>Research Team:</strong> R. Baral (Lead), N. Mahajan, Prof. C. Baral, Prof. V. Gupta.</li>
           </ul>
         </article>
       </section>
@@ -1135,9 +1149,8 @@
             </figcaption>
           </figure>
           <ul>
-            <li><strong>Model Evaluation:</strong> Conducted strict evaluations on state-of-the-art Text-to-Image models.</li>
-            <li><strong>Figurative Language:</strong> Highlighted the models' limitations in processing visual similes effectively.</li>
-            <li><strong>Authorship:</strong> Co-authored with Y. Luo, S. Mukhopadhyay, Y. Yang, C. Baral for ACL Rolling Review (ARR).</li>
+            <li><strong>Model Evaluation:</strong> Conducted strict evaluations highlighting the models' limitations in processing visual similes effectively.</li>
+            <li><strong>Authorship:</strong> Co-authored with Y. Luo, S. Mukhopadhyay, Y. Yang, C. Baral.</li>
           </ul>
         </article>
       </section>
@@ -1177,7 +1190,6 @@
             <li><strong>Ark Cyclic Training:</strong> Implemented within a ResNet-50 backbone to eliminate gradient interference across concurrent classification, localization, and segmentation tasks.</li>
             <li><strong>Optimization:</strong> Optimized deployment on Apple M3 silicon to achieve a 2.4x throughput increase.</li>
             <li><strong>Clinical Pipeline:</strong> Built a medical imaging pipeline using pydicom to parse metadata and normalize high-bit-depth DICOM scans, and designed a hybrid U-Net architecture achieving 98.42% validation pixel accuracy.</li>
-            <li><strong>Coordinate Regression:</strong> Adapted ImageNet-pretrained ResNet-18 models for skeletal age estimation and anatomical bounding box localization, achieving a localization Mean Absolute Error (MAE) of 0.0909.</li>
           </ul>
         </article>
       </section>
@@ -1194,8 +1206,7 @@
             Architected and engineered "MicroCaml", a functional sublanguage of OCaml.
           </p>
           <ul>
-            <li><strong>Pipeline Construction:</strong> Developed a full pipeline including a custom Lexer for tokenization and a Parser for abstract syntax tree generation.</li>
-            <li><strong>Interpreter:</strong> Developed an Interpreter to execute higher-order functions.</li>
+            <li><strong>Pipeline Construction:</strong> Developed a full pipeline including a custom Lexer for tokenization, a Parser for abstract syntax tree generation, and an Interpreter to execute higher-order functions.</li>
             <li><strong>Simulation:</strong> Simulated a regular expression engine and a tree-based database system using OCaml.</li>
           </ul>
         </article>
@@ -1234,7 +1245,24 @@
           <ul>
             <li><strong>Core engine:</strong> Engineered a custom neural network implementing a robust backpropagation algorithm to tune network parameters on synthetic datasets.</li>
             <li><strong>Benchmarking:</strong> Developed a comprehensive transfer learning benchmark to evaluate model performance across CV, NLP, and multi-modal integration domains.</li>
-            <li><strong>Full-Stack Applications:</strong> Built a responsive, multi-screen weather application in Kotlin, and developed a high-concurrency order processing supermarket application using a Node.js backend and MongoDB.</li>
+          </ul>
+        </article>
+      </section>
+
+      <section id="undergrad-fullstack" class="view" data-page hidden>
+        <article class="summary">
+          <div class="summary-nav">
+            <button class="text-button" type="button" data-page-target="portfolio">Back to portfolio</button>
+            <button class="text-button" type="button" data-page-target="home">Home</button>
+          </div>
+          <h1>Modern Applications</h1>
+          <h2>Full-Stack Development</h2>
+          <p>
+            Developed comprehensive full-stack and mobile applications prioritizing modern, scalable infrastructure.
+          </p>
+          <ul>
+            <li><strong>Mobile Application:</strong> Built a responsive, multi-screen weather application in Kotlin featuring real-time API integration, multi-language support, and Google AdMob monetization.</li>
+            <li><strong>Web Backend:</strong> Developed a high-concurrency order processing supermarket application using a JavaScript/Node.js backend, a modern HTML/CSS frontend, and a MongoDB database for scalable JSON data storage.</li>
           </ul>
         </article>
       </section>
