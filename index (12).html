@@ -1,0 +1,1459 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Rishabh Baral is a U.S. Citizen and Computer Science PhD student at Arizona State University seeking Summer 2027 AI/ML Research, Data Science, and ML Engineering internships and full-time roles."
+    />
+    <title>Rishabh Baral | AI/ML Research & Data Science</title>
+    <link rel="preload" href="states.svg" as="image" />
+    <style>
+      :root {
+        --asu-maroon: #8c1d40;
+        --asu-gold: #ffc627;
+        --umd-red: #e21833;
+        --ink: #111827;
+        --muted: #64748b;
+        --line: #dbe3ee;
+        --paper: #ffffff;
+        --surface: #f6f8fb;
+        --surface-strong: #eef2f7;
+        --blue: #2563eb;
+        --teal: #0f766e;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        color: var(--ink);
+        background: var(--surface);
+        font-family:
+          Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        letter-spacing: 0;
+        overflow-x: hidden;
+      }
+
+      body.milestones-mode {
+        background: #2a0a14;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      button,
+      input,
+      textarea {
+        font: inherit;
+        letter-spacing: 0;
+      }
+
+      button {
+        cursor: pointer;
+      }
+
+      [hidden] {
+        display: none !important;
+      }
+
+      .container {
+        width: min(1120px, calc(100vw - 40px));
+        margin: 0 auto;
+      }
+
+      .site-nav {
+        position: fixed;
+        inset: 0 0 auto 0;
+        z-index: 50;
+        border-bottom: 1px solid rgba(219, 227, 238, 0.9);
+        background: rgba(255, 255, 255, 0.88);
+        backdrop-filter: blur(18px);
+      }
+
+      .nav-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+        min-height: 76px;
+      }
+
+      .brand {
+        display: inline-grid;
+        gap: 1px;
+        border: 0;
+        background: transparent;
+        color: var(--ink);
+        padding: 0;
+        text-align: left;
+        font-weight: 900;
+        line-height: 0.92;
+        text-transform: uppercase;
+      }
+
+      .brand span:first-child {
+        color: var(--umd-red);
+      }
+
+      .brand span:last-child {
+        color: var(--asu-maroon);
+      }
+
+      .nav-links {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 8px;
+        flex-wrap: wrap;
+      }
+
+      .nav-link {
+        border: 1px solid transparent;
+        border-radius: 8px;
+        background: transparent;
+        color: var(--muted);
+        padding: 10px 12px;
+        font-size: 0.82rem;
+        font-weight: 800;
+      }
+
+      .nav-link:hover,
+      .nav-link:focus-visible,
+      .nav-link.is-active {
+        border-color: rgba(140, 29, 64, 0.18);
+        color: var(--asu-maroon);
+        background: rgba(140, 29, 64, 0.06);
+        outline: none;
+      }
+
+      .view {
+        display: none;
+        min-height: 100vh;
+        padding: 124px 0 76px;
+      }
+
+      .view.is-active {
+        display: block;
+      }
+
+      .hero {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(320px, 0.82fr);
+        gap: 52px;
+        align-items: center;
+        min-height: 78vh;
+        padding-bottom: 36px;
+      }
+
+      .hero > * {
+        min-width: 0;
+      }
+
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        border: 1px solid rgba(140, 29, 64, 0.16);
+        border-radius: 8px;
+        background: rgba(140, 29, 64, 0.06);
+        color: var(--asu-maroon);
+        padding: 8px 10px;
+        font-size: 0.78rem;
+        font-weight: 850;
+      }
+
+      h1,
+      h2,
+      h3,
+      p {
+        margin-top: 0;
+      }
+
+      .hero-title {
+        max-width: 860px;
+        margin: 22px 0 24px;
+        font-size: clamp(3.3rem, 7rem, 7rem);
+        line-height: 0.95;
+        font-weight: 950;
+        overflow-wrap: break-word;
+      }
+
+      .accent {
+        color: var(--umd-red);
+      }
+
+      .mobile-break {
+        display: none;
+      }
+
+      .lead {
+        width: 100%;
+        max-width: 760px;
+        color: #475569;
+        font-size: 1.08rem;
+        line-height: 1.8;
+        font-weight: 520;
+        overflow-wrap: break-word;
+      }
+
+      .actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 28px;
+      }
+
+      .button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 46px;
+        border-radius: 8px;
+        border: 1px solid var(--line);
+        background: var(--paper);
+        color: var(--ink);
+        padding: 12px 16px;
+        font-weight: 850;
+        transition:
+          transform 160ms ease,
+          border-color 160ms ease,
+          background 160ms ease,
+          color 160ms ease;
+      }
+
+      .button:hover,
+      .button:focus-visible {
+        transform: translateY(-1px);
+        border-color: rgba(140, 29, 64, 0.4);
+        outline: none;
+      }
+
+      .button.primary {
+        border-color: var(--asu-maroon);
+        background: var(--asu-maroon);
+        color: var(--asu-gold);
+      }
+
+      .button.ghost {
+        background: transparent;
+      }
+
+      .hero-visual {
+        position: relative;
+        max-width: 100%;
+        overflow: hidden;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: var(--paper);
+        box-shadow: 0 24px 80px rgba(15, 23, 42, 0.08);
+      }
+
+      .hero-visual img {
+        display: block;
+        width: 100%;
+        min-height: 270px;
+        object-fit: cover;
+        opacity: 0.78;
+      }
+
+      .visual-caption {
+        position: absolute;
+        inset: auto 16px 16px 16px;
+        display: grid;
+        gap: 8px;
+        border: 1px solid rgba(255, 255, 255, 0.6);
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.9);
+        padding: 14px;
+        backdrop-filter: blur(12px);
+      }
+
+      .visual-caption strong {
+        color: var(--asu-maroon);
+        font-size: 0.9rem;
+      }
+
+      .visual-caption span {
+        color: var(--muted);
+        font-size: 0.82rem;
+        line-height: 1.45;
+      }
+
+      .section-head {
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        gap: 24px;
+        margin-bottom: 28px;
+      }
+
+      .section-head h1,
+      .section-head h2 {
+        margin: 0;
+        font-size: clamp(2rem, 4vw, 3.35rem);
+        line-height: 1;
+        font-weight: 950;
+      }
+
+      .section-kicker {
+        margin-bottom: 9px;
+        color: var(--asu-maroon);
+        font-size: 0.82rem;
+        font-weight: 850;
+      }
+
+      .grid {
+        display: grid;
+        gap: 18px;
+      }
+
+      .grid.two {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .grid.three {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .card {
+        display: block;
+        width: 100%;
+        min-height: 100%;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.86);
+        color: var(--ink);
+        padding: 24px;
+        text-align: left;
+        box-shadow: 0 14px 44px rgba(15, 23, 42, 0.05);
+        transition:
+          transform 180ms ease,
+          box-shadow 180ms ease,
+          border-color 180ms ease;
+      }
+
+      .card:hover,
+      .card:focus-visible {
+        transform: translateY(-2px);
+        border-color: rgba(140, 29, 64, 0.26);
+        box-shadow: 0 20px 54px rgba(15, 23, 42, 0.09);
+        outline: none;
+      }
+
+      .card.blue {
+        border-left: 5px solid var(--blue);
+      }
+
+      .card.teal {
+        border-left: 5px solid var(--teal);
+      }
+
+      .card.gold {
+        border-left: 5px solid #b7791f;
+      }
+
+      .card.maroon {
+        border-left: 5px solid var(--asu-maroon);
+      }
+
+      .card.red {
+        border-left: 5px solid var(--umd-red);
+      }
+
+      .tagline {
+        color: var(--muted);
+        font-size: 0.78rem;
+        font-weight: 850;
+      }
+
+      .card h3 {
+        margin: 8px 0 10px;
+        font-size: 1.22rem;
+      }
+
+      .card p {
+        margin: 0;
+        color: #526174;
+        font-size: 0.95rem;
+        line-height: 1.65;
+      }
+
+      .chips {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 16px;
+      }
+
+      .chip {
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: var(--surface-strong);
+        color: #334155;
+        padding: 5px 8px;
+        font-size: 0.72rem;
+        font-weight: 850;
+      }
+
+      .band {
+        margin-top: 46px;
+      }
+
+      .muted-title {
+        color: #667085;
+      }
+
+      .timeline {
+        display: grid;
+        gap: 18px;
+      }
+
+      .experience-card {
+        border: 1px solid var(--line);
+        border-left: 6px solid var(--asu-maroon);
+        border-radius: 8px;
+        background: var(--paper);
+        padding: 28px;
+      }
+
+      .experience-card.umd {
+        border-left-color: var(--umd-red);
+      }
+
+      .experience-card h3 {
+        margin-bottom: 6px;
+        font-size: 1.35rem;
+      }
+
+      .role-line {
+        color: var(--asu-maroon);
+        font-size: 0.84rem;
+        font-weight: 850;
+      }
+
+      .experience-card.umd .role-line {
+        color: var(--umd-red);
+      }
+
+      .experience-card p {
+        color: #475569;
+        line-height: 1.75;
+      }
+
+      .note {
+        margin-top: 18px;
+        border: 1px solid rgba(140, 29, 64, 0.16);
+        border-radius: 8px;
+        background: rgba(140, 29, 64, 0.05);
+        padding: 18px;
+      }
+
+      .note h4 {
+        margin: 0 0 8px;
+        color: var(--asu-maroon);
+      }
+
+      .list {
+        margin: 12px 0 0;
+        padding-left: 18px;
+        color: #526174;
+        line-height: 1.65;
+      }
+
+      .milestone-wrap {
+        color: white;
+      }
+
+      .milestone-wrap .section-kicker {
+        color: var(--asu-gold);
+      }
+
+      .milestone-card {
+        border: 1px solid rgba(255, 198, 39, 0.24);
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.07);
+        padding: 24px;
+      }
+
+      .milestone-card h3 {
+        margin: 0 0 4px;
+        color: var(--asu-gold);
+      }
+
+      .milestone-card p {
+        color: rgba(255, 255, 255, 0.7);
+      }
+
+      .milestone-layout {
+        display: grid;
+        grid-template-columns: minmax(240px, 0.6fr) minmax(280px, 1fr);
+        gap: 22px;
+        align-items: start;
+        margin-top: 18px;
+      }
+
+      .countdown {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 8px;
+      }
+
+      .time-box {
+        border: 1px solid rgba(255, 198, 39, 0.5);
+        border-radius: 8px;
+        background: #210711;
+        padding: 12px 6px;
+        text-align: center;
+      }
+
+      .time-value {
+        display: block;
+        color: var(--asu-gold);
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+        font-size: 1.55rem;
+        font-weight: 900;
+      }
+
+      .time-label {
+        display: block;
+        margin-top: 4px;
+        color: rgba(255, 255, 255, 0.6);
+        font-size: 0.72rem;
+      }
+
+      .milestone-status {
+        min-height: 22px;
+        margin-top: 12px;
+        color: rgba(255, 255, 255, 0.82);
+        font-weight: 800;
+      }
+
+      .calendar-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+
+      .calendar {
+        width: 176px;
+        color: white;
+      }
+
+      .calendar-title {
+        margin-bottom: 7px;
+        color: var(--asu-gold);
+        text-align: center;
+        font-size: 0.78rem;
+        font-weight: 850;
+      }
+
+      .calendar-grid {
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+        gap: 3px;
+      }
+
+      .calendar-grid span {
+        display: grid;
+        place-items: center;
+        min-height: 23px;
+        border-radius: 5px;
+        background: rgba(255, 255, 255, 0.08);
+        color: rgba(255, 255, 255, 0.72);
+        font-size: 0.72rem;
+      }
+
+      .calendar-grid .weekday {
+        background: transparent;
+        color: rgba(255, 255, 255, 0.45);
+        font-weight: 800;
+      }
+
+      .calendar-grid .empty {
+        background: transparent;
+      }
+
+      .calendar-grid .target {
+        background: var(--asu-gold);
+        color: #17040c;
+        font-weight: 900;
+      }
+
+      .calendar-grid .today {
+        outline: 2px solid #ffffff;
+        outline-offset: 1px;
+      }
+
+      .contact-layout {
+        display: grid;
+        grid-template-columns: minmax(0, 0.95fr) minmax(320px, 1.05fr);
+        gap: 24px;
+        align-items: stretch;
+      }
+
+      .contact-card {
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: var(--paper);
+        padding: 24px;
+      }
+
+      .contact-card h3 {
+        margin: 0 0 10px;
+      }
+
+      .contact-card p,
+      .contact-card li {
+        color: #526174;
+        line-height: 1.65;
+      }
+
+      .map-frame {
+        position: relative;
+        overflow: hidden;
+        min-height: 295px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: var(--paper);
+      }
+
+      .map-frame img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        min-height: 295px;
+        object-fit: cover;
+        opacity: 0.72;
+      }
+
+      .geo-tags {
+        position: absolute;
+        inset: auto 14px 14px 14px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+
+      .geo-tags span {
+        border: 1px solid rgba(255, 198, 39, 0.65);
+        border-radius: 8px;
+        background: rgba(140, 29, 64, 0.92);
+        color: var(--asu-gold);
+        padding: 6px 8px;
+        font-size: 0.76rem;
+        font-weight: 900;
+      }
+
+      .contact-methods {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
+        margin-top: 18px;
+      }
+
+      .method {
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: var(--paper);
+        padding: 18px;
+      }
+
+      .method strong {
+        display: block;
+        color: var(--asu-maroon);
+        font-size: 0.82rem;
+      }
+
+      .method span {
+        display: block;
+        margin-top: 6px;
+        overflow-wrap: anywhere;
+        font-weight: 800;
+      }
+
+      .summary {
+        width: min(820px, calc(100vw - 40px));
+        margin: 0 auto;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: var(--paper);
+        padding: clamp(24px, 5vw, 42px);
+      }
+
+      .summary-nav {
+        display: flex;
+        justify-content: space-between;
+        gap: 12px;
+        margin-bottom: 28px;
+      }
+
+      .text-button {
+        border: 0;
+        background: transparent;
+        color: var(--muted);
+        padding: 0;
+        font-weight: 850;
+      }
+
+      .text-button:hover,
+      .text-button:focus-visible {
+        color: var(--asu-maroon);
+        outline: none;
+      }
+
+      .summary h1 {
+        margin-bottom: 16px;
+        font-size: clamp(2rem, 4.4vw, 3.25rem);
+        line-height: 1;
+        font-weight: 950;
+      }
+
+      .summary h2 {
+        margin: 28px 0 10px;
+        color: var(--asu-maroon);
+        font-size: 1.28rem;
+      }
+
+      .summary p,
+      .summary li {
+        color: #475569;
+        line-height: 1.75;
+      }
+
+      .summary ul {
+        padding-left: 20px;
+      }
+
+      .research-figure {
+        overflow: hidden;
+        margin: 24px 0;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: var(--surface);
+      }
+
+      .research-figure img {
+        display: block;
+        width: 100%;
+        max-height: 360px;
+        object-fit: cover;
+      }
+
+      .research-figure figcaption {
+        padding: 12px 14px;
+        color: var(--muted);
+        font-size: 0.9rem;
+        line-height: 1.5;
+      }
+
+      .skip-link {
+        position: absolute;
+        left: 12px;
+        top: -40px;
+        z-index: 100;
+        border-radius: 8px;
+        background: var(--ink);
+        color: white;
+        padding: 8px 10px;
+      }
+
+      .skip-link:focus {
+        top: 12px;
+      }
+
+      @media (max-width: 900px) {
+        .hero,
+        .grid.two,
+        .grid.three,
+        .milestone-layout,
+        .contact-layout {
+          grid-template-columns: 1fr;
+        }
+
+        .hero {
+          gap: 28px;
+          min-height: auto;
+        }
+
+        .section-head {
+          align-items: flex-start;
+          flex-direction: column;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .container {
+          width: calc(100vw - 28px);
+        }
+
+        .nav-inner {
+          align-items: flex-start;
+          flex-direction: column;
+          gap: 12px;
+          padding: 14px 0;
+        }
+
+        .nav-links {
+          justify-content: flex-start;
+        }
+
+        .view {
+          padding-top: 172px;
+        }
+
+        .hero-title {
+          font-size: clamp(2.45rem, 13vw, 3.6rem);
+        }
+
+        .mobile-break {
+          display: block;
+        }
+
+        .actions,
+        .summary-nav {
+          align-items: stretch;
+          flex-direction: column;
+        }
+
+        .button {
+          width: 100%;
+        }
+
+        .contact-methods,
+        .countdown {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+    </style>
+    <script>
+      window.MathJax = {
+        tex: {
+          inlineMath: [
+            ["\\(", "\\)"],
+            ["$", "$"],
+          ],
+        },
+      };
+    </script>
+    <script async id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#home">Skip to content</a>
+
+    <nav class="site-nav" aria-label="Primary navigation">
+      <div class="container nav-inner">
+        <button class="brand" type="button" data-page-target="home" aria-label="Open home page">
+          <span>Rishabh</span>
+          <span>Baral</span>
+        </button>
+        <div class="nav-links">
+          <button class="nav-link" type="button" data-page-target="portfolio" data-nav="portfolio">Portfolio</button>
+          <button class="nav-link" type="button" data-page-target="experience" data-nav="experience">Experience</button>
+          <button class="nav-link" type="button" data-page-target="milestones" data-nav="milestones">Milestones</button>
+          <button class="nav-link" type="button" data-page-target="contact" data-nav="contact">Contact</button>
+        </div>
+      </div>
+    </nav>
+
+    <main>
+      <section id="home" class="view is-active" data-page>
+        <div class="container hero">
+          <div>
+            <span class="eyebrow">U.S. Citizen | CS PhD Student @ ASU | Summer 2027</span>
+            <h1 class="hero-title">
+              AI/ML Research<span class="mobile-break"></span> & Data<span class="mobile-break"></span>
+              Science<span class="mobile-break"></span> <span class="accent">candidate.</span>
+            </h1>
+            <p class="lead">
+              I am a U.S. Citizen and Computer Science PhD student at Arizona State University, actively seeking <strong>AI/ML Research, Data Science, and ML Engineering internships and full-time roles for a Summer 2027 start.</strong> My work spans LLM evaluation, reasoning robustness, tabular summarization, multimodal model evaluation, and applied ML systems. I also teach and mentor undergraduate computer science students as a Graduate Project Teaching Assistant.
+            </p>
+            <div class="actions">
+              <button class="button primary" type="button" data-page-target="portfolio">View portfolio</button>
+              <a class="button" href="resume.pdf" target="_blank" rel="noreferrer">View resume</a>
+              <button class="button ghost" type="button" data-page-target="contact">Contact</button>
+            </div>
+          </div>
+          <figure class="hero-visual" aria-label="United States map">
+            <img src="states.svg" alt="Map of the United States" />
+            <figcaption class="visual-caption">
+              <strong>U.S. Citizen | AI/ML Research & Data Science</strong>
+              <span>CS PhD student @ ASU seeking Summer 2027 internships and full-time roles across LLM evaluation, applied ML, and data science.</span>
+            </figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section id="portfolio" class="view" data-page hidden>
+        <div class="container">
+          <div class="section-head">
+            <div>
+              <p class="section-kicker">Current research</p>
+              <h1>Portfolio</h1>
+            </div>
+            <button class="text-button" type="button" data-page-target="home">Back to home</button>
+          </div>
+
+          <div class="grid three">
+            <button class="card blue" type="button" data-page-target="paper-phantom">
+              <span class="tagline">LLM reasoning evaluation</span>
+              <h3>Phantom Recall</h3>
+              <p>
+                Investigating memorization vs. genuine reasoning in LLMs. Phase I completed with automated error classification (96% human agreement); Phase II underway to develop prompting interventions.
+              </p>
+              <div class="chips">
+                <span class="chip">Memorization vs Reasoning</span>
+                <span class="chip">Prompt Interventions</span>
+              </div>
+            </button>
+
+            <button class="card gold" type="button" data-page-target="paper-image-metaphors">
+              <span class="tagline">Figurative T2I alignment</span>
+              <h3>Image Metaphors</h3>
+              <p>
+                Evaluated state-of-the-art Text-to-Image (T2I) models on their ability to comprehend and generate visual similes, highlighting current limitations in figurative language alignment.
+              </p>
+              <div class="chips">
+                <span class="chip">T2I evaluation</span>
+                <span class="chip">Visual similes</span>
+              </div>
+            </button>
+
+            <button class="card teal" type="button" data-page-target="paper-moneyball">
+              <span class="tagline">Tabular summarization</span>
+              <h3>Moneyball LLM</h3>
+              <p>
+                Contributed to the development and evaluation of LLM-based systems for transforming long-form sports commentary into structured statistical tables.
+              </p>
+              <div class="chips">
+                <span class="chip">ACL 2026 Findings</span>
+                <span class="chip">GPT-4o & Gemini 2.0</span>
+              </div>
+            </button>
+          </div>
+
+          <div class="band">
+            <p class="section-kicker">Graduate research</p>
+            <div class="grid">
+              <button class="card maroon" type="button" data-page-target="mtl-perception">
+                <span class="tagline">Dimension-agnostic frameworks</span>
+                <h3>Unified 2D/3D Multi-Task Framework</h3>
+                <p>
+                  Engineered a dimension-agnostic deep learning framework using PyTorch and Axial-Coronal-Sagittal (ACS) convolutions to unify 2D and 3D medical image analysis across 18 MedMNIST v2 datasets.
+                </p>
+                <div class="chips">
+                  <span class="chip">PyTorch</span>
+                  <span class="chip">RAD-DINO</span>
+                  <span class="chip">ResNet-50</span>
+                </div>
+              </button>
+            </div>
+          </div>
+
+          <div class="band">
+            <p class="section-kicker muted-title">Selected projects & undergrad engineering</p>
+            <div class="grid two">
+              <button class="card red" type="button" data-page-target="undergrad-caml">
+                <span class="tagline">Functional languages</span>
+                <h3>MicroCaml Engineer</h3>
+                <p>Architected and engineered "MicroCaml", a functional sublanguage of OCaml with a custom Lexer, Parser, and Interpreter.</p>
+              </button>
+              <button class="card red" type="button" data-page-target="undergrad-satellite">
+                <span class="tagline">GIS & Multi-spectral</span>
+                <h3>GIS & Image Processing</h3>
+                <p>Leveraged QGIS to process multi-spectral Landsat-8 and Sentinel-2 satellite data and tracked Hurricane Idalia via NOAA GOES-16E.</p>
+              </button>
+              <button class="card red" type="button" data-page-target="undergrad-ai">
+                <span class="tagline">Custom architectures</span>
+                <h3>AI/ML Architecture</h3>
+                <p>Engineered a custom neural network from scratch, implementing a robust backpropagation algorithm to tune parameters on synthetic datasets.</p>
+              </button>
+              <button class="card red" type="button" data-page-target="undergrad-fullstack">
+                <span class="tagline">Full-Stack Dev</span>
+                <h3>Modern Applications</h3>
+                <p>Built a Kotlin weather application featuring real-time API integration, and a high-concurrency order processing supermarket application using a Node.js backend and MongoDB.</p>
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="experience" class="view" data-page hidden>
+        <div class="container">
+          <div class="section-head">
+            <div>
+              <p class="section-kicker">Research and instruction</p>
+              <h1>Experience</h1>
+            </div>
+            <button class="text-button" type="button" data-page-target="home">Back to home</button>
+          </div>
+
+          <div class="timeline">
+            <article class="experience-card">
+              <h3>Arizona State University</h3>
+              <p class="role-line">Graduate Project Teaching Assistant | Aug 2024 - Present</p>
+              <p>
+                Conducting research spanning AI reasoning, clinical data analysis, and scalable systems, while mentoring undergraduate computer science students.
+              </p>
+              <div class="note">
+                <h4>Core contributions</h4>
+                <ul class="list">
+                  <li><strong>Sports Narrative Tabular Summarization:</strong> Contributed to the development and evaluation of LLM-based systems for transforming long-form sports commentary into structured tables using GPT-4o and Gemini 2.0 Flash.</li>
+                  <li><strong>Information Assurance:</strong> Performed comprehensive security analysis for healthcare applying AI/ML techniques to identify systemic vulnerabilities.</li>
+                  <li><strong>Systems:</strong> Architected a fully functional Distributed Hash Table (DHT) in Python to manage and retrieve NOAA weather records efficiently.</li>
+                  <li><strong>Instruction:</strong> Lead instructional sessions on JavaScript for undergraduate students, grading technical assignments and troubleshooting full-stack code.</li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="experience-card">
+              <h3>Arizona State University</h3>
+              <p class="role-line">Master of Science in Computer Science | May 2026</p>
+              <p>
+                Completed Master's degree focusing on advanced computational concepts, multi-modal systems, and artificial intelligence architectures.
+              </p>
+            </article>
+
+            <article class="experience-card umd">
+              <h3>University of Maryland</h3>
+              <p class="role-line">Bachelor of Science in Computer Science | May 2024</p>
+              <p>
+                Specialized in core computer science, gaining foundational experience in systems, programming languages, and robust software engineering practices.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="milestones" class="view milestone-wrap" data-page hidden>
+        <div class="container">
+          <div class="section-head">
+            <div>
+              <p class="section-kicker">PhD and research timeline</p>
+              <h1>Milestones</h1>
+            </div>
+            <button class="text-button" type="button" data-page-target="home">Back to home</button>
+          </div>
+          <div class="grid" id="milestone-list" aria-live="polite"></div>
+        </div>
+      </section>
+
+      <section id="contact" class="view" data-page hidden>
+        <div class="container">
+          <div class="section-head">
+            <div>
+              <p class="section-kicker">U.S. Citizen | Seeking Summer 2027 AI/ML Research & Data Science Roles</p>
+              <h1>Contact</h1>
+            </div>
+            <button class="text-button" type="button" data-page-target="home">Back to home</button>
+          </div>
+
+          <div class="contact-layout">
+            <article class="contact-card">
+              <h3>Role focus</h3>
+              <p>
+                I am actively seeking AI/ML Research, Data Science, and ML Engineering internships and full-time roles for a Summer 2027 start. My background in LLM evaluation, reasoning robustness, multi-task learning for clinical radiographs, and multimodal architecture makes me a strong fit for forward-thinking AI teams.
+              </p>
+              <ul class="list">
+                <li><strong>Location:</strong> Open to nationwide opportunities.</li>
+                <li><strong>Status:</strong> U.S. Citizen.</li>
+              </ul>
+            </article>
+
+            <article class="contact-card">
+              <h3>Availability & mobility</h3>
+              <figure class="map-frame">
+                <img src="states.svg" alt="United States map" />
+                <figcaption class="geo-tags" aria-label="Target geographies">
+                  <span>AZ</span>
+                  <span>CA</span>
+                  <span>TX</span>
+                  <span>IL</span>
+                  <span>GA</span>
+                  <span>MD</span>
+                  <span>VA</span>
+                  <span>DC</span>
+                </figcaption>
+              </figure>
+              <p>
+                Based in Tempe, AZ while continuing my Computer Science PhD at Arizona State University, <strong>I am open to nationwide opportunities, including on-site, hybrid, and remote roles with a Summer 2027 start.</strong>
+              </p>
+            </article>
+          </div>
+
+          <div class="actions">
+            <a class="button primary" href="resume.pdf" target="_blank" rel="noreferrer">Download full resume</a>
+          </div>
+
+          <div class="contact-methods">
+            <div class="method">
+              <strong>Email</strong>
+              <span>rishabhbaral2024@yahoo.com</span>
+            </div>
+            <div class="method">
+              <strong>Phone</strong>
+              <span>214-701-0146</span>
+            </div>
+            <div class="method">
+              <strong>Address</strong>
+              <span>3255 South Dorsey Lane #2069, Tempe, AZ 85282</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="paper-phantom" class="view" data-page hidden>
+        <article class="summary">
+          <div class="summary-nav">
+            <button class="text-button" type="button" data-page-target="portfolio">Back to portfolio</button>
+            <button class="text-button" type="button" data-page-target="home">Home</button>
+          </div>
+          <h1>PHANTOM RECALL: Distinguishing and Mitigating Memorization in Large Language Models</h1>
+          <h2>Lead Student Researcher | Expected Completion: Dec 31, 2026</h2>
+          <p>
+            This project investigates the distinction between genuine reasoning and memorized recall in Large Language Models (LLMs) through systematic benchmark variations that preserve logical structure while altering surface-level representations.
+          </p>
+          <ul>
+            <li><strong>Phase I (Completed):</strong> Constructed benchmark variations and developed an automated error-classification system successfully achieving 96% agreement with human annotators.</li>
+            <li><strong>Phase II (In Progress):</strong> Developing prompting-based interventions designed to reduce reliance on memorized patterns and improve reasoning robustness.</li>
+            <li><strong>Expected Deliverables:</strong> An open-source benchmark suite, an automated reasoning-failure taxonomy, public software release, and a peer-reviewed publication by December 31, 2026.</li>
+            <li><strong>Research Team:</strong> R. Baral (Lead), N. Mahajan, Prof. C. Baral, Prof. V. Gupta.</li>
+          </ul>
+        </article>
+      </section>
+
+      <section id="paper-image-metaphors" class="view" data-page hidden>
+        <article class="summary">
+          <div class="summary-nav">
+            <button class="text-button" type="button" data-page-target="portfolio">Back to portfolio</button>
+            <button class="text-button" type="button" data-page-target="home">Home</button>
+          </div>
+          <h1>"The Moon that Looks Like a Boat"</h1>
+          <h2>Evaluating Visual Similes in T2I Models</h2>
+          <p>
+            This research evaluates state-of-the-art Text-to-Image (T2I) models on their ability to comprehend and generate visual similes, highlighting current limitations in figurative language alignment.
+          </p>
+          <figure class="research-figure">
+            <img src="image-metaphors-moon-boat.png" alt="Generated metaphor image of a moon evoking a boat" />
+            <figcaption>
+              Example probe evaluating visual similes in generative models.
+            </figcaption>
+          </figure>
+          <ul>
+            <li><strong>Model Evaluation:</strong> Conducted strict evaluations highlighting the models' limitations in processing visual similes effectively.</li>
+            <li><strong>Authorship:</strong> Co-authored with Y. Luo, S. Mukhopadhyay, Y. Yang, C. Baral.</li>
+          </ul>
+        </article>
+      </section>
+
+      <section id="paper-moneyball" class="view" data-page hidden>
+        <article class="summary">
+          <div class="summary-nav">
+            <button class="text-button" type="button" data-page-target="portfolio">Back to portfolio</button>
+            <button class="text-button" type="button" data-page-target="home">Home</button>
+          </div>
+          <h1>Moneyball with LLMs</h1>
+          <h2>Analyzing Tabular Summarization in Sports Narratives</h2>
+          <p>
+            Contributed to the development and evaluation of LLM-based systems for transforming long-form sports commentary into structured statistical tables.
+          </p>
+          <ul>
+            <li><strong>Publication:</strong> Accepted as a Findings Paper to 64th ACL, San Diego, CA (Jul 2-7, 2026).</li>
+            <li><strong>System Evaluation:</strong> Evaluated GPT-4o and Gemini 2.0 Flash on multi-entity reasoning, numerical consistency, and table generation robustness.</li>
+            <li><strong>Authorship:</strong> Co-authored with R. Upadhyay, N. Ahuja, V. Gupta.</li>
+          </ul>
+        </article>
+      </section>
+
+      <section id="mtl-perception" class="view" data-page hidden>
+        <article class="summary">
+          <div class="summary-nav">
+            <button class="text-button" type="button" data-page-target="portfolio">Back to portfolio</button>
+            <button class="text-button" type="button" data-page-target="home">Home</button>
+          </div>
+          <h1>Unified 2D/3D Multi-Task Framework for Clinical Radiographs</h1>
+          <h2>Clinical Data Pipeline & Diagnostic Architectures</h2>
+          <p>
+            Engineered a dimension-agnostic deep learning framework using PyTorch and Axial-Coronal-Sagittal (ACS) convolutions to unify 2D and 3D medical image analysis across 18 MedMNIST v2 datasets.
+          </p>
+          <ul>
+            <li><strong>Semi-Supervised Pipeline:</strong> Developed a Student-Teacher pipeline integrating RAD-DINO and Exponential Moving Averages (EMA) to leverage 184,556 unlabeled MIMIC-CXR images, achieving a state-of-the-art Test AUC of 0.878.</li>
+            <li><strong>Ark Cyclic Training:</strong> Implemented within a ResNet-50 backbone to eliminate gradient interference across concurrent classification, localization, and segmentation tasks.</li>
+            <li><strong>Optimization:</strong> Optimized deployment on Apple M3 silicon to achieve a 2.4x throughput increase.</li>
+            <li><strong>Clinical Pipeline:</strong> Built a medical imaging pipeline using pydicom to parse metadata and normalize high-bit-depth DICOM scans, and designed a hybrid U-Net architecture achieving 98.42% validation pixel accuracy.</li>
+          </ul>
+        </article>
+      </section>
+
+      <section id="undergrad-caml" class="view" data-page hidden>
+        <article class="summary">
+          <div class="summary-nav">
+            <button class="text-button" type="button" data-page-target="portfolio">Back to portfolio</button>
+            <button class="text-button" type="button" data-page-target="home">Home</button>
+          </div>
+          <h1>MicroCaml</h1>
+          <h2>Compiler architecture and engineering</h2>
+          <p>
+            Architected and engineered "MicroCaml", a functional sublanguage of OCaml.
+          </p>
+          <ul>
+            <li><strong>Pipeline Construction:</strong> Developed a full pipeline including a custom Lexer for tokenization, a Parser for abstract syntax tree generation, and an Interpreter to execute higher-order functions.</li>
+            <li><strong>Simulation:</strong> Simulated a regular expression engine and a tree-based database system using OCaml.</li>
+          </ul>
+        </article>
+      </section>
+
+      <section id="undergrad-satellite" class="view" data-page hidden>
+        <article class="summary">
+          <div class="summary-nav">
+            <button class="text-button" type="button" data-page-target="portfolio">Back to portfolio</button>
+            <button class="text-button" type="button" data-page-target="home">Home</button>
+          </div>
+          <h1>GIS & Image Processing</h1>
+          <h2>Multi-spectral analysis and GIS</h2>
+          <p>
+            Processed and analyzed multi-spectral satellite data utilizing various GIS applications.
+          </p>
+          <ul>
+            <li><strong>Geospatial data:</strong> Leveraged QGIS to process multi-spectral Landsat-8 and Sentinel-2 satellite data, using color composites to identify geographical features.</li>
+            <li><strong>Storm tracking:</strong> Developed data plots and high-resolution animations of Hurricane Idalia's motion using NOAA GOES-16E imagery and ImageMagick.</li>
+            <li><strong>Spatial modeling:</strong> Conducted advanced spatial analysis through ArcGIS to evaluate the proximity impacts and environmental damage of California wildfires.</li>
+          </ul>
+        </article>
+      </section>
+
+      <section id="undergrad-ai" class="view" data-page hidden>
+        <article class="summary">
+          <div class="summary-nav">
+            <button class="text-button" type="button" data-page-target="portfolio">Back to portfolio</button>
+            <button class="text-button" type="button" data-page-target="home">Home</button>
+          </div>
+          <h1>AI/ML Architecture</h1>
+          <h2>Custom models & Full-Stack Development</h2>
+          <p>
+            Engineered a custom neural network from scratch and built robust full-stack applications to serve scalable data.
+          </p>
+          <ul>
+            <li><strong>Core engine:</strong> Engineered a custom neural network implementing a robust backpropagation algorithm to tune network parameters on synthetic datasets.</li>
+            <li><strong>Benchmarking:</strong> Developed a comprehensive transfer learning benchmark to evaluate model performance across CV, NLP, and multi-modal integration domains.</li>
+          </ul>
+        </article>
+      </section>
+
+      <section id="undergrad-fullstack" class="view" data-page hidden>
+        <article class="summary">
+          <div class="summary-nav">
+            <button class="text-button" type="button" data-page-target="portfolio">Back to portfolio</button>
+            <button class="text-button" type="button" data-page-target="home">Home</button>
+          </div>
+          <h1>Modern Applications</h1>
+          <h2>Full-Stack Development</h2>
+          <p>
+            Developed comprehensive full-stack and mobile applications prioritizing modern, scalable infrastructure.
+          </p>
+          <ul>
+            <li><strong>Mobile Application:</strong> Built a responsive, multi-screen weather application in Kotlin featuring real-time API integration, multi-language support, and Google AdMob monetization.</li>
+            <li><strong>Web Backend:</strong> Developed a high-concurrency order processing supermarket application using a JavaScript/Node.js backend, a modern HTML/CSS frontend, and a MongoDB database for scalable JSON data storage.</li>
+          </ul>
+        </article>
+      </section>
+    </main>
+
+    <script>
+      const pages = Array.from(document.querySelectorAll("[data-page]"));
+      const pageButtons = Array.from(document.querySelectorAll("[data-page-target]"));
+      const navButtons = Array.from(document.querySelectorAll("[data-nav]"));
+      const validPageIds = new Set(pages.map((page) => page.id));
+
+      function setActivePage(pageId, updateHash = true) {
+        const nextPage = validPageIds.has(pageId) ? pageId : "home";
+
+        pages.forEach((page) => {
+          const isActive = page.id === nextPage;
+          page.classList.toggle("is-active", isActive);
+          page.toggleAttribute("hidden", !isActive);
+        });
+
+        navButtons.forEach((button) => {
+          button.classList.toggle("is-active", button.dataset.nav === nextPage);
+        });
+
+        document.body.classList.toggle("milestones-mode", nextPage === "milestones");
+
+        if (updateHash) {
+          const nextUrl = nextPage === "home" ? window.location.pathname : `#${nextPage}`;
+          window.history.replaceState(null, "", nextUrl);
+        }
+
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+
+      pageButtons.forEach((button) => {
+        button.addEventListener("click", () => setActivePage(button.dataset.pageTarget));
+      });
+
+      window.addEventListener("hashchange", () => {
+        setActivePage(window.location.hash.slice(1) || "home", false);
+      });
+
+      const milestones = [
+        {
+          title: "64th ACL (San Diego)",
+          label: "July 2-7, 2026",
+          date: "2026-07-02T09:00:00-07:00",
+          months: [
+            [2026, 5],
+            [2026, 6],
+          ],
+        },
+        {
+          title: "AAAI Deadline",
+          label: "July 28, 2026",
+          date: "2026-07-28T23:59:00-07:00",
+          months: [
+            [2026, 5],
+            [2026, 6],
+          ],
+        },
+        {
+          title: "ICLR Deadline",
+          label: "September 25, 2026",
+          date: "2026-09-25T23:59:00-07:00",
+          months: [
+            [2026, 5],
+            [2026, 6],
+            [2026, 7],
+            [2026, 8],
+          ],
+        },
+      ];
+
+      function pluralize(value, unit) {
+        return `${value} ${unit}${value === 1 ? "" : "s"}`;
+      }
+
+      function createCalendar(year, monthIndex, targetDate) {
+        const today = new Date();
+        const monthName = new Date(year, monthIndex, 1).toLocaleString("en-US", {
+          month: "long",
+        });
+        const firstDay = new Date(year, monthIndex, 1).getDay();
+        const daysInMonth = new Date(year, monthIndex + 1, 0).getDate();
+        const weekdays = ["S", "M", "T", "W", "T", "F", "S"];
+        const cells = [];
+
+        weekdays.forEach((day) => cells.push(`<span class="weekday">${day}</span>`));
+        for (let i = 0; i < firstDay; i += 1) {
+          cells.push('<span class="empty" aria-hidden="true"></span>');
+        }
+
+        for (let day = 1; day <= daysInMonth; day += 1) {
+          const isTarget =
+            targetDate.getFullYear() === year &&
+            targetDate.getMonth() === monthIndex &&
+            targetDate.getDate() === day;
+          const isToday =
+            today.getFullYear() === year && today.getMonth() === monthIndex && today.getDate() === day;
+          const classes = ["day"];
+          if (isTarget) classes.push("target");
+          if (isToday) classes.push("today");
+          cells.push(`<span class="${classes.join(" ")}">${day}</span>`);
+        }
+
+        return `
+          <div class="calendar" aria-label="${monthName} ${year}">
+            <div class="calendar-title">${monthName} ${year}</div>
+            <div class="calendar-grid">${cells.join("")}</div>
+          </div>
+        `;
+      }
+
+      function renderMilestones() {
+        const list = document.getElementById("milestone-list");
+        list.innerHTML = milestones
+          .map((milestone, index) => {
+            const targetDate = new Date(milestone.date);
+            const calendars = milestone.months
+              .map(([year, monthIndex]) => createCalendar(year, monthIndex, targetDate))
+              .join("");
+
+            return `
+              <article class="milestone-card" data-milestone-index="${index}">
+                <h3>${milestone.title}</h3>
+                <p>${milestone.label}</p>
+                <div class="milestone-layout">
+                  <div>
+                    <div class="countdown" aria-label="Countdown for ${milestone.title}">
+                      ${["Days", "Hours", "Minutes", "Seconds"]
+                        .map(
+                          (label) => `
+                            <div class="time-box">
+                              <span class="time-value" data-time-value="${label.toLowerCase()}">00</span>
+                              <span class="time-label">${label}</span>
+                            </div>
+                          `,
+                        )
+                        .join("")}
+                    </div>
+                    <p class="milestone-status" data-status></p>
+                  </div>
+                  <div class="calendar-row">${calendars}</div>
+                </div>
+              </article>
+            `;
+          })
+          .join("");
+      }
+
+      function updateMilestoneTimers() {
+        const now = Date.now();
+
+        document.querySelectorAll("[data-milestone-index]").forEach((card) => {
+          const milestone = milestones[Number(card.dataset.milestoneIndex)];
+          const targetTime = new Date(milestone.date).getTime();
+          const diff = targetTime - now;
+          const values = {
+            days: 0,
+            hours: 0,
+            minutes: 0,
+            seconds: 0,
+          };
+
+          const status = card.querySelector("[data-status]");
+          card.classList.toggle("is-complete", diff <= 0);
+
+          if (diff > 0) {
+            values.days = Math.floor(diff / 86400000);
+            values.hours = Math.floor((diff % 86400000) / 3600000);
+            values.minutes = Math.floor((diff % 3600000) / 60000);
+            values.seconds = Math.floor((diff % 60000) / 1000);
+            status.textContent = "Upcoming";
+          } else {
+            const elapsedDays = Math.floor(Math.abs(diff) / 86400000);
+            status.textContent = elapsedDays === 0 ? "Completed today" : `Completed ${pluralize(elapsedDays, "day")} ago`;
+          }
+
+          Object.entries(values).forEach(([key, value]) => {
+            const node = card.querySelector(`[data-time-value="${key}"]`);
+            node.textContent = String(value).padStart(2, "0");
+          });
+        });
+      }
+
+      renderMilestones();
+      updateMilestoneTimers();
+      setInterval(updateMilestoneTimers, 1000);
+
+      setActivePage(window.location.hash.slice(1) || "home", false);
+    </script>
+  </body>
+</html>
