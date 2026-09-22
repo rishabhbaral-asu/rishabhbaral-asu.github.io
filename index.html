@@ -2045,12 +2045,7 @@
 
     weekdays.forEach((day) =>
         {
-      cells.push(
-        `
-        <span class="weekday">
-          ${day}
-        </span>
-        `
+      cells.push('<span class="weekday">${day}</span>'
       );
     });
 
@@ -2060,9 +2055,7 @@
     for (let i = 0; i
         < firstDay; i += 1) {
       cells.push(
-        '<span class="empty" aria-hidden="true">
-        </span>
-        '
+        '<span class="empty" aria-hidden="true"></span>'
       );
     }
 
