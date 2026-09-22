@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="en">
   <head>
@@ -1790,219 +1789,581 @@
       </section>
     </main>
     <script>
-      const pages = Array.from(document.querySelectorAll("[data-page]"));
-      const pageButtons = Array.from(document.querySelectorAll("[data-page-target]"));
-      const navButtons = Array.from(document.querySelectorAll("[data-nav]"));
-      const validPageIds = new Set(pages.map((page) => page.id));
+      /* =========================================================
+     PAGE NAVIGATION
+     ========================================================= */
 
-      function setActivePage(pageId, updateHash = true) {
-        const nextPage = validPageIds.has(pageId) ? pageId : "home";
+  const pages = Array.from(document.querySelectorAll("[data-page]"));
+  const pageButtons = Array.from(
+    document.querySelectorAll("[data-page-target]")
+  );
+  const navButtons = Array.from(document.querySelectorAll("[data-nav]"));
 
-        pages.forEach((page) => {
-          const isActive = page.id === nextPage;
-          page.classList.toggle("is-active", isActive);
-          page.toggleAttribute("hidden", !isActive);
-        });
+  const validPageIds = new Set(
+    pages.map((page) => page.id)
+  );
 
-        navButtons.forEach((button) => {
-          button.classList.toggle("is-active", button.dataset.nav === nextPage);
-        });
+  function setActivePage(pageId, updateHash = true) {
+    const nextPage = validPageIds.has(pageId)
+      ? pageId
+      : "home";
 
-        document.body.classList.toggle("milestones-mode", nextPage === "milestones");
+    pages.forEach((page) => {
+      const isActive = page.id === nextPage;
 
-        if (updateHash) {
-          const nextUrl = nextPage === "home" ? window.location.pathname : `#${nextPage}`;
-          window.history.replaceState(null, "", nextUrl);
-        }
+      page.classList.toggle("is-active", isActive);
+      page.toggleAttribute("hidden", !isActive);
+    });
 
-        window.scrollTo({ top: 0, behavior: "smooth" });
+    navButtons.forEach((button) => {
+      button.classList.toggle(
+        "is-active",
+        button.dataset.nav === nextPage
+      );
+    });
+
+    document.body.classList.toggle(
+      "milestones-mode",
+      nextPage === "milestones"
+    );
+
+    if (updateHash) {
+      const nextUrl =
+        nextPage === "home"
+          ? `${window.location.pathname}${window.location.search}`
+          : `#${nextPage}`;
+
+      window.history.pushState(
+        { page: nextPage },
+        "",
+        nextUrl
+      );
+    }
+
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  }
+
+
+  /* =========================================================
+     BUTTON NAVIGATION
+     ========================================================= */
+
+  pageButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const target = button.dataset.pageTarget;
+
+      if (target) {
+        setActivePage(target);
+      }
+    });
+  });
+
+
+  /* =========================================================
+     BROWSER BACK / FORWARD
+     ========================================================= */
+
+  window.addEventListener("popstate", () => {
+    const pageId =
+      window.location.hash.slice(1) || "home";
+
+    setActivePage(pageId, false);
+  });
+
+
+  /* =========================================================
+     MILESTONES
+     ========================================================= */
+
+  const milestones = [
+
+    /* ---------- ASU FALL BREAK ---------- */
+
+    {
+      title: "ASU Fall Break",
+      label: "October 10–13, 2026",
+
+      /*
+        Countdown ends when Fall Break begins.
+        Arizona remains on MST (UTC-07:00).
+      */
+      date: "2026-10-10T00:00:00-07:00",
+
+      months: [
+        [2026, 9],
+      ],
+
+      range: {
+        start: "2026-10-10",
+        end: "2026-10-13",
+      },
+
+      upcomingStatus: "Fall Break begins in",
+      completeStatus: "Fall Break has begun",
+    },
+
+
+    /* ---------- END OF FALL CLASSES ---------- */
+
+    {
+      title: "ASU Fall 2026 — Last Day of Classes",
+      label: "December 4, 2026",
+
+      date: "2026-12-04T23:59:59-07:00",
+
+      months: [
+        [2026, 11],
+      ],
+
+      upcomingStatus: "Classes end in",
+      completeStatus: "Fall classes completed",
+    },
+
+
+    /* ---------- USENIX SECURITY ---------- */
+
+    {
+      title: "USENIX Security 2027 — Cycle II",
+      label: "Paper Submission Deadline • January 26, 2027 (AoE)",
+
+      /*
+        AoE = Anywhere on Earth = UTC-12.
+        23:59 AoE on Jan 26 corresponds to
+        04:59 MST on Jan 27 in Arizona.
+      */
+      date: "2027-01-26T23:59:59-12:00",
+
+      months: [
+        [2027, 0],
+      ],
+
+      upcomingStatus: "Planned submission deadline in",
+      completeStatus: "Submission deadline passed",
+    },
+
+
+    /* ---------- ICLR ---------- */
+
+    {
+      title: "ICLR 2027",
+      label: "April 26–30, 2027",
+
+      date: "2027-04-26T09:00:00-07:00",
+
+      months: [
+        [2027, 3],
+      ],
+
+      range: {
+        start: "2027-04-26",
+        end: "2027-04-30",
+      },
+
+      upcomingStatus: "Conference begins in",
+      completeStatus: "ICLR 2027 has begun",
+    },
+  ];
+
+
+  /* =========================================================
+     HELPERS
+     ========================================================= */
+
+  function pluralize(value, unit) {
+    return `${value} ${unit}${value === 1 ? "" : "s"}`;
+  }
+
+
+  function dateKey(year, monthIndex, day) {
+    return [
+      year,
+      String(monthIndex + 1).padStart(2, "0"),
+      String(day).padStart(2, "0"),
+    ].join("-");
+  }
+
+
+  function isDateInRange(key, range) {
+    if (!range) {
+      return false;
+    }
+
+    return key >= range.start && key
+      <= range.end;
+  }
+
+
+  /* =========================================================
+     CALENDAR
+     ========================================================= */
+
+  function createCalendar(
+    year,
+    monthIndex,
+    targetDate,
+    range = null
+  ) {
+    const today = new Date();
+
+    const monthName = new Date(
+      year,
+      monthIndex,
+      1
+    ).toLocaleString("en-US", {
+      month: "long",
+    });
+
+    const firstDay = new Date(
+      year,
+      monthIndex,
+      1
+    ).getDay();
+
+    const daysInMonth = new Date(
+      year,
+      monthIndex + 1,
+      0
+    ).getDate();
+
+    const weekdays = [
+      "S",
+      "M",
+      "T",
+      "W",
+      "T",
+      "F",
+      "S",
+    ];
+
+    const cells = [];
+
+
+    /* Weekday headings */
+
+    weekdays.forEach((day) =>
+        {
+      cells.push(
+        `
+        <span class="weekday">
+          ${day}
+        </span>
+        `
+      );
+    });
+
+
+    /* Empty cells before first day */
+
+    for (let i = 0; i
+        < firstDay; i += 1) {
+      cells.push(
+        '<span class="empty" aria-hidden="true">
+        </span>
+        '
+      );
+    }
+
+
+    /* Calendar days */
+
+    for (let day = 1; day
+        <= daysInMonth; day += 1) {
+      const key = dateKey(
+        year,
+        monthIndex,
+        day
+      );
+
+      const isSingleTarget =
+        targetDate.getFullYear() === year &&
+        targetDate.getMonth() === monthIndex &&
+        targetDate.getDate() === day;
+
+      const isRangeTarget =
+        isDateInRange(key, range);
+
+      const isTarget =
+        range
+          ? isRangeTarget
+          : isSingleTarget;
+
+      const isToday =
+        today.getFullYear() === year &&
+        today.getMonth() === monthIndex &&
+        today.getDate() === day;
+
+      const classes = ["day"];
+
+      if (isTarget) {
+        classes.push("target");
       }
 
-      pageButtons.forEach((button) => {
-        button.addEventListener("click", () => setActivePage(button.dataset.pageTarget));
-      });
-
-      window.addEventListener("hashchange", () => {
-        setActivePage(window.location.hash.slice(1) || "home", false);
-      });
-
-      const milestones = [
-        {
-          title: "64th ACL (San Diego)",
-          label: "July 2-7, 2026",
-          date: "2026-07-02T09:00:00-07:00",
-          months: [
-            [2026, 5],
-            [2026, 6],
-          ],
-        },
-        {
-          title: "AAAI Deadline",
-          label: "July 28, 2026",
-          date: "2026-07-28T23:59:00-07:00",
-          months: [
-            [2026, 5],
-            [2026, 6],
-          ],
-        },
-        {
-          title: "ICLR Deadline",
-          label: "September 25, 2026",
-          date: "2026-09-25T23:59:00-07:00",
-          months: [
-            [2026, 5],
-            [2026, 6],
-            [2026, 7],
-            [2026, 8],
-          ],
-        },
-      ];
-
-      function pluralize(value, unit) {
-        return `${value} ${unit}${value === 1 ? "" : "s"}`;
+      if (isToday) {
+        classes.push("today");
       }
 
-      function createCalendar(year, monthIndex, targetDate) {
-        const today = new Date();
-        const monthName = new Date(year, monthIndex, 1).toLocaleString("en-US", {
-          month: "long",
-        });
-        const firstDay = new Date(year, monthIndex, 1).getDay();
-        const daysInMonth = new Date(year, monthIndex + 1, 0).getDate();
-        const weekdays = ["S", "M", "T", "W", "T", "F", "S"];
-        const cells = [];
+      cells.push(
+        `<span class="${classes.join(" ")}">
+          ${day}
+        </span>
+        `
+      );
+    }
 
-        weekdays.forEach((day) => cells.push(`
-      <span class="weekday">
-        ${day}
-      </span>
-      `));
-        for (let i = 0; i
-      < firstDay; i += 1) {
-          cells.push('<span class="empty" aria-hidden="true">
-      </span>
-      ');
-        }
 
-        for (let day = 1; day
-      <= daysInMonth; day += 1) {
-          const isTarget =
-            targetDate.getFullYear() === year &&
-            targetDate.getMonth() === monthIndex &&
-            targetDate.getDate() === day;
-          const isToday =
-            today.getFullYear() === year && today.getMonth() === monthIndex && today.getDate() === day;
-          const classes = ["day"];
-          if (isTarget) classes.push("target");
-          if (isToday) classes.push("today");
-          cells.push(`<span class="${classes.join(" ")}">
-        ${day}
-      </span>
-      `);
-        }
+    return `
+        <div
+        class="calendar"
+        aria-label="${monthName} ${year}"
+      >
+          <div class="calendar-title">
+            ${monthName} ${year}
+          </div>
+          <div class="calendar-grid">
+            ${cells.join("")}
+          </div>
+        </div>
+        `;
+  }
+
+
+  /* =========================================================
+     RENDER MILESTONES
+     ========================================================= */
+
+  function renderMilestones() {
+    const list =
+      document.getElementById("milestone-list");
+
+    if (!list) {
+      return;
+    }
+
+    list.innerHTML = milestones
+      .map((milestone, index) => {
+        const targetDate =
+          new Date(milestone.date);
+
+        const calendars =
+          milestone.months
+            .map(([year, monthIndex]) =>
+              createCalendar(
+                year,
+                monthIndex,
+                targetDate,
+                milestone.range || null
+              )
+            )
+            .join("");
+
+        const timerBoxes = [
+          "Days",
+          "Hours",
+          "Minutes",
+          "Seconds",
+        ]
+          .map(
+            (label) => `
+        <div class="time-box">
+          <span
+                  class="time-value"
+                  data-time-value="${label.toLowerCase()}"
+                >
+            00
+          </span>
+          <span class="time-label">
+            ${label}
+          </span>
+        </div>
+        `
+          )
+          .join("");
 
         return `
-      <div class="calendar" aria-label="${monthName} ${year}">
-        <div class="calendar-title">
-          ${monthName} ${year}
-        </div>
-        <div class="calendar-grid">
-          ${cells.join("")}
-        </div>
-      </div>
-      `;
-      }
-
-      function renderMilestones() {
-        const list = document.getElementById("milestone-list");
-        list.innerHTML = milestones
-          .map((milestone, index) => {
-            const targetDate = new Date(milestone.date);
-            const calendars = milestone.months
-              .map(([year, monthIndex]) => createCalendar(year, monthIndex, targetDate))
-              .join("");
-
-            return `
-      <article class="milestone-card" data-milestone-index="${index}">
-        <h3>
-          ${milestone.title}
-        </h3>
-        <p>
-          ${milestone.label}
-        </p>
-        <div class="milestone-layout">
-          <div>
-            <div class="countdown" aria-label="Countdown for ${milestone.title}">
-              ${["Days", "Hours", "Minutes", "Seconds"]
-                        .map(
-                          (label) => `
-              <div class="time-box">
-                <span class="time-value" data-time-value="${label.toLowerCase()}">
-                  00
-                </span>
-                <span class="time-label">
-                  ${label}
-                </span>
+        <article
+            class="milestone-card"
+            data-milestone-index="${index}"
+          >
+          <h3>
+            ${milestone.title}
+          </h3>
+          <p>
+            ${milestone.label}
+          </p>
+          <div class="milestone-layout">
+            <div>
+              <div
+                  class="countdown"
+                  aria-label="Countdown for ${milestone.title}"
+                >
+                ${timerBoxes}
               </div>
-              `,
-                        )
-                        .join("")}
+              <p
+                  class="milestone-status"
+                  data-status
+                >
+              </p>
             </div>
-            <p class="milestone-status" data-status>
-            </p>
+            <div class="calendar-row">
+              ${calendars}
+            </div>
           </div>
-          <div class="calendar-row">
-            ${calendars}
-          </div>
-        </div>
-      </article>
-      `;
-          })
-          .join("");
-      }
+        </article>
+        `;
+      })
+      .join("");
+  }
 
-      function updateMilestoneTimers() {
-        const now = Date.now();
 
-        document.querySelectorAll("[data-milestone-index]").forEach((card) => {
-          const milestone = milestones[Number(card.dataset.milestoneIndex)];
-          const targetTime = new Date(milestone.date).getTime();
-          const diff = targetTime - now;
-          const values = {
-            days: 0,
-            hours: 0,
-            minutes: 0,
-            seconds: 0,
-          };
+  /* =========================================================
+     COUNTDOWN TIMERS
+     ========================================================= */
 
-          const status = card.querySelector("[data-status]");
-          card.classList.toggle("is-complete", diff
-      <= 0);
+  function updateMilestoneTimers() {
+    const now = Date.now();
 
-          if (diff >
-        0) {
-            values.days = Math.floor(diff / 86400000);
-            values.hours = Math.floor((diff % 86400000) / 3600000);
-            values.minutes = Math.floor((diff % 3600000) / 60000);
-            values.seconds = Math.floor((diff % 60000) / 1000);
-            status.textContent = "Upcoming";
-          } else {
-            const elapsedDays = Math.floor(Math.abs(diff) / 86400000);
-            status.textContent = elapsedDays === 0 ? "Completed today" : `Completed ${pluralize(elapsedDays, "day")} ago`;
+    document
+      .querySelectorAll("[data-milestone-index]")
+      .forEach((card) => {
+
+        const milestone =
+          milestones[
+            Number(card.dataset.milestoneIndex)
+          ];
+
+        const targetTime =
+          new Date(milestone.date).getTime();
+
+        const diff =
+          targetTime - now;
+
+        const values = {
+          days: 0,
+          hours: 0,
+          minutes: 0,
+          seconds: 0,
+        };
+
+        const status =
+          card.querySelector("[data-status]");
+
+        const isComplete =
+          diff
+        <= 0;
+
+        card.classList.toggle(
+          "is-complete",
+          isComplete
+        );
+
+
+        if (!isComplete) {
+
+          values.days =
+            Math.floor(
+              diff / 86400000
+            );
+
+          values.hours =
+            Math.floor(
+              (diff % 86400000) /
+              3600000
+            );
+
+          values.minutes =
+            Math.floor(
+              (diff % 3600000) /
+              60000
+            );
+
+          values.seconds =
+            Math.floor(
+              (diff % 60000) /
+              1000
+            );
+
+          if (status) {
+            status.textContent =
+              milestone.upcomingStatus ||
+              "Upcoming";
           }
 
-          Object.entries(values).forEach(([key, value]) => {
-            const node = card.querySelector(`[data-time-value="${key}"]`);
-            node.textContent = String(value).padStart(2, "0");
-          });
-        });
-      }
+        } else {
 
-      renderMilestones();
-      updateMilestoneTimers();
-      setInterval(updateMilestoneTimers, 1000);
+          const elapsedDays =
+            Math.floor(
+              Math.abs(diff) /
+              86400000
+            );
 
-      setActivePage(window.location.hash.slice(1) || "home", false);
-      </script>
-    </body>
-  </html>
+          if (status) {
+            if (
+              milestone.completeStatus
+            ) {
+              status.textContent =
+                milestone.completeStatus;
+            } else if (
+              elapsedDays === 0
+            ) {
+              status.textContent =
+                "Completed today";
+            } else {
+              status.textContent =
+                `Completed ${pluralize(
+                  elapsedDays,
+                  "day"
+                )} ago`;
+            }
+          }
+        }
+
+
+        Object.entries(values).forEach(
+          ([key, value]) =>
+          {
+
+            const node =
+              card.querySelector(
+                `[data-time-value="${key}"]`
+              );
+
+            if (node) {
+              node.textContent =
+                String(value).padStart(
+                  2,
+                  "0"
+                );
+            }
+          }
+        );
+      });
+  }
+
+
+  /* =========================================================
+     INITIALIZE
+     ========================================================= */
+
+  renderMilestones();
+
+  updateMilestoneTimers();
+
+  setInterval(
+    updateMilestoneTimers,
+    1000
+  );
+
+  const initialPage =
+    window.location.hash.slice(1) ||
+    "home";
+
+  setActivePage(
+    initialPage,
+    false
+  );
+        </script>
+      </body>
+    </html>
