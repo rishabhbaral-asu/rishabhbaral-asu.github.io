@@ -1842,5 +1842,311 @@ document.addEventListener("DOMContentLoaded", () => {
 
 });
 </script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+  var milestones = [
+    {
+      title: "ASU Fall Break",
+      label: "October 10–13, 2026",
+      date: "2026-10-10T00:00:00-07:00",
+      year: 2026,
+      month: 9,
+      startDay: 10,
+      endDay: 13,
+      status: "Fall Break begins in"
+    },
+    {
+      title: "ASU Fall 2026 — Last Day of Classes",
+      label: "December 4, 2026",
+      date: "2026-12-04T23:59:59-07:00",
+      year: 2026,
+      month: 11,
+      startDay: 4,
+      endDay: 4,
+      status: "Classes end in"
+    },
+    {
+      title: "USENIX Security 2027 — Cycle II",
+      label: "Paper Submission Deadline • January 26, 2027 (AoE)",
+      date: "2027-01-26T23:59:59-12:00",
+      year: 2027,
+      month: 0,
+      startDay: 26,
+      endDay: 26,
+      status: "Planned submission deadline in"
+    },
+    {
+      title: "ICLR 2027",
+      label: "April 26–30, 2027",
+      date: "2027-04-26T09:00:00-07:00",
+      year: 2027,
+      month: 3,
+      startDay: 26,
+      endDay: 30,
+      status: "Conference begins in"
+    }
+  ];
+
+
+  function createCalendar(milestone) {
+    var year = milestone.year;
+    var month = milestone.month;
+
+    var monthName = new Date(
+      year,
+      month,
+      1
+    ).toLocaleString("en-US", {
+      month: "long"
+    });
+
+    var firstDay =
+      new Date(year, month, 1).getDay();
+
+    var daysInMonth =
+      new Date(year, month + 1, 0).getDate();
+
+    var weekdays = [
+      "S",
+      "M",
+      "T",
+      "W",
+      "T",
+      "F",
+      "S"
+    ];
+
+    var html = "";
+
+    weekdays.forEach(function (day) {
+      html +=
+        '<span class="weekday">' +
+        day +
+        "</span>";
+    });
+
+    for (var i = 0; i < firstDay; i++) {
+      html +=
+        '<span class="empty" aria-hidden="true"></span>';
+    }
+
+    var today = new Date();
+
+    for (var day = 1; day <= daysInMonth; day++) {
+
+      var classes = ["day"];
+
+      if (
+        day >= milestone.startDay &&
+        day <= milestone.endDay
+      ) {
+        classes.push("target");
+      }
+
+      if (
+        today.getFullYear() === year &&
+        today.getMonth() === month &&
+        today.getDate() === day
+      ) {
+        classes.push("today");
+      }
+
+      html +=
+        '<span class="' +
+        classes.join(" ") +
+        '">' +
+        day +
+        "</span>";
+    }
+
+    return (
+      '<div class="calendar">' +
+        '<div class="calendar-title">' +
+          monthName +
+          " " +
+          year +
+        "</div>" +
+        '<div class="calendar-grid">' +
+          html +
+        "</div>" +
+      "</div>"
+    );
+  }
+
+
+  function renderMilestones() {
+    var list =
+      document.getElementById("milestone-list");
+
+    if (!list) {
+      return;
+    }
+
+    var html = "";
+
+    milestones.forEach(function (milestone, index) {
+
+      html +=
+        '<article class="milestone-card" ' +
+        'data-milestone-index="' +
+        index +
+        '">' +
+
+          "<h3>" +
+            milestone.title +
+          "</h3>" +
+
+          "<p>" +
+            milestone.label +
+          "</p>" +
+
+          '<div class="milestone-layout">' +
+
+            "<div>" +
+
+              '<div class="countdown">' +
+
+                '<div class="time-box">' +
+                  '<span class="time-value" data-time="days">00</span>' +
+                  '<span class="time-label">Days</span>' +
+                "</div>" +
+
+                '<div class="time-box">' +
+                  '<span class="time-value" data-time="hours">00</span>' +
+                  '<span class="time-label">Hours</span>' +
+                "</div>" +
+
+                '<div class="time-box">' +
+                  '<span class="time-value" data-time="minutes">00</span>' +
+                  '<span class="time-label">Minutes</span>' +
+                "</div>" +
+
+                '<div class="time-box">' +
+                  '<span class="time-value" data-time="seconds">00</span>' +
+                  '<span class="time-label">Seconds</span>' +
+                "</div>" +
+
+              "</div>" +
+
+              '<p class="milestone-status">' +
+                milestone.status +
+              "</p>" +
+
+            "</div>" +
+
+            '<div class="calendar-row">' +
+              createCalendar(milestone) +
+            "</div>" +
+
+          "</div>" +
+
+        "</article>";
+    });
+
+    list.innerHTML = html;
+  }
+
+
+  function updateTimers() {
+    var now = new Date().getTime();
+
+    document
+      .querySelectorAll("[data-milestone-index]")
+      .forEach(function (card) {
+
+        var index =
+          Number(
+            card.getAttribute(
+              "data-milestone-index"
+            )
+          );
+
+        var milestone =
+          milestones[index];
+
+        var target =
+          new Date(
+            milestone.date
+          ).getTime();
+
+        var difference =
+          target - now;
+
+        var days = 0;
+        var hours = 0;
+        var minutes = 0;
+        var seconds = 0;
+
+        if (difference > 0) {
+
+          days =
+            Math.floor(
+              difference / 86400000
+            );
+
+          hours =
+            Math.floor(
+              (difference % 86400000) /
+              3600000
+            );
+
+          minutes =
+            Math.floor(
+              (difference % 3600000) /
+              60000
+            );
+
+          seconds =
+            Math.floor(
+              (difference % 60000) /
+              1000
+            );
+
+        }
+
+        card.querySelector(
+          '[data-time="days"]'
+        ).textContent =
+          String(days).padStart(2, "0");
+
+        card.querySelector(
+          '[data-time="hours"]'
+        ).textContent =
+          String(hours).padStart(2, "0");
+
+        card.querySelector(
+          '[data-time="minutes"]'
+        ).textContent =
+          String(minutes).padStart(2, "0");
+
+        card.querySelector(
+          '[data-time="seconds"]'
+        ).textContent =
+          String(seconds).padStart(2, "0");
+
+        if (difference <= 0) {
+          card
+            .querySelector(
+              ".milestone-status"
+            )
+            .textContent =
+              "Milestone reached";
+        }
+
+      });
+  }
+
+
+  renderMilestones();
+  updateTimers();
+
+  setInterval(
+    updateTimers,
+    1000
+  );
+
+});
+</script>
       </body>
     </html>
